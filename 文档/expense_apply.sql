@@ -10,44 +10,43 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-07-04 13:59:13
+Date: 2017-07-05 14:49:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `accept`
+-- ----------------------------
+DROP TABLE IF EXISTS `accept`;
+CREATE TABLE `accept` (
+  `AcceptId` int(11) NOT NULL AUTO_INCREMENT,
+  `TId` varchar(10) NOT NULL,
+  `AcceptSum` double NOT NULL,
+  `ApplyId` int(11) NOT NULL,
+  `ApplyType` binary(1) NOT NULL,
+  PRIMARY KEY (`AcceptId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of accept
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `budget`
 -- ----------------------------
 DROP TABLE IF EXISTS `budget`;
 CREATE TABLE `budget` (
-  `BudId` int(11) NOT NULL,
+  `BudId` int(11) NOT NULL AUTO_INCREMENT,
   `PPCCode` varchar(5) NOT NULL,
   `TMACode` varchar(5) NOT NULL,
   `PTRCode` varchar(5) NOT NULL,
   `BName` varchar(50) NOT NULL,
-  `ProStartTime` datetime NOT NULL,
-  `ProFinishTime` datetime NOT NULL,
-  `BEquip` double DEFAULT NULL,
-  `BMaterial` double DEFAULT NULL,
-  `BTest` double DEFAULT NULL,
-  `BCooprt` double DEFAULT NULL,
-  `BTravel` double DEFAULT NULL,
-  `BLabor` double DEFAULT NULL,
-  `BFuel` double DEFAULT NULL,
-  `BPublish` double DEFAULT NULL,
-  `BMeeting` double DEFAULT NULL,
-  `BIncentive` double DEFAULT NULL,
-  `BManag` double DEFAULT NULL,
-  `BExpert` double DEFAULT NULL,
+  `ProStartTime` date NOT NULL,
+  `ProFinishTime` date NOT NULL,
   `SelfRaised` double NOT NULL,
   `Apply` double NOT NULL,
-  PRIMARY KEY (`BudId`),
-  KEY `FK_BPPC` (`PPCCode`),
-  KEY `FK_BPTR` (`PTRCode`),
-  KEY `FK_BTMA` (`TMACode`),
-  CONSTRAINT `FK_BPPC` FOREIGN KEY (`PPCCode`) REFERENCES `proplancategory` (`PPCCode`),
-  CONSTRAINT `FK_BPTR` FOREIGN KEY (`PTRCode`) REFERENCES `protecres` (`PTRCode`),
-  CONSTRAINT `FK_BTMA` FOREIGN KEY (`TMACode`) REFERENCES `tecmngarea` (`TMACode`)
+  PRIMARY KEY (`BudId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -55,25 +54,65 @@ CREATE TABLE `budget` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `budgetdetail`
+-- ----------------------------
+DROP TABLE IF EXISTS `budgetdetail`;
+CREATE TABLE `budgetdetail` (
+  `BudDetId` int(11) NOT NULL AUTO_INCREMENT,
+  `BudItemId` int(11) NOT NULL,
+  `BudId` int(11) NOT NULL,
+  `ButDetSum` char(10) NOT NULL,
+  PRIMARY KEY (`BudDetId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of budgetdetail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `budgetitem`
+-- ----------------------------
+DROP TABLE IF EXISTS `budgetitem`;
+CREATE TABLE `budgetitem` (
+  `BudItemId` int(11) NOT NULL AUTO_INCREMENT,
+  `BudItemName` varchar(20) NOT NULL,
+  `BudInUse` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`BudItemId`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of budgetitem
+-- ----------------------------
+INSERT INTO `budgetitem` VALUES ('1', '设备费', '1');
+INSERT INTO `budgetitem` VALUES ('2', '材料费', '1');
+INSERT INTO `budgetitem` VALUES ('3', '测试化验加工费', '1');
+INSERT INTO `budgetitem` VALUES ('4', '合作、协作研究与交流费', '1');
+INSERT INTO `budgetitem` VALUES ('5', '差旅费', '1');
+INSERT INTO `budgetitem` VALUES ('6', '劳务费', '1');
+INSERT INTO `budgetitem` VALUES ('7', '燃料动力费', '1');
+INSERT INTO `budgetitem` VALUES ('8', '出版/文献/信息传播知识产权事务费', '1');
+INSERT INTO `budgetitem` VALUES ('9', '会议费', '1');
+INSERT INTO `budgetitem` VALUES ('10', '激励费', '1');
+INSERT INTO `budgetitem` VALUES ('11', '管理费', '1');
+INSERT INTO `budgetitem` VALUES ('12', '专家咨询费', '1');
+
+-- ----------------------------
 -- Table structure for `business`
 -- ----------------------------
 DROP TABLE IF EXISTS `business`;
 CREATE TABLE `business` (
-  `BusId` int(11) NOT NULL AUTO_INCREMENT,
-  `BSumId` int(11) NOT NULL,
-  `InProvince` binary(1) NOT NULL,
-  `BusStartDate` date NOT NULL,
-  `BusFinishDate` date NOT NULL,
-  `BusPlane` double DEFAULT NULL,
-  `BusTrain` double DEFAULT NULL,
-  `BusTravelOther` double DEFAULT NULL,
-  `BusStay` double DEFAULT NULL,
-  `BusFood` double DEFAULT NULL,
-  `BusSubsideOther` double DEFAULT NULL,
-  `BusOther` double DEFAULT NULL,
-  PRIMARY KEY (`BusId`),
-  KEY `FK_Reference_5` (`BSumId`),
-  CONSTRAINT `FK_Reference_5` FOREIGN KEY (`BSumId`) REFERENCES `businesssum` (`BSumId`)
+  `BId` int(11) NOT NULL AUTO_INCREMENT,
+  `BudId` int(11) DEFAULT NULL,
+  `BUnit` varchar(50) NOT NULL,
+  `BTeaName` varchar(20) NOT NULL,
+  `BTeaPos` varchar(10) DEFAULT NULL,
+  `BReason` varchar(30) NOT NULL,
+  `BAppend` int(11) NOT NULL,
+  `BSum` double NOT NULL,
+  `BFinStaffId` varchar(10) NOT NULL,
+  `BAgent` varchar(10) DEFAULT NULL,
+  `BDate` date NOT NULL,
+  PRIMARY KEY (`BId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -81,36 +120,132 @@ CREATE TABLE `business` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `businesssum`
+-- Table structure for `businessitem`
 -- ----------------------------
-DROP TABLE IF EXISTS `businesssum`;
-CREATE TABLE `businesssum` (
-  `BSumId` int(11) NOT NULL,
-  `BudId` int(11) DEFAULT NULL,
-  `BSUnit` varchar(50) NOT NULL,
-  `BSTeaId` varchar(10) NOT NULL,
-  `BSReason` varchar(30) NOT NULL,
-  `BSAppend` int(11) NOT NULL,
-  `BSSum` double NOT NULL,
-  `BSAccepTeaId` varchar(10) NOT NULL,
-  `BSAccepSum` double NOT NULL,
-  `BSFinStaffId` varchar(10) NOT NULL,
-  `BSAgent` varchar(10) DEFAULT NULL,
-  `BSDate` datetime NOT NULL,
-  PRIMARY KEY (`BSumId`),
-  KEY `FK_BusinessBudgetId` (`BudId`),
-  KEY `FK_Reference_6` (`BSFinStaffId`),
-  KEY `FK_Reference_7` (`BSTeaId`),
-  KEY `FK_Reference_8` (`BSAccepTeaId`),
-  CONSTRAINT `FK_BusinessBudgetId` FOREIGN KEY (`BudId`) REFERENCES `budget` (`BudId`),
-  CONSTRAINT `FK_Reference_6` FOREIGN KEY (`BSFinStaffId`) REFERENCES `financialstaff` (`FSId`),
-  CONSTRAINT `FK_Reference_7` FOREIGN KEY (`BSTeaId`) REFERENCES `teacher` (`TId`),
-  CONSTRAINT `FK_Reference_8` FOREIGN KEY (`BSAccepTeaId`) REFERENCES `teacher` (`TId`)
+DROP TABLE IF EXISTS `businessitem`;
+CREATE TABLE `businessitem` (
+  `BusItemId` int(11) NOT NULL AUTO_INCREMENT,
+  `BusItemName` varchar(20) NOT NULL,
+  `BusInUse` tinyint(1) NOT NULL,
+  PRIMARY KEY (`BusItemId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of businessitem
+-- ----------------------------
+INSERT INTO `businessitem` VALUES ('1', '飞机', '1');
+INSERT INTO `businessitem` VALUES ('2', '火车', '1');
+INSERT INTO `businessitem` VALUES ('3', '其他交通费', '1');
+INSERT INTO `businessitem` VALUES ('4', '住宿费', '1');
+INSERT INTO `businessitem` VALUES ('5', '伙食补助费', '1');
+INSERT INTO `businessitem` VALUES ('6', '公杂费', '1');
+INSERT INTO `businessitem` VALUES ('7', '其他', '1');
+
+-- ----------------------------
+-- Table structure for `busnisedetail`
+-- ----------------------------
+DROP TABLE IF EXISTS `busnisedetail`;
+CREATE TABLE `busnisedetail` (
+  `BusDetId` int(11) NOT NULL AUTO_INCREMENT,
+  `BusLocId` int(11) NOT NULL,
+  `BusItemId` int(11) NOT NULL,
+  `BusDetSum` double NOT NULL,
+  PRIMARY KEY (`BusDetId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of businesssum
+-- Records of busnisedetail
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `busnisslocation`
+-- ----------------------------
+DROP TABLE IF EXISTS `busnisslocation`;
+CREATE TABLE `busnisslocation` (
+  `BusLocId` int(11) NOT NULL AUTO_INCREMENT,
+  `BId` int(11) DEFAULT NULL,
+  `InProvince` binary(1) NOT NULL,
+  `BusLocation` varchar(20) NOT NULL,
+  `BusStartDate` date NOT NULL,
+  `BusFinishDate` date NOT NULL,
+  PRIMARY KEY (`BusLocId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of busnisslocation
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `expenddetail`
+-- ----------------------------
+DROP TABLE IF EXISTS `expenddetail`;
+CREATE TABLE `expenddetail` (
+  `ExpDetId` int(11) NOT NULL AUTO_INCREMENT,
+  `ExpItemId` int(11) NOT NULL,
+  `EId` int(11) NOT NULL,
+  `ExpDetSum` double NOT NULL,
+  PRIMARY KEY (`ExpDetId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of expenddetail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `expense`
+-- ----------------------------
+DROP TABLE IF EXISTS `expense`;
+CREATE TABLE `expense` (
+  `EId` int(11) NOT NULL AUTO_INCREMENT,
+  `BudId` int(11) NOT NULL,
+  `EAppend` int(11) NOT NULL,
+  `EManager` varchar(10) DEFAULT NULL,
+  `EAgent` varchar(20) DEFAULT NULL,
+  `EPhone` varchar(15) DEFAULT NULL,
+  `EDate` date NOT NULL,
+  PRIMARY KEY (`EId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of expense
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `expenseitem`
+-- ----------------------------
+DROP TABLE IF EXISTS `expenseitem`;
+CREATE TABLE `expenseitem` (
+  `ExpItemId` int(11) NOT NULL AUTO_INCREMENT,
+  `BudItemId` int(11) NOT NULL,
+  `ExpItemName` varchar(10) NOT NULL,
+  `ExpInUse` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`ExpItemId`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of expenseitem
+-- ----------------------------
+INSERT INTO `expenseitem` VALUES ('1', '11', '办公用品', '1');
+INSERT INTO `expenseitem` VALUES ('2', '5', '市内交通费', '1');
+INSERT INTO `expenseitem` VALUES ('3', '1', '固定资产购建费', '1');
+INSERT INTO `expenseitem` VALUES ('4', '11', '通讯、邮寄费', '1');
+INSERT INTO `expenseitem` VALUES ('5', '7', '燃油、燃料费', '1');
+INSERT INTO `expenseitem` VALUES ('6', '10', '体育用品购置费', '1');
+INSERT INTO `expenseitem` VALUES ('7', '12', '技术服务咨询费', '1');
+INSERT INTO `expenseitem` VALUES ('8', '5', '过路、过桥费', '1');
+INSERT INTO `expenseitem` VALUES ('9', '2', '日用品、材料费', '1');
+INSERT INTO `expenseitem` VALUES ('10', '4', '业务招待费', '1');
+INSERT INTO `expenseitem` VALUES ('11', '1', '机动车辆维修费', '1');
+INSERT INTO `expenseitem` VALUES ('12', '3', '材料测试加工费', '1');
+INSERT INTO `expenseitem` VALUES ('13', '8', '宣传广告费', '1');
+INSERT INTO `expenseitem` VALUES ('14', '1', '机动车辆保险费', '1');
+INSERT INTO `expenseitem` VALUES ('15', '1', '设备维修费', '1');
+INSERT INTO `expenseitem` VALUES ('16', '8', '图书资料版面费', '1');
+INSERT INTO `expenseitem` VALUES ('17', '9', '会议、会务费', '1');
+INSERT INTO `expenseitem` VALUES ('18', '6', '劳务费', '1');
+INSERT INTO `expenseitem` VALUES ('19', '2', '复印、印刷费', '1');
+INSERT INTO `expenseitem` VALUES ('20', '4', '培训费', '1');
+INSERT INTO `expenseitem` VALUES ('21', '11', '其他', '1');
 
 -- ----------------------------
 -- Table structure for `financialstaff`
