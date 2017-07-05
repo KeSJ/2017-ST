@@ -1,0 +1,20 @@
+package expense.model;
+
+import java.util.Date;
+
+//出差报销单汇总
+public class BusinessSum {
+	private int id;					//出差报销单ID
+	private int budgetId;			//经费项目ID
+	private String unit;			//单位
+	private String teacherName;		//出差教师姓名
+	private String reason;			//出差事由
+	private int appendNum;			//附单据张数
+	private double sum;				//合计报销金额
+	//转卡信息（只能转入单张银行卡）
+	private String acceptTeacherId;	//工号
+	private double acceptSum;		//转卡金额
+	private String finStaffId;		//报销审批人ID
+	private String agent;			//经办人姓名
+	private Date date;				//报销日期
+}

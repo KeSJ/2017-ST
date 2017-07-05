@@ -1,0 +1,24 @@
+package expense.model;
+
+import java.util.Date;
+
+//出差报销单单条费用
+public class Business {
+	private int id;				//单条出差费用ID
+	private int businessSumId;	//出差报销单ID
+	private boolean inProvince;	//出差地点是否为省内
+	private Date startDate;		//出差开始日期
+	private Date finishDate;	//出差结束日期
+	//城市间交通费
+	private double plane;		//飞机
+	private double train;		//火车
+	private double travleOther;	//其他
+	
+	private double stay;		//住宿费
+	//补贴报销
+	private double food;		//伙食补助费
+	private double subsideOther;//公杂费
+	
+	private double other;		//其他
+
+}

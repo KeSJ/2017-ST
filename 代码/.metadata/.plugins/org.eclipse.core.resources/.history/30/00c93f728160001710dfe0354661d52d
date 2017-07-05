@@ -1,0 +1,7 @@
+package expense.model;
+
+//项目技术来源
+public class Business {
+	private String code;	//代码
+	private String name;	//名称
+}
