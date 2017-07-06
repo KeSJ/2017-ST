@@ -5,116 +5,219 @@
 
 	<!-- accept 收款信息 -->
 	<class name="expense.model.Accept" table="accept" catalog="expense_apply">
-		
+		<id name="acceptId" column="AcceptId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="teacherId" column="TId" type="string" length="10"></property>
+		<property name="acceptSum" column="AcceptSum" type="double"></property>
+		<property name="applyId" column="ApplyId" type="int"></property>
+		<property name="applyType" column="ApplyType" type="int"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- appendix 附件 -->
+	<class name="expense.model.Appendix" table="appendix" catalog="expense_apply">
+		<id name="appendixId" column="AppendixId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="applyId" column="ApplyId" type="int"></property>
+		<property name="applyType" column="ApplyType" type="int"></property>
+		<property name="filePath" column="FilePath" type="string" length="256"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- budget 预算 -->
+	<class name="expense.model.Budget" table="budget" catalog="expense_apply">
+		<id name="budId" column="BudId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="ppcCode" column="PPCCode" type="string" length="5"></property>
+		<property name="tmaCode" column="TMACode" type="string" length="5"></property>
+		<property name="ptrCode" column="PTRCode" type="string" length="5"></property>
+		<property name="projectName" column="BName" type="string" length="50"></property>
+		<property name="proStartTime" column="ProStartTime" type="date"></property>
+		<property name="proFinishTime" column="ProFinishTime" type="date"></property>
+		<property name="selfRaised" column="SelfRaised" type="double"></property>
+		<property name="apply" column="Apply" type="double"></property>
+		<property name="budAppTea" column="BudAppTea" type="string" length="10"></property>
+		<property name="budAppDate" column="BudAppDate" type="datetime"></property>
+		<property name="budCheckStaff" column="BudCheck" type="string" length="10"></property>
+		<property name="budCheckDate" column="BudCheckDate" type="datetime"></property>
+		<property name="budResult" column="BudResult" type="boolean"></property>
+		<property name="budRejectReason" column="BudRejectReason" type="string" length="256"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- budget detail 预算详细 -->
+	<class name="expense.model.BudgetDetail" table="budgetdetail" catalog="expense_apply">
+		<id name="budgetDetailId" column="BudDetId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="budgetItemId" column="BudItemId" type="int"></property>
+		<property name="budgetId" column="BudId" type="int"></property>
+		<property name="budgetDetailSum" column="ButDetSum" type="double"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- budget item 预算条目 -->
+	<class name="expense.model.BudgetItem" table="budgetitem" catalog="expense_apply">
+		<id name="budgetItemId" column="BudItemId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="budgetItemName" column="BudItemName" type="string" length="20"></property>
+		<property name="budgetInUse" column="BudInUse" type="boolean"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- business 出差报销单 -->
+	<class name="expense.model.Business" table="business" catalog="expense_apply">
+		<id name="businessId" column="BId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="budgetId" column="BudId" type="int"></property>
+		<property name="busReason" column="BReason" type="string" length="30"></property>
+		<property name="busAppendNum" column="BAppend" type="int"></property>
+		<property name="busSum" column="BSum" type="double"></property>
+		<property name="busApplyTea" column="BAppTea" type="string" length="10"></property>
+		<property name="busApplyDate" column="BAppDate" type="datetime"></property>
+		<property name="busAgent" column="BAgent" type="string" length="10"></property>
+		<property name="busCheckStaff" column="BCheckStaff" type="string" length="10"></property>
+		<property name="busCheckDate" column="BCheckDate" type="datetime"></property>
+		<property name="busResult" column="BResult" type="boolean"></property>
+		<property name="busRejectReason" column="BRejectReason" type="string" length="256"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- business detail 出差报销单详细  -->
+	<class name="expense.model.BusinessDetail" table="busnisedetail" catalog="expense_apply">
+		<id name="busDetId" column="BusDetId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="busLocId" column="BusLocId" type="int"></property>
+		<property name="busItemId" column="BusItemId" type="int"></property>
+		<property name="busDetSum" column="BusDetSum" type="double"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- business item 出差报销单条目 -->
+	<class name="expense.model.BusinessItem" table="businessitem" catalog="expense_apply">
+		<id name="busItemId" column="BusItemId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="busItemName" column="BusItemName" type="string" length="20"></property>
+		<property name="busItemInUse" column="BusInUse" type="boolean"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- business location 出差地点 -->
+	<class name="expense.model.BusinessLocation" table="busnisslocation" catalog="expense_apply">
+		<id name="busLocId" column="BusLocId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="businessId" column="BId" type="int"></property>
+		<property name="inProvince" column="InProvince" type="boolean"></property>
+		<property name="busLocation" column="BusLocation" type="string" length="20"></property>
+		<property name="busStartDate" column="BusStartDate" type="date"></property>
+		<property name="busFinishDate" column="BusFinishDate" type="date"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- expense detail 报销汇总表详细  -->
+	<class name="expense.model.ExpendDetail" table="" catalog="expense_apply">
+		<id name="expDetId" column="ExpDetId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="expItemId" column="ExpItemId" type="int"></property>
+		<property name="eId" column="EId" type="int"></property>
+		<property name="expDetSum" column="ExpDetSum" type="double"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- Expense 预算汇总表 -->
+	<class name="expense.model.Expense" table="expense" catalog="expense_apply">
+		<id name="eId" column="EId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="budId" column="BudId" type="int"></property>
+		<property name="eAppend" column="EAppend" type="int"></property>
+		<property name="eAppTea" column="EAppTea" type="string" length="10"></property>
+		<property name="eAppDate" column="EAppDate" type="datetime"></property>
+		<property name="eAgent" column="EAgent" type="string" length="20"></property>
+		<property name="eCheckStaff" column="ECheckStaff" type="string" length="10"></property>
+		<property name="eCheckDate" column="ECheckDate" type="datetime"></property>
+		<property name="eResult" column="EResult" type="boolean"></property>
+		<property name="eRejectReason" column="ERejectReason" type="string" length="256"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- ExpenseItem 报销汇总表条目 -->
+	<class name="expense.model.ExpenseItem" table="expenseitem" catalog="expense_apply">
+		<id name="expItemId" column="ExpItemId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="budItemId" column="BudItemId" type="int"></property>
+		<property name="expItemName" column="ExpItemName" type="string" length="10"></property>
+		<property name="expInuse" column="ExpInUse" type="boolean"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- financial staff 财务人员 -->
+	<class name="expense.model.FinancialStaff" table="financialstaff"
+		catalog="expense_apply">
+		<id name="fsId" column="FSId" type="string" length="10">
+			<generator class=""></generator>
+		</id>
+		<property name="fsName" column="FSName" type="string" length="20"
+			not-null="true"></property>
+		<property name="fsPwd" column="FSPwd" type="string" length="20"
+			not-null="true"></property>
+		<property name="fsCreateDate" column="FSCreateDate" type="datetime"
+			not-null="true"></property>
+		<property name="fsStopDate" column="FSStopDate" type="datetime"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- project plan category 项目计划类别 -->
+	<class name="expense.model.ProPlanCategory" table="proplancategory"
+		catalog="expense_apply">
+		<id name="ppcCode" column="PPCCode" type="string" length="5">
+			<generator class=""></generator>
+		</id>
+		<property name="ppcName" column="PPCName" type="string"
+			length="30" not-null="true"></property>
+		<property name="ppcInUse" column="PPCInUse" type="boolean"
+			not-null="true"></property>
 	</class>
-	
-	<!-- -->
-	<class name="expense.model." table="" catalog="expense_apply">
 
+	<!-- project technique resource 项目技术来源 -->
+	<class name="expense.model.ProTecRes" table="protecres" catalog="expense_apply">
+		<id name="ptrCode" column="PTRCode" type="string" length="5">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="ptrName" column="PTRName" type="string"
+			length="20" not-null="true"></property>
+		<property name="ptrInUse" column="PTRInUse" type="boolean"
+			not-null="true"></property>
 	</class>
-	
+
 	<!-- teacher 教师 -->
 	<class name="expense.model.Teacher" table="teacher" catalog="expense_apply">
 		<id name="tId" column="TId" type="string" length="10">
 			<generator class="assigned"></generator>
 		</id>
-		<property name="tName" column="TName" type="string" length="20"></property>
-		<property name="tUnit" column="TUnit" type="string" length="20"></property>
-		<property name="tPosition" column="TPosition" type="string" length="10"></property>
-		<property name="tPhone" column="TPhone" type="string" length=""></property>
-		<property name="" column="" type="" length=""></property>
-		<property name="" column="" type="" length=""></property>
-		<property name="" column="" type="" length=""></property>
-		<property name="" column="" type="" length=""></property>
+		<property name="tName" column="TName" type="string" length="20"
+			not-null="true"></property>
+		<property name="tUnit" column="TUnit" type="string" length="20"
+			not-null="true"></property>
+		<property name="tPosition" column="TPosition" type="string"
+			length="10" not-null="true"></property>
+		<property name="tPhone" column="TPhone" type="string" length="15"
+			not-null="true"></property>
+		<property name="tCardId" column="TCardId" type="string"
+			length="20" not-null="true"></property>
+		<property name="tCreateDate" column="TCreateDate" type="datetime"
+			not-null="true"></property>
+		<property name="tStopDate" column="TStopDate" type="datetime"></property>
 	</class>
-	
-	<!-- technical management area 技术管理领域 -->
-	<class name="expense.model.TecMngArea" table="tecmngarea" catalog="expense_apply">
+
+	<!-- technique management area 技术管理领域 -->
+	<class name="expense.model.TecMngArea" table="tecmngarea"
+		catalog="expense_apply">
 		<id name="tmaCode" column="TMACode" type="string" length="5">
 			<generator class="increment"></generator>
 		</id>
-		<property name="tmaName" column="TMAName" type="string" not-null="true" length="20"></property>
-		<property name="tmaInUse" column="TMAInUse" type="boolean" not-null="true"></property>
-	</class>
-	
-
-	
-
-	<!-- Publisher -->
-	<class name="booklib.model.Publisher" table="publisher" catalog="booklib">
-		<id name="pubid" column="pubid" type="string" length="20">
-			<generator class="assigned"></generator>
-		</id>
-		<property name="publisherName" column="publisherName" type="string"
-			not-null="true" length="50"></property>
-		<property name="address" column="address" type="string"
-			length="200"></property>
+		<property name="tmaName" column="TMAName" type="string"
+			not-null="true" length="20"></property>
+		<property name="tmaInUse" column="TMAInUse" type="boolean"
+			not-null="true"></property>
 	</class>
 
-	
+
 </hibernate-mapping>
