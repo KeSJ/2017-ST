@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-07-06 08:45:34
+Date: 2017-07-06 14:02:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,7 +37,7 @@ CREATE TABLE `accept` (
 -- ----------------------------
 DROP TABLE IF EXISTS `appendix`;
 CREATE TABLE `appendix` (
-  `AppendixId` int(11) NOT NULL,
+  `AppendixId` int(11) NOT NULL AUTO_INCREMENT,
   `ApplyId` int(11) NOT NULL,
   `ApplyType` int(11) NOT NULL,
   `FilePath` varchar(256) NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `budgetdetail` (
   `BudDetId` int(11) NOT NULL AUTO_INCREMENT,
   `BudItemId` int(11) NOT NULL,
   `BudId` int(11) NOT NULL,
-  `ButDetSum` char(10) NOT NULL,
+  `ButDetSum` double NOT NULL,
   PRIMARY KEY (`BudDetId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -125,7 +125,6 @@ DROP TABLE IF EXISTS `business`;
 CREATE TABLE `business` (
   `BId` int(11) NOT NULL AUTO_INCREMENT,
   `BudId` int(11) NOT NULL,
-  `BUnit` varchar(50) NOT NULL,
   `BReason` varchar(30) NOT NULL,
   `BAppend` int(11) NOT NULL,
   `BSum` double NOT NULL,
@@ -134,8 +133,8 @@ CREATE TABLE `business` (
   `BAgent` varchar(10) DEFAULT NULL,
   `BCheckStaff` varchar(10) DEFAULT NULL,
   `BCheckDate` datetime DEFAULT NULL,
+  `BResult` tinyint(1) unsigned zerofill DEFAULT NULL,
   `BRejectReason` varchar(256) DEFAULT NULL,
-  `BResult` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`BId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -187,8 +186,8 @@ CREATE TABLE `busnisedetail` (
 DROP TABLE IF EXISTS `busnisslocation`;
 CREATE TABLE `busnisslocation` (
   `BusLocId` int(11) NOT NULL AUTO_INCREMENT,
-  `BId` int(11) DEFAULT NULL,
-  `InProvince` binary(1) NOT NULL,
+  `BId` int(11) NOT NULL,
+  `InProvince` tinyint(1) NOT NULL,
   `BusLocation` varchar(20) NOT NULL,
   `BusStartDate` date NOT NULL,
   `BusFinishDate` date NOT NULL,
@@ -377,6 +376,7 @@ DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE `teacher` (
   `TId` varchar(10) NOT NULL,
   `TName` varchar(20) NOT NULL,
+  `TUnit` varchar(20) NOT NULL,
   `TPosition` varchar(10) NOT NULL,
   `TPhone` varchar(15) NOT NULL,
   `TCardId` varchar(20) NOT NULL,
