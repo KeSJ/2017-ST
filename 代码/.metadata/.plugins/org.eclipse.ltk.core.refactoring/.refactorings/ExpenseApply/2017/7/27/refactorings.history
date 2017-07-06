@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;ExpenseApply/src/expense/model/Booklib.hbm.xml&apos; to &apos;ExpenseApply.hbm.xml&apos;" description="Rename resource &apos;Booklib.hbm.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/expense/model/Booklib.hbm.xml" name="ExpenseApply.hbm.xml" stamp="1499153738481" updateReferences="true"/>
-</session>

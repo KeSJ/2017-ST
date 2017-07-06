@@ -1,7 +1,0 @@
-package expense.model;
-
-//技术管理领域
-public class TecMngArea {
-	private String code;	//技术管理领域代码
-	private String name;	//技术管理领域名称
-}
