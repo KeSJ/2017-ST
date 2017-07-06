@@ -2,12 +2,13 @@ package expense.model;
 
 import java.util.Date;
 
+//财务人员
 public class FinancialStaff {
-	private String fsId;
-	private String fsName;
-	private String fsPwd;
-	private Date fsCreateDate;
-	private Date fsStopDate;
+	private String fsId;// 财务人员ID
+	private String fsName;// 财务人员姓名
+	private String fsPwd;// 密码
+	private Date fsCreateDate;// ID创建时间
+	private Date fsStopDate;// ID停用时间
 
 	public String getFsId() {
 		return fsId;
@@ -47,6 +48,10 @@ public class FinancialStaff {
 
 	public void setFsStopDate(Date fsStopDate) {
 		this.fsStopDate = fsStopDate;
+	}
+
+	public FinancialStaff() {
+
 	}
 
 	public FinancialStaff(String fsId, String fsName, String fsPwd, Date fsCreateDate, Date fsStopDate) {

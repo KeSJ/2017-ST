@@ -2,119 +2,115 @@ package expense.model;
 
 import java.util.Date;
 
-//出差报销单单条费用
+//出差报销单
 public class Business {
-	private int id; // 单条出差费用ID
-	private int businessSumId; // 出差报销单ID
-	private boolean inProvince; // 出差地点是否为省内
-	private Date startDate; // 出差开始日期
-	private Date finishDate; // 出差结束日期
-	// 城市间交通费
-	private double plane; // 飞机
-	private double train; // 火车
-	private double travleOther; // 其他
+	private int businessId; // 出差报销单ID
+	private int budgetId; // 预算ID
+	private String busReason; // 出差原因
+	private int busAppendNum; // 附件数
+	private double busSum; // 报销总金额
+	private String busApplyTea; // 报销单申请教师ID
+	private Date busApplyDate; // 报销申请时间
+	private String busAgent; // 经办人
+	private String busCheckStaff; // 审核财务人员
+	private Date busCheckDate; // 审核时间
+	private boolean busResult; // 审核结果
+	private String busRejectReason; // 报销拒绝原因
 
-	private double stay; // 住宿费
-	// 补贴报销
-	private double food; // 伙食补助费
-	private double subsideOther;// 公杂费
-
-	private double other; // 其他
-
-	public int getId() {
-		return id;
+	public int getBusinessId() {
+		return businessId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setBusinessId(int businessId) {
+		this.businessId = businessId;
 	}
 
-	public int getBusinessSumId() {
-		return businessSumId;
+	public int getBudgetId() {
+		return budgetId;
 	}
 
-	public void setBusinessSumId(int businessSumId) {
-		this.businessSumId = businessSumId;
+	public void setBudgetId(int budgetId) {
+		this.budgetId = budgetId;
 	}
 
-	public boolean isInProvince() {
-		return inProvince;
+	public String getBusReason() {
+		return busReason;
 	}
 
-	public void setInProvince(boolean inProvince) {
-		this.inProvince = inProvince;
+	public void setBusReason(String busReason) {
+		this.busReason = busReason;
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public int getBusAppendNum() {
+		return busAppendNum;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setBusAppendNum(int busAppendNum) {
+		this.busAppendNum = busAppendNum;
 	}
 
-	public Date getFinishDate() {
-		return finishDate;
+	public double getBusSum() {
+		return busSum;
 	}
 
-	public void setFinishDate(Date finishDate) {
-		this.finishDate = finishDate;
+	public void setBusSum(double busSum) {
+		this.busSum = busSum;
 	}
 
-	public double getPlane() {
-		return plane;
+	public String getBusApplyTea() {
+		return busApplyTea;
 	}
 
-	public void setPlane(double plane) {
-		this.plane = plane;
+	public void setBusApplyTea(String busApplyTea) {
+		this.busApplyTea = busApplyTea;
 	}
 
-	public double getTrain() {
-		return train;
+	public Date getBusApplyDate() {
+		return busApplyDate;
 	}
 
-	public void setTrain(double train) {
-		this.train = train;
+	public void setBusApplyDate(Date busApplyDate) {
+		this.busApplyDate = busApplyDate;
 	}
 
-	public double getTravleOther() {
-		return travleOther;
+	public String getBusAgent() {
+		return busAgent;
 	}
 
-	public void setTravleOther(double travleOther) {
-		this.travleOther = travleOther;
+	public void setBusAgent(String busAgent) {
+		this.busAgent = busAgent;
 	}
 
-	public double getStay() {
-		return stay;
+	public String getBusCheckStaff() {
+		return busCheckStaff;
 	}
 
-	public void setStay(double stay) {
-		this.stay = stay;
+	public void setBusCheckStaff(String busCheckStaff) {
+		this.busCheckStaff = busCheckStaff;
 	}
 
-	public double getFood() {
-		return food;
+	public Date getBusCheckDate() {
+		return busCheckDate;
 	}
 
-	public void setFood(double food) {
-		this.food = food;
+	public void setBusCheckDate(Date busCheckDate) {
+		this.busCheckDate = busCheckDate;
 	}
 
-	public double getSubsideOther() {
-		return subsideOther;
+	public boolean isBusResult() {
+		return busResult;
 	}
 
-	public void setSubsideOther(double subsideOther) {
-		this.subsideOther = subsideOther;
+	public void setBusResult(boolean busResult) {
+		this.busResult = busResult;
 	}
 
-	public double getOther() {
-		return other;
+	public String getBusRejectReason() {
+		return busRejectReason;
 	}
 
-	public void setOther(double other) {
-		this.other = other;
+	public void setBusRejectReason(String busRejectReason) {
+		this.busRejectReason = busRejectReason;
 	}
 
 }

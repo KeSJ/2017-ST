@@ -5,11 +5,13 @@ import java.util.Date;
 public class Teacher {
 	private String tId;
 	private String tName;
+	private String tUnit; // 教师单位
 	private String tPosition; // 教师职务
 	private String tPhone;
 	private String tCardId;
 	private Date tCreateDate;
 	private Date tStopDate;
+
 	public String gettId() {
 		return tId;
 	}
@@ -24,6 +26,14 @@ public class Teacher {
 
 	public void settName(String tName) {
 		this.tName = tName;
+	}
+
+	public String gettUnit() {
+		return tUnit;
+	}
+
+	public void settUnit(String tUnit) {
+		this.tUnit = tUnit;
 	}
 
 	public String gettPosition() {
@@ -66,7 +76,8 @@ public class Teacher {
 		this.tStopDate = tStopDate;
 	}
 
-	public Teacher(String tId, String tName, String tPosition, String tPhone, String tCardId, Date tCreateDate, Date tStopDate) {
+	public Teacher(String tId, String tName, String tPosition, String tPhone, String tCardId, Date tCreateDate,
+			Date tStopDate) {
 
 		this.tId = tId;
 		this.tName = tName;
@@ -76,9 +87,5 @@ public class Teacher {
 		this.tCreateDate = tCreateDate;
 		this.tStopDate = tStopDate;
 	}
-
-
-
-
 
 }

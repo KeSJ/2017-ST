@@ -3,57 +3,107 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-	<!-- financial staff -->
-	<class name="expense.model.FinancialStaff" table="financialstaff" catalog="expense_apply">
-		<id name="id" column="FSId" length="10" type="string">
-			<generator class="assigned" />
-		</id>
-		<property name="name" column="FSName" length="20" type="string" />
-		<property name="pwd" column="FSPwd" length="20" type="srting" />
+	<!-- accept 收款信息 -->
+	<class name="expense.model.Accept" table="accept" catalog="expense_apply">
+		
 	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
 
-	<!-- teacher -->
-	<class name=""></class>
-	
-	<!-- program plan category -->
-	
-	<!-- program technique resource -->
-	
-
-	<!-- ReaderType -->
-	<class name="booklib.model.ReaderType" table="readertype"
-		catalog="booklib">
-		<id name="readerTypeId" column="readertypeid" type="int">
-			<generator class="increment"></generator>
-		</id>
-		<property name="readerTypeName" column="readertypename" type="string"
-			not-null="true" length="50"></property>
-		<property name="lendBookLimitted" column="lendbooklimitted"
-			type="int" not-null="true"></property>
 	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
 
-	<!-- Reader -->
-	<class name="booklib.model.Reader" table="reader" catalog="booklib">
-		<id name="readerId" column="readerid" type="string" length="20">
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- -->
+	<class name="expense.model." table="" catalog="expense_apply">
+
+	</class>
+	
+	<!-- teacher 教师 -->
+	<class name="expense.model.Teacher" table="teacher" catalog="expense_apply">
+		<id name="tId" column="TId" type="string" length="10">
 			<generator class="assigned"></generator>
 		</id>
-		<property name="readerName" column="readerName" type="string"
-			not-null="true" length="50"></property>
-		<property name="readerTypeId" column="readerTypeId" type="integer"
-			not-null="true"></property>
-		<property name="lendBookLimitted" column="lendBookLimitted"
-			type="integer" not-null="true"></property>
-		<property name="createDate" column="createDate" type="java.util.Date"
-			not-null="true"></property>
-		<property name="creatorUserId" column="creatorUserId" type="string"
-			not-null="true" length="20"></property>
-		<property name="removeDate" column="removeDate" type="java.util.Date"></property>
-		<property name="removerUserId" column="removerUserId" type="string"
-			length="20"></property>
-		<property name="stopDate" column="stopDate" type="java.util.Date"></property>
-		<property name="stopUserId" column="stopUserId" type="string"
-			length="20"></property>
+		<property name="tName" column="TName" type="string" length="20"></property>
+		<property name="tUnit" column="TUnit" type="string" length="20"></property>
+		<property name="tPosition" column="TPosition" type="string" length="10"></property>
+		<property name="tPhone" column="TPhone" type="string" length=""></property>
+		<property name="" column="" type="" length=""></property>
+		<property name="" column="" type="" length=""></property>
+		<property name="" column="" type="" length=""></property>
+		<property name="" column="" type="" length=""></property>
 	</class>
+	
+	<!-- technical management area 技术管理领域 -->
+	<class name="expense.model.TecMngArea" table="tecmngarea" catalog="expense_apply">
+		<id name="tmaCode" column="TMACode" type="string" length="5">
+			<generator class="increment"></generator>
+		</id>
+		<property name="tmaName" column="TMAName" type="string" not-null="true" length="20"></property>
+		<property name="tmaInUse" column="TMAInUse" type="boolean" not-null="true"></property>
+	</class>
+	
+
+	
 
 	<!-- Publisher -->
 	<class name="booklib.model.Publisher" table="publisher" catalog="booklib">
@@ -66,37 +116,5 @@
 			length="200"></property>
 	</class>
 
-	<!-- Book -->
-	<class name="booklib.model.Book" table="book" catalog="booklib">
-		<id name="barcode" column="barcode" type="string" length="20">
-			<generator class="assigned"></generator>
-		</id>
-		<property name="bookname" column="bookname" type="string"
-			not-null="true" length="200"></property>
-		<property name="pubid" column="pubid" type="string" length="20"></property>
-		<property name="price" column="price" type="double" not-null="true"></property>
-		<property name="state" column="state" type="string" not-null="true"
-			length="20"></property>
-	</class>
-
-	<!-- BookLendRecord -->
-	<class name="booklib.model.BookLendRecord" table="booklendrecord"
-		catalog="booklib">
-		<id name="id" column="id" type="integer">
-			<generator class="assigned"></generator>
-		</id>
-		<property name="readerid" column="readerid" type="string"
-			not-null="true" length="20"></property>
-		<property name="bookBarcode" column="bookBarcode" type="string"
-			not-null="true" length="20"></property>
-		<property name="lendDate" column="lendDate" type="java.util.Date"
-			not-null="true"></property>
-		<property name="returnDate" column="returnDate" type="java.util.Date"></property>
-		<property name="lendOperUserid" column="lendOperUserid" type="string"
-			not-null="true" length="20"></property>
-		<property name="returnOperUserid" column="returnOperUserid"
-			type="string" length="20"></property>
-		<property name="penalSum" column="penalSum" type="double"></property>
-	</class>
-
+	
 </hibernate-mapping>

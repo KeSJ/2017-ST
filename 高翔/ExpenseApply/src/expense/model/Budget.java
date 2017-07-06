@@ -4,66 +4,60 @@ import java.util.Date;
 
 //项目预算
 public class Budget {
-	private int id; // 项目预算ID
-	private String PPCCode; // 项目计划类别代码
-	private String TMACode; // 技术管理领域代码
-	private String PTRCode; // 项目技术来源代码
-	private String name; // 项目名称
+	private int budId; // 项目预算ID
+	private String ppcCode; // 项目计划类别代码
+	private String tmaCode; // 技术管理领域代码
+	private String ptrCode; // 项目技术来源代码
+	private String projectName; // 项目名称
 	private Date proStartTime; // 项目开始日期
 	private Date proFinishTime; // 项目完成日期
-	private double equipment; // 设备费
-	private double material; // 材料费
-	private double test; // 测试化验加工费
-	private double cooperation; // 合作、写作研究与交流费
-	private double travel; // 差旅费
-	private double labor; // 劳务费
-	private double fuel; // 燃料动力费
-	private double publish; // 出版/文献/信息传播知识产权事务费
-	private double meeting; // 会议费
-	private double incentive; // 激励费
-	private double management; // 管理费
-	private double expert; // 专家咨询费
 	private double selfRaised; // 自筹和配套
-	private double apply; // 想省厅申请
+	private double apply; // 向省厅申请
+	private String budAppTea; // 预算申请教师
+	private Date budAppDate; // 预算申请时间
+	private String budCheckStaff; // 预算审核财务人员
+	private Date budCheckDate; // 预算审核时间
+	private boolean budResult; // 预算审核结果
+	private String budRejectReason; // 预算拒绝原因
 
-	public int getId() {
-		return id;
+	public int getBudId() {
+		return budId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setBudId(int budId) {
+		this.budId = budId;
 	}
 
-	public String getPPCCode() {
-		return PPCCode;
+	public String getPpcCode() {
+		return ppcCode;
 	}
 
-	public void setPPCCode(String pPCCode) {
-		PPCCode = pPCCode;
+	public void setPpcCode(String ppcCode) {
+		this.ppcCode = ppcCode;
 	}
 
-	public String getTMACode() {
-		return TMACode;
+	public String getTmaCode() {
+		return tmaCode;
 	}
 
-	public void setTMACode(String tMACode) {
-		TMACode = tMACode;
+	public void setTmaCode(String tmaCode) {
+		this.tmaCode = tmaCode;
 	}
 
-	public String getPTRCode() {
-		return PTRCode;
+	public String getPtrCode() {
+		return ptrCode;
 	}
 
-	public void setPTRCode(String pTRCode) {
-		PTRCode = pTRCode;
+	public void setPtrCode(String ptrCode) {
+		this.ptrCode = ptrCode;
 	}
 
-	public String getName() {
-		return name;
+	public String getProjectName() {
+		return projectName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 
 	public Date getProStartTime() {
@@ -82,102 +76,6 @@ public class Budget {
 		this.proFinishTime = proFinishTime;
 	}
 
-	public double getEquipment() {
-		return equipment;
-	}
-
-	public void setEquipment(double equipment) {
-		this.equipment = equipment;
-	}
-
-	public double getMaterial() {
-		return material;
-	}
-
-	public void setMaterial(double material) {
-		this.material = material;
-	}
-
-	public double getTest() {
-		return test;
-	}
-
-	public void setTest(double test) {
-		this.test = test;
-	}
-
-	public double getCooperation() {
-		return cooperation;
-	}
-
-	public void setCooperation(double cooperation) {
-		this.cooperation = cooperation;
-	}
-
-	public double getTravel() {
-		return travel;
-	}
-
-	public void setTravel(double travel) {
-		this.travel = travel;
-	}
-
-	public double getLabor() {
-		return labor;
-	}
-
-	public void setLabor(double labor) {
-		this.labor = labor;
-	}
-
-	public double getFuel() {
-		return fuel;
-	}
-
-	public void setFuel(double fuel) {
-		this.fuel = fuel;
-	}
-
-	public double getPublish() {
-		return publish;
-	}
-
-	public void setPublish(double publish) {
-		this.publish = publish;
-	}
-
-	public double getMeeting() {
-		return meeting;
-	}
-
-	public void setMeeting(double meeting) {
-		this.meeting = meeting;
-	}
-
-	public double getIncentive() {
-		return incentive;
-	}
-
-	public void setIncentive(double incentive) {
-		this.incentive = incentive;
-	}
-
-	public double getManagement() {
-		return management;
-	}
-
-	public void setManagement(double management) {
-		this.management = management;
-	}
-
-	public double getExpert() {
-		return expert;
-	}
-
-	public void setExpert(double expert) {
-		this.expert = expert;
-	}
-
 	public double getSelfRaised() {
 		return selfRaised;
 	}
@@ -192,6 +90,54 @@ public class Budget {
 
 	public void setApply(double apply) {
 		this.apply = apply;
+	}
+
+	public String getBudAppTea() {
+		return budAppTea;
+	}
+
+	public void setBudAppTea(String budAppTea) {
+		this.budAppTea = budAppTea;
+	}
+
+	public Date getBudAppDate() {
+		return budAppDate;
+	}
+
+	public void setBudAppDate(Date budAppDate) {
+		this.budAppDate = budAppDate;
+	}
+
+	public String getBudCheckStaff() {
+		return budCheckStaff;
+	}
+
+	public void setBudCheckStaff(String budCheckStaff) {
+		this.budCheckStaff = budCheckStaff;
+	}
+
+	public Date getBudCheckDate() {
+		return budCheckDate;
+	}
+
+	public void setBudCheckDate(Date budCheckDate) {
+		this.budCheckDate = budCheckDate;
+	}
+
+	public boolean isBudResult() {
+		return budResult;
+	}
+
+	public void setBudResult(boolean budResult) {
+		this.budResult = budResult;
+	}
+
+	public String getBudRejectReason() {
+		return budRejectReason;
+	}
+
+	public void setBudRejectReason(String budRejectReason) {
+		this.budRejectReason = budRejectReason;
 	}
 
 }

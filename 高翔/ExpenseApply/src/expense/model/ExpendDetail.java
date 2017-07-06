@@ -3,53 +3,55 @@ package expense.model;
 /**
  * Created by lenovo on 2017/7/5 0005.
  */
+// 报销汇总表详细
 public class ExpendDetail {
-    private  int expDetId;
-    private  int expItemId;
-    private  int eId;
-    private  double expDetSum;
+	private int expDetId; // 报销汇总表详细ID
+	private int expItemId; // 报销汇总表条目ID
+	private int eId; // 报销汇总表ID
+	private double expDetSum; // 报销金额
 
-    public ExpendDetail(int expDetId, int expItemId, int eId, double expDetSum) {
-        this.expDetId = expDetId;
-        this.expItemId = expItemId;
-        this.eId = eId;
-        this.expDetSum = expDetSum;
-    }
+	public ExpendDetail() {
 
-    public int getExpDetId() {
+	}
 
-        return expDetId;
-    }
+	public ExpendDetail(int expDetId, int expItemId, int eId, double expDetSum) {
+		this.expDetId = expDetId;
+		this.expItemId = expItemId;
+		this.eId = eId;
+		this.expDetSum = expDetSum;
+	}
 
-    public void setExpDetId(int expDetId) {
-        this.expDetId = expDetId;
-    }
+	public int getExpDetId() {
 
-    public int getExpItemId() {
-        return expItemId;
-    }
+		return expDetId;
+	}
 
-    public void setExpItemId(int expItemId) {
-        this.expItemId = expItemId;
-    }
+	public void setExpDetId(int expDetId) {
+		this.expDetId = expDetId;
+	}
 
-    public int geteId() {
-        return eId;
-    }
+	public int getExpItemId() {
+		return expItemId;
+	}
 
-    public void seteId(int eId) {
-        this.eId = eId;
-    }
+	public void setExpItemId(int expItemId) {
+		this.expItemId = expItemId;
+	}
 
-    public double getExpDetSum() {
-        return expDetSum;
-    }
+	public int geteId() {
+		return eId;
+	}
 
-    public void setExpDetSum(double expDetSum) {
-        this.expDetSum = expDetSum;
-    }
+	public void seteId(int eId) {
+		this.eId = eId;
+	}
 
+	public double getExpDetSum() {
+		return expDetSum;
+	}
 
-
+	public void setExpDetSum(double expDetSum) {
+		this.expDetSum = expDetSum;
+	}
 
 }
