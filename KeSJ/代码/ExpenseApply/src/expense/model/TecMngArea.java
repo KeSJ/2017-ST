@@ -2,23 +2,37 @@ package expense.model;
 
 //技术管理领域
 public class TecMngArea {
-	private String code; // 技术管理领域代码
-	private String name; // 技术管理领域名称
+	private String tmaCode; // 技术管理领域代码
+	private String tmaName; // 技术管理领域名称
+   	private boolean tmaInUse;
 
-	public String getCode() {
-		return code;
+	public TecMngArea(String tmaCode, String tmaName, boolean tmaInUse) {
+		this.tmaCode = tmaCode;
+		this.tmaName = tmaName;
+		this.tmaInUse = tmaInUse;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public String getTmaCode() {
+		return tmaCode;
 	}
 
-	public String getName() {
-		return name;
+	public void setTmaCode(String tmaCode) {
+		this.tmaCode = tmaCode;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getTmaName() {
+		return tmaName;
 	}
 
+	public void setTmaName(String tmaName) {
+		this.tmaName = tmaName;
+	}
+
+	public boolean isTmaInUse() {
+		return tmaInUse;
+	}
+
+	public void setTmaInUse(boolean tmaInUse) {
+		this.tmaInUse = tmaInUse;
+	}
 }
