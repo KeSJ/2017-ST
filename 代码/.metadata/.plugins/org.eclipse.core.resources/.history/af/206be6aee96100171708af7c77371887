@@ -1,0 +1,9 @@
+package expense.model;
+
+//Ô¤ËãÏêÏ¸
+public class BudgetDetail {
+	private int budgetDetailId;	//Ô¤ËãÏêÏ¸ID
+	private int budgetItemId;	//Ô¤ËãÌõÄ¿ID
+	private int budgetId;	//Ô¤ËãID
+	private double budgetDetailSum;	//Ô¤ËãÏêÏ¸½ğ¶î 
+}
