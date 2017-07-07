@@ -44,7 +44,21 @@
 		</property>
 	</bean>
 	
-	
+	<!-- System User Manage -->
+	<!-- DAO配置 -->
+	<bean id="financialStaffDAO" class="expense.DAO.FinancialStaffDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- Service配置 -->
+	<!-- <bean id="systemUserService" class="booklib.service.impl.SystemUserServiceImpl">
+		<property name="systemUserDAO" ref="systemUserDAO"></property>
+	</bean>
+	 -->
+	<!-- Action配置 -->
+	<!-- login -->
+	<bean id="login" class="booklib.action.financialStaff.LoginAction" scope="prototype">
+		<property name="financialStaffDAO" ref="financialStaffDAO"></property>
+	</bean>
 	
 </beans>
                

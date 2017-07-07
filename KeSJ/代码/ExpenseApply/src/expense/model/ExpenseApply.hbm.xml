@@ -38,9 +38,9 @@
 		<property name="selfRaised" column="SelfRaised" type="double"></property>
 		<property name="apply" column="Apply" type="double"></property>
 		<property name="budAppTea" column="BudAppTea" type="string" length="10"></property>
-		<property name="budAppDate" column="BudAppDate" type="datetime"></property>
+		<property name="budAppDate" column="BudAppDate" type="date"></property>
 		<property name="budCheckStaff" column="BudCheck" type="string" length="10"></property>
-		<property name="budCheckDate" column="BudCheckDate" type="datetime"></property>
+		<property name="budCheckDate" column="BudCheckDate" type="date"></property>
 		<property name="budResult" column="BudResult" type="boolean"></property>
 		<property name="budRejectReason" column="BudRejectReason" type="string" length="256"></property>
 	</class>
@@ -74,10 +74,10 @@
 		<property name="busAppendNum" column="BAppend" type="int"></property>
 		<property name="busSum" column="BSum" type="double"></property>
 		<property name="busApplyTea" column="BAppTea" type="string" length="10"></property>
-		<property name="busApplyDate" column="BAppDate" type="datetime"></property>
+		<property name="busApplyDate" column="BAppDate" type="date"></property>
 		<property name="busAgent" column="BAgent" type="string" length="10"></property>
 		<property name="busCheckStaff" column="BCheckStaff" type="string" length="10"></property>
-		<property name="busCheckDate" column="BCheckDate" type="datetime"></property>
+		<property name="busCheckDate" column="BCheckDate" type="date"></property>
 		<property name="busResult" column="BResult" type="boolean"></property>
 		<property name="busRejectReason" column="BRejectReason" type="string" length="256"></property>
 	</class>
@@ -114,7 +114,7 @@
 	</class>
 
 	<!-- expense detail 报销汇总表详细  -->
-	<class name="expense.model.ExpendDetail" table="" catalog="expense_apply">
+	<class name="expense.model.ExpendDetail" table="expenddetail" catalog="expense_apply">
 		<id name="expDetId" column="ExpDetId" type="int">
 			<generator class="increment"></generator>
 		</id>
@@ -131,10 +131,10 @@
 		<property name="budId" column="BudId" type="int"></property>
 		<property name="eAppend" column="EAppend" type="int"></property>
 		<property name="eAppTea" column="EAppTea" type="string" length="10"></property>
-		<property name="eAppDate" column="EAppDate" type="datetime"></property>
+		<property name="eAppDate" column="EAppDate" type="date"></property>
 		<property name="eAgent" column="EAgent" type="string" length="20"></property>
 		<property name="eCheckStaff" column="ECheckStaff" type="string" length="10"></property>
-		<property name="eCheckDate" column="ECheckDate" type="datetime"></property>
+		<property name="eCheckDate" column="ECheckDate" type="date"></property>
 		<property name="eResult" column="EResult" type="boolean"></property>
 		<property name="eRejectReason" column="ERejectReason" type="string" length="256"></property>
 	</class>
@@ -153,22 +153,22 @@
 	<class name="expense.model.FinancialStaff" table="financialstaff"
 		catalog="expense_apply">
 		<id name="fsId" column="FSId" type="string" length="10">
-			<generator class=""></generator>
+			<generator class="assigned"></generator>
 		</id>
 		<property name="fsName" column="FSName" type="string" length="20"
 			not-null="true"></property>
 		<property name="fsPwd" column="FSPwd" type="string" length="20"
 			not-null="true"></property>
-		<property name="fsCreateDate" column="FSCreateDate" type="datetime"
+		<property name="fsCreateDate" column="FSCreateDate" type="date"
 			not-null="true"></property>
-		<property name="fsStopDate" column="FSStopDate" type="datetime"></property>
+		<property name="fsStopDate" column="FSStopDate" type="date"></property>
 	</class>
 
 	<!-- project plan category 项目计划类别 -->
 	<class name="expense.model.ProPlanCategory" table="proplancategory"
 		catalog="expense_apply">
 		<id name="ppcCode" column="PPCCode" type="string" length="5">
-			<generator class=""></generator>
+			<generator class="assigned"></generator>
 		</id>
 		<property name="ppcName" column="PPCName" type="string"
 			length="30" not-null="true"></property>
@@ -202,9 +202,9 @@
 			not-null="true"></property>
 		<property name="tCardId" column="TCardId" type="string"
 			length="20" not-null="true"></property>
-		<property name="tCreateDate" column="TCreateDate" type="datetime"
+		<property name="tCreateDate" column="TCreateDate" type="date"
 			not-null="true"></property>
-		<property name="tStopDate" column="TStopDate" type="datetime"></property>
+		<property name="tStopDate" column="TStopDate" type="date"></property>
 	</class>
 
 	<!-- technique management area 技术管理领域 -->
