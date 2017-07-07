@@ -16,6 +16,9 @@ public class LoginAction extends ActionSupport {
 	}
 	
 	public String execute() throws Exception {
+		if(user_email == null || user_email.equals("")){
+			returnMsg = ""
+		}
 		FinancialStaff financialStaff = financialStaffDAO.findFinancialStaff(user_email);
 		if(user_password.equals(financialStaff.getFsPwd())){
 			return SUCCESS;

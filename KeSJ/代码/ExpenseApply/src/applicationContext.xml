@@ -56,7 +56,7 @@
 	 -->
 	<!-- Action配置 -->
 	<!-- login -->
-	<bean id="login" class="booklib.action.financialStaff.LoginAction" scope="prototype">
+	<bean id="login" class="expense.action.financialStaff.LoginAction" scope="prototype">
 		<property name="financialStaffDAO" ref="financialStaffDAO"></property>
 	</bean>
 	
