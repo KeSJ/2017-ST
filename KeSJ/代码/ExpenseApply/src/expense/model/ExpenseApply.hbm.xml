@@ -10,6 +10,7 @@
 		</id>
 		<property name="teacherId" column="TId" type="string" length="10"></property>
 		<property name="acceptSum" column="AcceptSum" type="double"></property>
+		<property name="acceptCardId" column="AcceptCardId" type="string" length="20"></property>
 		<property name="applyId" column="ApplyId" type="int"></property>
 		<property name="applyType" column="ApplyType" type="int"></property>
 	</class>
@@ -200,8 +201,6 @@
 			length="10" not-null="true"></property>
 		<property name="tPhone" column="TPhone" type="string" length="15"
 			not-null="true"></property>
-		<property name="tCardId" column="TCardId" type="string"
-			length="20" not-null="true"></property>
 		<property name="tCreateDate" column="TCreateDate" type="date"
 			not-null="true"></property>
 		<property name="tStopDate" column="TStopDate" type="date"></property>
