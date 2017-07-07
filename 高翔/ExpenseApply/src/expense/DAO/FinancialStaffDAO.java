@@ -36,12 +36,14 @@ public class   FinancialStaffDAO {
         session.getTransaction().commit();
     }
 
-    public FinancialStaff findFinancialStaff(String fsId) {//通过主码查找
+    public FinancialStaff findFinancialStaff(String fsId)
+    {//通过主码查找
         Session session = getSession();
         session.beginTransaction();
         FinancialStaff financialStaff= (FinancialStaff) session.get(FinancialStaff.class, fsId);
         session.getTransaction().commit();
         return financialStaff;
     }
+
 
 }

@@ -8,7 +8,6 @@ public class Teacher {
 	private String tUnit; // 教师单位
 	private String tPosition; // 教师职务
 	private String tPhone;
-	private String tCardId;
 	private Date tCreateDate;
 	private Date tStopDate;
 
@@ -52,14 +51,6 @@ public class Teacher {
 		this.tPhone = tPhone;
 	}
 
-	public String gettCardId() {
-		return tCardId;
-	}
-
-	public void settCardId(String tCardId) {
-		this.tCardId = tCardId;
-	}
-
 	public Date gettCreateDate() {
 		return tCreateDate;
 	}
@@ -76,16 +67,14 @@ public class Teacher {
 		this.tStopDate = tStopDate;
 	}
 
-	public Teacher(String tId, String tName, String tPosition, String tPhone, String tCardId, Date tCreateDate,
-			Date tStopDate) {
+	public Teacher(String tId, String tName, String tUnit, String tPosition, String tPhone, Date tCreateDate, Date tStopDate) {
 
 		this.tId = tId;
 		this.tName = tName;
+		this.tUnit = tUnit;
 		this.tPosition = tPosition;
 		this.tPhone = tPhone;
-		this.tCardId = tCardId;
 		this.tCreateDate = tCreateDate;
 		this.tStopDate = tStopDate;
 	}
-
 }

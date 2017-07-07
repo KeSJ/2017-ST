@@ -44,4 +44,9 @@ public class   ProTecResDAO {
         return proTecRes;
     }
 
+/*    public static void main(String args[]){
+    	ProTecRes proTecRes = new ProTecResDAO().findProTecRes("1");
+    	System.out.println(proTecRes.getPtrName());
+    }*/
+    
 }
