@@ -1,0 +1,88 @@
+package expense.model;
+
+import java.util.Date;
+
+public class User {
+	private String userId;
+	private String userType;
+	private String userPwd;
+	private String userName;
+	private String userUnit; // 教师单位
+	private String userPosition; // 教师职务
+	private String userPhone;
+	private Date userCreateDate;
+	private Date userStopDate;
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public String getUserPwd() {
+		return userPwd;
+	}
+
+	public void setUserPwd(String userPwd) {
+		this.userPwd = userPwd;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserUnit() {
+		return userUnit;
+	}
+
+	public void setUserUnit(String userUnit) {
+		this.userUnit = userUnit;
+	}
+
+	public String getUserPosition() {
+		return userPosition;
+	}
+
+	public void setUserPosition(String userPosition) {
+		this.userPosition = userPosition;
+	}
+
+	public String getUserPhone() {
+		return userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
+	public Date getUserCreateDate() {
+		return userCreateDate;
+	}
+
+	public void setUserCreateDate(Date userCreateDate) {
+		this.userCreateDate = userCreateDate;
+	}
+
+	public Date getUserStopDate() {
+		return userStopDate;
+	}
+
+	public void setUserStopDate(Date userStopDate) {
+		this.userStopDate = userStopDate;
+	}
+
+}

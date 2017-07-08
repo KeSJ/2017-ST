@@ -150,21 +150,6 @@
 		<property name="expInuse" column="ExpInUse" type="boolean"></property>
 	</class>
 
-	<!-- financial staff 财务人员 -->
-	<class name="expense.model.FinancialStaff" table="financialstaff"
-		catalog="expense_apply">
-		<id name="fsId" column="FSId" type="string" length="10">
-			<generator class="assigned"></generator>
-		</id>
-		<property name="fsName" column="FSName" type="string" length="20"
-			not-null="true"></property>
-		<property name="fsPwd" column="FSPwd" type="string" length="20"
-			not-null="true"></property>
-		<property name="fsCreateDate" column="FSCreateDate" type="date"
-			not-null="true"></property>
-		<property name="fsStopDate" column="FSStopDate" type="date"></property>
-	</class>
-
 	<!-- project plan category 项目计划类别 -->
 	<class name="expense.model.ProPlanCategory" table="proplancategory"
 		catalog="expense_apply">
@@ -188,22 +173,26 @@
 			not-null="true"></property>
 	</class>
 
-	<!-- teacher 教师 -->
-	<class name="expense.model.Teacher" table="teacher" catalog="expense_apply">
-		<id name="tId" column="TId" type="string" length="10">
+	<!-- user 系统用户 -->
+	<class name="expense.model.User" table="user" catalog="expense_apply">
+		<id name="userId" column="UserId" type="string" length="10">
 			<generator class="assigned"></generator>
 		</id>
-		<property name="tName" column="TName" type="string" length="20"
+		<property name="userType" column="UserType" type="string" length="10"
 			not-null="true"></property>
-		<property name="tUnit" column="TUnit" type="string" length="20"
+		<property name="userPwd" column="UserPwd" type="string" length="20"
 			not-null="true"></property>
-		<property name="tPosition" column="TPosition" type="string"
+		<property name="userName" column="UserName" type="string" length="20"
+			not-null="true"></property>
+		<property name="userUnit" column="UserUnit" type="string" length="20"
+			not-null="true"></property>
+		<property name="userPosition" column="UserPosition" type="string"
 			length="10" not-null="true"></property>
-		<property name="tPhone" column="TPhone" type="string" length="15"
+		<property name="userPhone" column="UserPhone" type="string" length="15"
 			not-null="true"></property>
-		<property name="tCreateDate" column="TCreateDate" type="date"
+		<property name="userCreateDate" column="UserCreateDate" type="date"
 			not-null="true"></property>
-		<property name="tStopDate" column="TStopDate" type="date"></property>
+		<property name="userStopDate" column="UserStopDate" type="date"></property>
 	</class>
 
 	<!-- technique management area 技术管理领域 -->

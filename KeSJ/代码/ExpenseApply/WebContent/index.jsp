@@ -61,7 +61,7 @@
 					<h2 class="center-align blue-grey-text text-darken-2 light">登录</h2>
 					<div class="row">
 						<div class="col s6 offset-s3 m6 offset-m3">
-							<div class=card-panelteal">
+							<div class=card-panel teal">
 								<div class="trial-form cf centralize">
 									<form class="simple_form user-login" novalidate="novalidate"
 										id="new_user" action="login" accept-charset="UTF-8"
@@ -71,11 +71,11 @@
 											value="VbW0fL3SXRyIJl6EkiQWE7dipPKX/cL4vMtJfOUpwnV4Gw7oxhTek8MfERQMDEFsIukaDguq8hXdRhgF+X73Ag==" />
 										<div class="row">
 											<div class="col m8 offset-m2 s12">
-												<div class="row email required user_email">
+												<div class="row email optional user_email">
 													<div class="input-field col s12">
-														<label class="email required control-label"
+														<label class="email optional control-label"
 															for="user_email">用户名</label><input
-															class="string email required" placeholder="教职工编号"
+															class="string email optional" placeholder="教职工编号"
 															type="text" name="user_email" id="user_email" /><span
 															class="help-block">请输入您的教职工编号</span>
 													</div>
