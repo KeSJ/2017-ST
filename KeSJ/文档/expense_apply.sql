@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-07-06 14:02:57
+Date: 2017-07-09 10:21:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,6 +23,7 @@ CREATE TABLE `accept` (
   `AcceptId` int(11) NOT NULL AUTO_INCREMENT,
   `TId` varchar(10) NOT NULL,
   `AcceptSum` double NOT NULL,
+  `AcceptCardId` varchar(20) NOT NULL,
   `ApplyId` int(11) NOT NULL,
   `ApplyType` int(11) NOT NULL,
   PRIMARY KEY (`AcceptId`)
@@ -63,9 +64,9 @@ CREATE TABLE `budget` (
   `SelfRaised` double NOT NULL,
   `Apply` double NOT NULL,
   `BudAppTea` varchar(10) NOT NULL,
-  `BudAppDate` date NOT NULL,
+  `BudAppDate` datetime NOT NULL,
   `BudCheck` varchar(10) DEFAULT NULL,
-  `BudCheckDate` date DEFAULT NULL,
+  `BudCheckDate` datetime DEFAULT NULL,
   `BudResult` tinyint(1) DEFAULT NULL,
   `BudRejectReason` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`BudId`)
@@ -117,6 +118,22 @@ INSERT INTO `budgetitem` VALUES ('9', '会议费', '1');
 INSERT INTO `budgetitem` VALUES ('10', '激励费', '1');
 INSERT INTO `budgetitem` VALUES ('11', '管理费', '1');
 INSERT INTO `budgetitem` VALUES ('12', '专家咨询费', '1');
+
+-- ----------------------------
+-- Table structure for `busapplyteadetail`
+-- ----------------------------
+DROP TABLE IF EXISTS `busapplyteadetail`;
+CREATE TABLE `busapplyteadetail` (
+  `BusApplyTeaDetailId` int(11) NOT NULL AUTO_INCREMENT,
+  `TeacherName` varchar(11) DEFAULT NULL,
+  `BusinessId` int(11) DEFAULT NULL,
+  `TeachePosition` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`BusApplyTeaDetailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of busapplyteadetail
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `business`
@@ -274,23 +291,6 @@ INSERT INTO `expenseitem` VALUES ('20', '4', '培训费', '1');
 INSERT INTO `expenseitem` VALUES ('21', '11', '其他', '1');
 
 -- ----------------------------
--- Table structure for `financialstaff`
--- ----------------------------
-DROP TABLE IF EXISTS `financialstaff`;
-CREATE TABLE `financialstaff` (
-  `FSId` varchar(10) NOT NULL,
-  `FSName` varchar(20) NOT NULL,
-  `FSPwd` varchar(20) NOT NULL,
-  `FSCreateDate` datetime NOT NULL,
-  `FSStopDate` datetime DEFAULT NULL,
-  PRIMARY KEY (`FSId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of financialstaff
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `proplancategory`
 -- ----------------------------
 DROP TABLE IF EXISTS `proplancategory`;
@@ -370,26 +370,6 @@ INSERT INTO `protecres` VALUES ('2', '产学研合作开发', '1');
 INSERT INTO `protecres` VALUES ('3', '引进技术本企业消化创新', '1');
 
 -- ----------------------------
--- Table structure for `teacher`
--- ----------------------------
-DROP TABLE IF EXISTS `teacher`;
-CREATE TABLE `teacher` (
-  `TId` varchar(10) NOT NULL,
-  `TName` varchar(20) NOT NULL,
-  `TUnit` varchar(20) NOT NULL,
-  `TPosition` varchar(10) NOT NULL,
-  `TPhone` varchar(15) NOT NULL,
-  `TCardId` varchar(20) NOT NULL,
-  `TCreateDate` datetime NOT NULL,
-  `TStopDate` datetime DEFAULT NULL,
-  PRIMARY KEY (`TId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of teacher
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `tecmngarea`
 -- ----------------------------
 DROP TABLE IF EXISTS `tecmngarea`;
@@ -467,3 +447,23 @@ INSERT INTO `tecmngarea` VALUES ('C51', '养殖与捕捞', '1');
 INSERT INTO `tecmngarea` VALUES ('C52', '临港工业', '1');
 INSERT INTO `tecmngarea` VALUES ('C60', '公共安全与防灾减灾', '1');
 INSERT INTO `tecmngarea` VALUES ('D10', '软科学', '1');
+
+-- ----------------------------
+-- Table structure for `user`
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `UserId` varchar(10) NOT NULL,
+  `UserType` varchar(10) NOT NULL,
+  `UserPwd` varchar(20) NOT NULL,
+  `UserName` varchar(20) NOT NULL,
+  `UserPhone` varchar(15) NOT NULL,
+  `UserCreateDate` datetime NOT NULL,
+  `UserStopDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`UserId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', '财务人员', '1', '1', '123456', '2017-07-08 09:56:40', null);
