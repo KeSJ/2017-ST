@@ -7,7 +7,7 @@ import org.hibernate.classic.Session;
 /**
  * Created by lenovo on 2017/7/6 0006.
  */
-public class   TeacherDAO {
+public class   UserDAO {
     private SessionFactory sessionFactory;
 
     public SessionFactory getSessionFactory() {
@@ -22,26 +22,26 @@ public class   TeacherDAO {
         return sessionFactory.getCurrentSession();
     }
 
-    public void addTeacher(Teacher teacher) {//添加
+    public void addUser(User user) {//添加
         Session session = getSession();
         session.beginTransaction();
-        session.save(teacher);
+        session.save(user);
         session.getTransaction().commit();
     }
 
-    public void modifyTeacher(Teacher teacher) {//修改
+    public void modifyUser(User user) {//修改
         Session session = getSession();
         session.beginTransaction();
-        session.update(teacher);
+        session.update(user);
         session.getTransaction().commit();
     }
 
-    public Teacher findTeacher(String tId) {//通过主码查找
+    public User findUser(String userId) {//通过主码查找
         Session session = getSession();
         session.beginTransaction();
-        Teacher teacher = (Teacher) session.get(Teacher.class, tId);
+        User user = (User) session.get(User.class, userId);
         session.getTransaction().commit();
-        return teacher;
+        return user;
     }
 
 }

@@ -3,7 +3,9 @@
 <struts>
 	<package name="struts" namespace="/" extends="struts-default">
 		<action name="login" class="login">
-			<result name="success">NewFile.jsp</result>
+			<result name="staff">main.jsp</result>
+			<result name="teacher">main.jsp</result>
+			<result name="admin">main.jsp</result>
 			<result name="input">index.jsp</result>
 		</action>
 

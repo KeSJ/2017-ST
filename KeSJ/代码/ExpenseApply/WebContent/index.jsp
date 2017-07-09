@@ -76,7 +76,7 @@
 														<label class="email optional control-label"
 															for="user_email">用户名</label><input
 															class="string email optional" placeholder="教职工编号"
-															type="text" name="user_email" id="user_email" /><span
+															type="text" name="user_email" id="user_email"/><span
 															class="help-block">请输入您的教职工编号</span>
 													</div>
 												</div>

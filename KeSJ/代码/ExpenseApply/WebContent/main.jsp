@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport"
@@ -34,8 +35,8 @@ footer {
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="main.html" class="brand-logo bt">学校报销系统</a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="index.html">注销</a></li>
-				<li><a href="#">联系管理员</a></li>
+				<li><a href="#">${currentUserName }</a></li>
+				<li><a href="index.jsp">注销</a></li>
 			</ul>
 		</div>
 	</nav>	
