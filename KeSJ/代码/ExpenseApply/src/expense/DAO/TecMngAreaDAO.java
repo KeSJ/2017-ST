@@ -55,5 +55,14 @@ public class   TecMngAreaDAO {
     	session.getTransaction().commit();
     	return tecMngAreas;
     }
+    
+    public List<TecMngArea> findByNameInUse(String name){
+    	Session session = getSession();
+    	session.beginTransaction();
+    	String hql = "from TecMngArea where tmaName like '%" + name + "%' and tmaInUse = 1 order by tmaCode";
+    	List<TecMngArea> tecMngAreas = session.createQuery(hql).list();
+    	session.getTransaction().commit();
+    	return tecMngAreas;
+    }
 
 }

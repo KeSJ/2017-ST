@@ -41,5 +41,9 @@ public class TecMngAreaService {
 	public List<TecMngArea> findAll(){
 		return tecMngAreaDAO.findByName("");
 	}
+	
+	public List<TecMngArea> findAllInUse(){
+		return tecMngAreaDAO.findByNameInUse("");
+	}
 
 }

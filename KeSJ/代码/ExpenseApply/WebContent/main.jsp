@@ -46,7 +46,7 @@ footer {
 	<div class="col s12 m4 l3">
 	 <div class="collection">
         <a href="#!" class="collection-item active">用戶管理</a>
-  		<a href="budgetrequest.html" class="collection-item">预算申请</a>
+  		<a href="load_budget_req" class="collection-item">预算申请</a>
         <a href="#3" class="collection-item">出差报销</a>
         <a href="#4" class="collection-item">项目报销</a>        
         <a href="#4" class="collection-item">预算申请审核</a>

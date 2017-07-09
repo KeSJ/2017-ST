@@ -40,5 +40,9 @@ public class ProTecResService {
 	public List<ProTecRes> findAll(){
 		return proTecResDAO.findByName("");
 	}
+	
+	public List<ProTecRes> findAllInUse(){
+		return proTecResDAO.findByNameInUse("");
+	}
 
 }

@@ -2,13 +2,22 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="struts" namespace="/" extends="struts-default">
+		<!-- user manage 用户管理 -->
 		<action name="login" class="login">
 			<result name="staff">main.jsp</result>
 			<result name="teacher">main.jsp</result>
 			<result name="admin">main.jsp</result>
 			<result name="input">index.jsp</result>
 		</action>
-
+		<!-- end user manage -->
+		
+		<!-- budget 预算  -->
+		<!-- laod budget requset 加载预算申请界面 -->
+		<action name="load_budget_req" class="load_budget_req" method="loadBudgetRequest">
+			<result name="success">budgetrequest.jsp</result>
+		</action>
+		
+		<!-- end budget -->
 
 	</package>
 </struts>  

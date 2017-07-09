@@ -56,5 +56,12 @@ public class ProTecResDAO {
 		session.getTransaction().commit();
 		return proTecRes;
 	}
-
+	public List<ProTecRes> findByNameInUse(String name) {
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from ProTecRes where ptrName like '%" + name + "%' and ptrInUse = 1 order by ptrCode";
+		List<ProTecRes> proTecRes = session.createQuery(hql).list();
+		session.getTransaction().commit();
+		return proTecRes;
+	}
 }

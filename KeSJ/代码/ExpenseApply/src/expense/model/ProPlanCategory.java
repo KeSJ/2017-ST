@@ -31,6 +31,10 @@ public class ProPlanCategory
 		this.ppcInUse = ppcInUse;
 	}
 
+	public ProPlanCategory(){
+		
+	}
+	
 	public ProPlanCategory(String ppcCode, String ppcName, boolean ppcInUse) {
 
 		this.ppcCode = ppcCode;

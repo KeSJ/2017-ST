@@ -3,6 +3,9 @@ package expense.DAO;
 import expense.model.Appendix;
 import expense.model.BudgetDetail;
 import expense.model.BudgetItem;
+
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -44,5 +47,23 @@ public class BudgetItemDAO {
         BudgetItem budgetItem = (BudgetItem) session.get(BudgetItem.class, budgetItemId);
         session.getTransaction().commit();
         return budgetItem;
+    }
+    
+    public List<BudgetItem> findByName(String name){
+    	Session session = getSession();
+    	session.beginTransaction();
+    	String hql = "from BudgetItem where budgetItemName like '%" + name + "%' order by budgetItemId";
+    	List<BudgetItem> budgetItems = session.createQuery(hql).list();
+    	session.getTransaction().commit();
+    	return budgetItems;
+    }
+    
+    public List<BudgetItem> findByNameInUse(String name){
+    	Session session = getSession();
+    	session.beginTransaction();
+    	String hql = "from BudgetItem where budgetItemName like '%" + name + "%' and budgetInUse = 1 order by budgetItemId";
+    	List<BudgetItem> budgetItems = session.createQuery(hql).list();
+    	session.getTransaction().commit();
+    	return budgetItems;
     }
 }

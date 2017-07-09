@@ -14,7 +14,7 @@ import expense.service.ProTecResService;
 import expense.service.TecMngAreaService;
 
 public class BudgetAction extends ActionSupport {
-	private ProPlanCategoryService planCategoryService;
+	private ProPlanCategoryService proPlanCategoryService;
 	private ProTecResService proTecResService;
 	private TecMngAreaService tecMngAreaService;
 	private BudgetItemService budgetItemService;
@@ -25,15 +25,19 @@ public class BudgetAction extends ActionSupport {
 	private List<BudgetItem> budgetItems;
 
 	public String loadBudgetRequest() throws Exception {
-		proPlanCategories = planCategoryService.
+		proPlanCategories = proPlanCategoryService.findAllInUse();
+		proTecReses = proTecResService.findAllInUse();
+		tecMngAreas = tecMngAreaService.findAllInUse();
+		budgetItems = budgetItemService.findAllInUse();
+		return SUCCESS;
 	}
 
-	public ProPlanCategoryService getPlanCategoryService() {
-		return planCategoryService;
+	public ProPlanCategoryService getProPlanCategoryService() {
+		return proPlanCategoryService;
 	}
 
-	public void setPlanCategoryService(ProPlanCategoryService planCategoryService) {
-		this.planCategoryService = planCategoryService;
+	public void setProPlanCategoryService(ProPlanCategoryService proPlanCategoryService) {
+		this.proPlanCategoryService = proPlanCategoryService;
 	}
 
 	public ProTecResService getProTecResService() {

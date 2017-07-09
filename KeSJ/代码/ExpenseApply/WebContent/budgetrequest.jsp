@@ -77,29 +77,24 @@ footer {
 						<div class="row">
 							<div class="col s12">
 								<div class="input-field col s6">
-									
-									<s:select list="publishers" name="pubid" id="pubid"
-										listKey="pubid" listValue="publisherName"></s:select>
-									<select>
-										<option value="" disable selected></option>
-										<option value="">option test</option>
-									</select> <label>项目计划类别</label>
+									<s:select list="proPlanCategories" name="ppc" id="ppcCode"
+										listKey="ppcCode" listValue="ppcName" headerKey=""
+										headerValue="请选择"></s:select>
+									<label>项目计划类别</label>
 								</div>
 
 								<div class="input-field col s6">
-									<select>
-										<option value="" disable selected></option>
-										<option value="">option test</option>
-									</select> <label>技术管理领域</label>
+									<s:select list="tecMngAreas" name="tma" id="tmaCode"
+										listKey="tmaCode" listValue="tmaName" headerKey=""
+										headerValue="请选择"></s:select>
+									<label>技术管理领域</label>
 								</div>
 
-
-
 								<div class="input-field col s6">
-									<select>
-										<option value="" disable selected></option>
-										<option value="">option test</option>
-									</select> <label>项目技术来源</label>
+									<s:select list="proTecReses" name="ptr" id="ptrCode"
+										listKey="ptrCode" listValue="ptrName" headerKey=""
+										headerValue="请选择"></s:select>
+									<label>项目技术来源</label>
 								</div>
 							</div>
 						</div>
@@ -138,59 +133,31 @@ footer {
 
 							</div>
 						</div>
-						<table class="bordered responsive-table">
+						<table class="bordered responsive-table" >
 							<thead>
 								<tr>
-									<th>预算类目</th>
-									<th>预算金额</th>
 									<th>预算类目</th>
 									<th>预算金额</th>
 								</tr>
 							</thead>
 							<tbody>
+								<s:iterator value="budgetItems" id="list">
 								<tr>
-									<td>item1</td>
+									<td><s:property value="#list.budgetItemName" /></td>
 									<td>
 										<div class="input-field col s12">
 											<label for="money">RMB</label> <input id="money"
-												type="number" class="validate">
-										</div>
-									</td>
-									<td>item1</td>
-									<td>
-										<div class="input-field col s12">
-											<label for="money">RMB</label> <input id="money"
-												type="number" class="validate">
+												type="number" class="validate" value='<s:property value="#list.budgetItemMoney" />'>
 										</div>
 									</td>
 								</tr>
-								<tr>
-									<td>item1</td>
-									<td>
-										<div class="input-field col s12">
-											<label for="money">RMB</label> <input id="money"
-												type="number" class="validate">
-										</div>
-									</td>
-									<td>item1</td>
-									<td>
-										<div class="input-field col s12">
-											<label for="money">RMB</label> <input id="money"
-												type="number" class="validate">
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>item1</td>
-									<td>
-										<div class="input-field col s12">
-											<label for="money">RMB</label> <input id="money"
-												type="number" class="validate">
-										</div>
-									</td>
-								</tr>
-								</tobody>
+								</s:iterator>
+							</tbody>
 						</table>
+						<div class="row">
+						<br>
+						<div class="col s2 offset-s10">
+						<button type="submit" class="btn teal waves-effect waves-light">提交</button></div></div>
 					</form>
 				</div>
 			</div>

@@ -59,6 +59,45 @@
 	<bean id="login" class="expense.action.LoginAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
+	<!-- end user manage -->
+	
+	<!-- budget 预算 -->
+	<!-- DAO配置 -->
+	<bean id="budgetItemDAO" class="expense.DAO.BudgetItemDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="proPlanCategoryDAO" class="expense.DAO.ProPlanCategoryDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="proTecResDAO" class="expense.DAO.ProTecResDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="tecMngAreaDAO" class="expense.DAO.TecMngAreaDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- Service配置 -->
+	<bean id="budgetItemService" class="expense.service.BudgetItemService">
+		<property name="budgetItemDAO" ref="budgetItemDAO"></property>
+	</bean>
+	<bean id="proPlanCategoryService" class="expense.service.ProPlanCategoryService">
+		<property name="proPlanCategoryDAO" ref="proPlanCategoryDAO"></property>
+	</bean>
+	<bean id="proTecResService" class="expense.service.ProTecResService">
+		<property name="proTecResDAO" ref="proTecResDAO"></property>
+	</bean>
+	<bean id="tecMngAreaService" class="expense.service.TecMngAreaService">
+		<property name="tecMngAreaDAO" ref="tecMngAreaDAO"></property>
+	</bean>
+	
+	<!-- Action配置 -->
+	<bean id="load_budget_req" class="expense.action.BudgetAction" scope="prototype">
+		<property name="budgetItemService" ref="budgetItemService"></property>
+		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
+		<property name="proTecResService" ref="proTecResService"></property>
+		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
+	</bean>
+	<!-- end budget 预算 -->
 	
 </beans>
                

@@ -40,6 +40,8 @@ public class ProPlanCategoryService {
 		return proPlanCategoryDAO.findProPlanCategoryByName("");
 	}
 	
-	public 
+	public List<ProPlanCategory> findAllInUse(){
+		return proPlanCategoryDAO.findByNameInUser("");
+	}
 
 }
