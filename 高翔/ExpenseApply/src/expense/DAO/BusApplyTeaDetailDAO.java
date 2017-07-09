@@ -1,13 +1,13 @@
 package expense.DAO;
 
-import expense.model.*;
+import expense.model.BusApplyTeaDetail;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
 /**
- * Created by lenovo on 2017/7/6 0006.
+ * Created by lenovo on 2017/7/9 0009.
  */
-public class   FinancialStaffDAO {
+public class BusApplyTeaDetailDAO {
     private SessionFactory sessionFactory;
 
     public SessionFactory getSessionFactory() {
@@ -22,28 +22,26 @@ public class   FinancialStaffDAO {
         return sessionFactory.getCurrentSession();
     }
 
-    public void addFinancialStaff(FinancialStaff financialStaff) {//添加
+    public void addBusApplyTeaDetail(BusApplyTeaDetail busApplyTeaDetail) {//添加
         Session session = getSession();
         session.beginTransaction();
-        session.save(financialStaff);
+        session.save(busApplyTeaDetail);
         session.getTransaction().commit();
     }
 
-    public void modifyFinancialStaff(FinancialStaff financialStaff) {//修改
+    public void modifyBudgetItem(BusApplyTeaDetail busApplyTeaDetail) {//修改
         Session session = getSession();
         session.beginTransaction();
-        session.update(financialStaff);
+        session.update(busApplyTeaDetail);
         session.getTransaction().commit();
     }
 
-    public FinancialStaff findFinancialStaff(String fsId)
-    {//通过主码查找
+    public BusApplyTeaDetail findBusApplyTeaDetail(String busApplyTeaDetailId) {//通过主码查找
         Session session = getSession();
         session.beginTransaction();
-        FinancialStaff financialStaff= (FinancialStaff) session.get(FinancialStaff.class, fsId);
+        BusApplyTeaDetail busApplyTeaDetail = (BusApplyTeaDetail) session.get(BusApplyTeaDetail.class, busApplyTeaDetailId);
         session.getTransaction().commit();
-        return financialStaff;
+        return busApplyTeaDetail;
     }
-
 
 }
