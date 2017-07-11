@@ -7,8 +7,6 @@ public class User {
 	private String userType;
 	private String userPwd;
 	private String userName;
-	private String userUnit; // 教师单位
-	private String userPosition; // 教师职务
 	private String userPhone;
 	private Date userCreateDate;
 	private Date userStopDate;
@@ -43,22 +41,6 @@ public class User {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-
-	public String getUserUnit() {
-		return userUnit;
-	}
-
-	public void setUserUnit(String userUnit) {
-		this.userUnit = userUnit;
-	}
-
-	public String getUserPosition() {
-		return userPosition;
-	}
-
-	public void setUserPosition(String userPosition) {
-		this.userPosition = userPosition;
 	}
 
 	public String getUserPhone() {

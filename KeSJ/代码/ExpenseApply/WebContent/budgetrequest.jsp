@@ -64,12 +64,13 @@ footer {
 
 			<div class="col s12 m8 l9">
 				<div class="card-panel white">
-					<form action="budget_request">
+					<form action="budget_request" method="post">
 						<div class="row">
 							<div class="col s12">
 								<div class="input-field col s6">
-									<input placeholder="请输入项目名称" id="project_name" type="text"
-										class="validate"> <label for="project_name">项目名称</label>
+									<input placeholder="请输入项目名称" id="project_name"
+										name="project_name" type="text" class="validate"> <label
+										for="project_name">项目名称</label>
 								</div>
 							</div>
 						</div>
@@ -77,21 +78,21 @@ footer {
 						<div class="row">
 							<div class="col s12">
 								<div class="input-field col s6">
-									<s:select list="proPlanCategories" name="ppc" id="ppcCode"
+									<s:select list="proPlanCategories" name="ppcCode" id="ppcCode"
 										listKey="ppcCode" listValue="ppcName" headerKey=""
 										headerValue="请选择"></s:select>
 									<label>项目计划类别</label>
 								</div>
 
 								<div class="input-field col s6">
-									<s:select list="tecMngAreas" name="tma" id="tmaCode"
+									<s:select list="tecMngAreas" name="tmaCode" id="tmaCode"
 										listKey="tmaCode" listValue="tmaName" headerKey=""
 										headerValue="请选择"></s:select>
 									<label>技术管理领域</label>
 								</div>
 
 								<div class="input-field col s6">
-									<s:select list="proTecReses" name="ptr" id="ptrCode"
+									<s:select list="proTecReses" name="ptrCode" id="ptrCode"
 										listKey="ptrCode" listValue="ptrName" headerKey=""
 										headerValue="请选择"></s:select>
 									<label>项目技术来源</label>
@@ -102,12 +103,13 @@ footer {
 						<div class="row">
 							<div class="col s12">
 								<div class="input-field col s6">
-									<label class=" " for="start_time">开始日期</label> <input
-										placeholder="" id="start_time" type="text" class="datepicker">
+									<label for="start_time">开始日期</label> <input
+										id="start_time" name="start_time" type="text"
+										class="datepicker">
 								</div>
 								<div class="input-field col s6">
-									<label for="end_time">结束日期</label> <input placeholder=""
-										id="end_time" type="text" class="datepicker">
+									<label for="end_time">结束日期</label> <input 
+										id="end_time" name="end_time" type="text" class="datepicker">
 								</div>
 							</div>
 						</div>
@@ -115,25 +117,21 @@ footer {
 						<div class="row">
 							<div class="col s12">
 								<div class="input-field col s4">
-									<input placeholder="RMB" id="total_price" type="number"
-										class="validate"> <label for="project_name">总计</label>
+									<input placeholder="RMB" id="my_price" name="my_price"
+										type="number" step="0.01" class="validate"> <label
+										for="project_name">自筹和配套</label>
 								</div>
 
 								<div class="input-field col s4">
 
-									<input placeholder="RMB" id="my_price" type="number"
-										class="validate"> <label for="project_name">自筹和配套</label>
-								</div>
-
-								<div class="input-field col s4">
-
-									<input placeholder="RMB" id="agencies_price" type="number"
+									<input placeholder="RMB" id="agencies_price"
+										name="agencies_price" type="number" step="0.01"
 										class="validate"> <label for="project_name">向省厅申请</label>
 								</div>
 
 							</div>
 						</div>
-						<table class="bordered responsive-table" >
+						<table class="bordered responsive-table">
 							<thead>
 								<tr>
 									<th>预算类目</th>
@@ -142,22 +140,26 @@ footer {
 							</thead>
 							<tbody>
 								<s:iterator value="budgetItems" id="list">
-								<tr>
-									<td><s:property value="#list.budgetItemName" /></td>
-									<td>
-										<div class="input-field col s12">
-											<label for="money">RMB</label> <input id="money"
-												type="number" class="validate" value='<s:property value="#list.budgetItemMoney" />'>
-										</div>
-									</td>
-								</tr>
+									<tr>
+										<td><s:property value="#list.budgetItemName" />
+										</td>
+										<td>
+											<div class="input-field col s12">
+												<label for="money">RMB</label> <input
+													id="itemMoney" name="itemMoney" type="number" step="0.01"
+													class="validate" value="#list.budgetItemMoney">
+											</div>
+										</td>
+									</tr>
 								</s:iterator>
 							</tbody>
 						</table>
 						<div class="row">
-						<br>
-						<div class="col s2 offset-s10">
-						<button type="submit" class="btn teal waves-effect waves-light">提交</button></div></div>
+							<br>
+							<div class="col s2 offset-s10">
+								<button type="submit" class="btn teal waves-effect waves-light">提交</button>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>

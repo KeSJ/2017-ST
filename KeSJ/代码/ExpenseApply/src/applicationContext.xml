@@ -75,6 +75,12 @@
 	<bean id="tecMngAreaDAO" class="expense.DAO.TecMngAreaDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="budgetDAO" class="expense.DAO.BudgetDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="budgetDetailDAO" class="expense.DAO.BudgetDetailDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<!-- Service配置 -->
 	<bean id="budgetItemService" class="expense.service.BudgetItemService">
@@ -89,6 +95,12 @@
 	<bean id="tecMngAreaService" class="expense.service.TecMngAreaService">
 		<property name="tecMngAreaDAO" ref="tecMngAreaDAO"></property>
 	</bean>
+	<bean id="budgetService" class="expense.service.BudgetService">
+		<property name="budgetDAO" ref="budgetDAO"></property>
+	</bean>
+	<bean id="budgetDetailService" class="expense.service.BudgetDetailService">
+		<property name="budgetDetailDAO" ref="budgetDetailDAO"></property>
+	</bean>
 	
 	<!-- Action配置 -->
 	<bean id="load_budget_req" class="expense.action.BudgetAction" scope="prototype">
@@ -96,6 +108,10 @@
 		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
 		<property name="proTecResService" ref="proTecResService"></property>
 		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
+	</bean>
+	<bean id="budget_request" class="expense.action.BudgetAction" scope="prototype">
+		<property name="budgetService" ref="budgetService"></property>
+		<property name="budgetDetailService" ref="budgetDetailService"></property>
 	</bean>
 	<!-- end budget 预算 -->
 	

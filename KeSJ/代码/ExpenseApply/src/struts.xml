@@ -16,6 +16,9 @@
 		<action name="load_budget_req" class="load_budget_req" method="loadBudgetRequest">
 			<result name="success">budgetrequest.jsp</result>
 		</action>
+		<action name="budget_request" class="budget_request" method="budgetRequest">
+			<result name="success">main.jsp</result>
+		</action>
 		
 		<!-- end budget -->
 

@@ -184,10 +184,6 @@
 			not-null="true"></property>
 		<property name="userName" column="UserName" type="string" length="20"
 			not-null="true"></property>
-		<property name="userUnit" column="UserUnit" type="string" length="20"
-			not-null="true"></property>
-		<property name="userPosition" column="UserPosition" type="string"
-			length="10" not-null="true"></property>
 		<property name="userPhone" column="UserPhone" type="string" length="15"
 			not-null="true"></property>
 		<property name="userCreateDate" column="UserCreateDate" type="date"
