@@ -5691,7 +5691,7 @@ button.btn-floating {
   display: none;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 0rem;
 }
 
 .side-nav .collapsible,
@@ -7350,7 +7350,6 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active a,
-.side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active a {
   color: #fff;
 }
 

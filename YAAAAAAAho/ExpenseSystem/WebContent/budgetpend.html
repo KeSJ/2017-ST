@@ -44,14 +44,14 @@ footer {
 		<div class="row">
 			<div class="col s12 m4 l3">
 				<div class="collection">
-					<a href="main.html" class="collection-item">用戶管理</a>
-					<a	 href="budgetrequest.html" class="collection-item">预算申请</a>
-					<a href="bussexp.html" class="collection-item">出差报销</a>
-					<a href="projectexp.html" class="collection-item">项目报销</a>
-					<a href="#!" class="collection-item active">预算申请审核</a>
-					<a href="busspend.html" class="collection-item">出差报销审核</a>
-					<a href="projectpend.html" class="collection-item">项目报销审核</a>
-					<a href="statistics.html" class="collection-item">统计分析</a>
+					<a href="main.html" class="collection-item">用戶管理</a> <a
+						href="budgetrequest.html" class="collection-item">预算申请</a> <a
+						href="bussexp.html" class="collection-item">出差报销</a> <a
+						href="projectexp.html" class="collection-item">项目报销</a> <a
+						href="#!" class="collection-item active">预算申请审核</a> <a
+						href="busspend.html" class="collection-item">出差报销审核</a> <a
+						href="projectpend.html" class="collection-item">项目报销审核</a> <a
+						href="statistics.html" class="collection-item">统计分析</a>
 				</div>
 			</div>
 
@@ -59,110 +59,125 @@ footer {
 				<div class="card-panel white">
 					<div class="row">
 						<div class="col s12">
-							<h6>
-								<strong>报销单位及人员信息</strong>
-							</h6>
-							<div class="input-field col s6">
-								<input placeholder="请输入单位名称" id="project_name" type="text"
-									class="validate"> <label for="project_name">单位</label>
-							</div>
-						<div class="input-field col s6">
-							<select><option value="" disable selected></option>
-								<option value="1">option test</option>
-							</select> <label>经费项目代码</label>
-					</div>
-					</div>
-					</div>
-					<div class="row">
-						<div class="col s12">
-							<h6>报销单据</h6>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col s12">
-							<div class="input-field col s4">
-								<input placeholder="请输入整数" id="qu_bill" type="number"
-									class="validate"><label for="qu_bill">单据数量</label>
-							</div>
-							<form action="#">
-								<div class="file-field input-field col s8">
-									<div class="waves-effect waves-light btn">
-										<span>文件</span> <input type="file" multiple>
+							<ul class="collapsible" data-collapsible="accordion">
+								<li><div class="collapsible-header active">
+										待办预算<span class="new badge">4</span>
 									</div>
-									<div class="file-path-wrapper">
-										<input class="file-path validate" type="text"
-											placeholder="请上传单据，数量多时请用压缩文件">
-									</div>
-								</div>
-						</div>
-						</form>
-					</div>
-					<div class="row">
-						<div class="col s12">
-							<table>
-								<thead>
-									<tr>
-										<th>报销条目</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><a class="btn-floating waves-effect waves-light red"><i
-												class="material-icons">add</i></a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-						<div class="col s12">
-							<table>
-								<thead>
-									<tr>
-										<th>核准报销金额</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><a class="btn-floating waves-effect waves-light red"><i
-												class="material-icons">add</i></a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="col s12">
-							<div class="input-field col s6">
-								<input type="number" id="total_money"><label
-									for="total_money">合计金额</label>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col s12">
-							<h6>转卡人信息</h6>
-							<div class="input-field col s2">
-								<input type="text" id="teacher_id" placeholder="请输入登录账号"><label
-									for="teacher_id">工号</label>
-							</div>
-							<div class="input-field col s3">
-								<input type="text" id="teacher_name" placeholder=" "><label
-									for="teacher_name">姓名</label>
-							</div>
-							<div class="input-field col s5">
-								<input type="text" id="bank_id" placeholder=" "><label
-									for="bank_id">银行卡号</label>
-							</div>
-							<div class="input-field col s2">
-								<input type="text" id="exp_money" placeholder="RMB"><label
-									for="exp_money">转账金额</label>
-							</div>
-							<a class="btn-floating waves-effect waves-light red"><i
-								class="material-icons">add</i></a>
+									<div class="collapsible-body">
+										<table>
+											<thead>
+												<tr>
+													<th data-field="project_name">项目名称</th>
+													<th data-field="teacher_req">申请人</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><a href="#1">project 1</a></td>
+													<td>teacher 1</td>
+											</tbody>
+										</table>
+									</div></li>
+							</ul>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="right col offset-s2 s2">
-							<button type="submit" class="btn teal waves-effect waves-light">提交</button>
+						<div class="col s12">
+							<ul class="collapsible" data-collapsible="accordion">
+								<li><div class="collapsible-header">
+										预算条目<span class="badge">6</span>
+									</div>
+									<div class="collapsible-body" style="padding: 2rem">
+										<label for id="chips1">增加条目输入后按回车</label>
+										<div class="chips chips-initial" id="chips1"></div>
+									</div></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col s12">
+							<ul class="collapsible" data-collapsible="accordion">
+								<li><div class="collapsible-header">预算申请审批</div>
+									<div class="collapsible-body" style="padding: 2rem">
+										<div class="row">
+											<div class="col s12">
+												<h6>
+													<strong>报销单位及人员信息</strong>
+												</h6>
+
+												<table class="bordered">
+													<tr>
+														<th style="color: teal">项目名称</front></th>
+														<td>project name</td>
+													</tr>
+													<tr>
+														<th style="color: teal">项目计划类别</th>
+														<td>teacher plan</td>
+														<th style="color: teal">技术管理领域</th>
+														<td>tec. manager</td>
+													</tr>
+													<tr>
+														<th style="color: teal">项目技术来源</th>
+														<td>tec. origin</td>
+														<th style="color: teal">&nbsp;</th>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<th style="color: teal">开始日期</th>
+														<td>start time</td>
+														<th style="color: teal">结束日期</th>
+														<td>end time</td>
+													</tr>
+
+
+												</table>
+
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col s12">
+												<h6>预算总计</h6>
+												<table class="bordered">
+													<tr>
+														<th style="color: teal">总计</th>
+														<td>total money</td>
+														<th style="color: teal">&nbsp;</th>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<th style="color: teal">自筹和配套</th>
+														<td>&RMB</td>
+														<th style="color: teal">向省厅申请</th>
+														<td>&RMB</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col s12">
+												<h6>报销条目</h6>
+												<div class="row">
+													<div class="col s12">
+														<table>
+															<thead>
+																<tr>
+																	<th style="color: teal">报销条目</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div></li>
+							</ul>
 						</div>
 					</div>
 				</div>
