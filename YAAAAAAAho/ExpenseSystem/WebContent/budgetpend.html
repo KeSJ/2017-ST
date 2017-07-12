@@ -48,8 +48,8 @@ footer {
 						href="budgetrequest.html" class="collection-item">预算申请</a> <a
 						href="bussexp.html" class="collection-item">出差报销</a> <a
 						href="projectexp.html" class="collection-item">项目报销</a> <a
-						href="budgetpend.html" class="collection-item">预算申请审核</a> <a
-						href="#!" class="collection-item active">出差报销审核</a> <a
+						href="#!" class="collection-item active">预算申请审核</a> <a
+						href="busspend.html" class="collection-item">出差报销审核</a> <a
 						href="projectpend.html" class="collection-item">项目报销审核</a> <a
 						href="statistics.html" class="collection-item">统计分析</a>
 				</div>
@@ -61,7 +61,7 @@ footer {
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
 								<li><div class="collapsible-header active">
-										待办出差报销<span class="new badge">4</span>
+										待办预算<span class="new badge">4</span>
 									</div>
 									<div class="collapsible-body">
 										<table>
@@ -122,43 +122,39 @@ footer {
 					<div class="row">
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
-								<li><div class="collapsible-header">出差报销审批</div>
+								<li><div class="collapsible-header">预算申请审批</div>
 									<div class="collapsible-body" style="padding: 2rem">
 										<div class="row">
 											<div class="col s12">
+
 												<h6>
 													<strong>报销单位及人员信息</strong>
 												</h6>
 
 												<table class="bordered">
 													<tr>
-														<th style="color: teal">单位</front></th>
-														<td>org. name</td>
-													</tr>
-													<tr>
-														<th style="color: teal">报销人</th>
-														<td>teacher name</td>
-														<th style="color: teal">职称（务）</th>
-														<td>professor</td>
-													</tr>
-													<tr>
-														<th style="color: teal">报销人</th>
-														<td>teacher name</td>
-														<th style="color: teal">职称（务）</th>
-														<td>professor</td>
-													</tr>
-													<tr>
-														<th style="color: teal">报销人</th>
-														<td>teacher name</td>
-														<th style="color: teal">职称（务）</th>
-														<td>professor</td>
-													</tr>
-													<tr>
-														<th style="color: teal">项目经费代码</th>
+														<th style="color: teal">项目名称</front></th>
 														<td>project name</td>
-														<th style="color: teal">出差事由</th>
-														<td>reason</td>
 													</tr>
+													<tr>
+														<th style="color: teal">项目计划类别</th>
+														<td>teacher plan</td>
+														<th style="color: teal">技术管理领域</th>
+														<td>tec. manager</td>
+													</tr>
+													<tr>
+														<th style="color: teal">项目技术来源</th>
+														<td>tec. origin</td>
+														<th style="color: teal">&nbsp;</th>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<th style="color: teal">开始日期</th>
+														<td>start time</td>
+														<th style="color: teal">结束日期</th>
+														<td>end time</td>
+													</tr>
+
 
 												</table>
 
@@ -167,10 +163,19 @@ footer {
 
 										<div class="row">
 											<div class="col s12">
-												<h6>报销单据</h6>
-												<table>
+												<h6>预算总计</h6>
+												<table class="bordered">
 													<tr>
-														<th style="color: teal">单据下载</th>
+														<th style="color: teal">总计</th>
+														<td>total money</td>
+														<th style="color: teal">&nbsp;</th>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<th style="color: teal">自筹和配套</th>
+														<td>&RMB</td>
+														<th style="color: teal">向省厅申请</th>
+														<td>&RMB</td>
 													</tr>
 												</table>
 											</div>
@@ -194,63 +199,20 @@ footer {
 															</tbody>
 														</table>
 													</div>
-
-													<div class="col s12">
-														<table>
-															<thead>
-																<tr>
-																	<th style="color: teal">核准报销金额</th>
-																</tr>
-															</thead>
-															<tbody>
-																<tr>
-																	<td></td>
-																</tr>
-															</tbody>
-														</table>
-													</div>
-													<div class="col s12">
-														<table>
-															<tr>
-																<th style="color: teal">合计金额</th>
-																<td>total money</td>
-															</tr>
-														</table>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col s12">
-														<h6>转卡人信息</h6>
-														<table>
-															<thead>
-																<tr>
-																	<th style="color: teal">工号</th>
-																	<th style="color: teal">姓名</th>
-																	<th style="color: teal">银行卡号</th>
-																	<th style="color: teal">转账金额</th>
-																</tr>
-															</thead>
-															<tbody>
-																<tr>
-																	<td>teacher id</td>
-																	<td>teacher name</td>
-																	<td>bank id</td>
-																	<td>money</td>
-																</tr>
-															</tbody>
-														</table>
-														
-													</div>
 												</div>
 											</div>
-											<div class="row">
-										<div class="col offset-s8">
-										<a href="#1" class="btn  waves-effect waves-light">通过</a>
-										<a href="#1" class="btn  waves-effect waves-light red light-2">拒绝</a></div></div></li>
+
+										</div>
+
+										<div class="row">
+											<div class="col offset-s8">
+												<a href="#1" class="btn  waves-effect waves-light">通过</a> <a
+													href="#1" class="btn  waves-effect waves-light red light-2">拒绝</a>
+											</div>
+										</div></li>
 							</ul>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>

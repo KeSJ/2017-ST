@@ -1,7 +1,9 @@
 package expense.DAO;
 
-import expense.model.Appendix;
 import expense.model.Budget;
+
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -37,7 +39,7 @@ public class BudgetDAO {
 		session.getTransaction().commit();
 	}
 
-	public Budget findBudet(String budId) {// 通过主码查找
+	public Budget findBudet(int budId) {// 通过主码查找
 		Session session = getSession();
 		session.beginTransaction();
 		Budget budget = (Budget) session.get(Budget.class, budId);
@@ -45,6 +47,23 @@ public class BudgetDAO {
 		return budget;
 	}
 	
+	public List<Budget> findByName(String name){
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from Budget where projectName like '%" + name + "%' order by budId";
+		List<Budget> budgets = session.createQuery(hql).list();
+		session.getTransaction().commit();
+		return budgets;
+	}
 	
+	public List<Budget> findByNameUnpend(String name){
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from Budget where projectName like '%" + name + "%' and budCheckStaff is null order by budId";
+		List<Budget> budgets = session.createQuery(hql).list();
+		session.getTransaction().commit();
+		return budgets;
+		
+	}
 
 }

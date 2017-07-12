@@ -41,7 +41,16 @@ public class BudgetAction extends ActionSupport {
 	private int my_price;
 	private int agencies_price;
 	private double itemMoney[];
+
+	private List<Budget> budgets;
+	private int id;
+	private Budget budget;
+	private double totalMoney;
+	private String ppcN;
+	private String tmaN;
+	private String ptrN;
 	
+
 	private String returnMsg;
 
 	public String loadBudgetRequest() throws Exception {
@@ -51,8 +60,8 @@ public class BudgetAction extends ActionSupport {
 		budgetItems = budgetItemService.findAllInUse();
 		return SUCCESS;
 	}
-	
-	public String budgetRequest() throws Exception{
+
+	public String budgetRequest() throws Exception {
 		Budget budget = new Budget();
 		budget.setPpcCode(ppcCode);
 		budget.setTmaCode(tmaCode);
@@ -65,8 +74,8 @@ public class BudgetAction extends ActionSupport {
 		budget.setBudAppTea(ActionContext.getContext().getSession().get("currentUserId").toString());
 		budget.setBudAppDate(new Date(System.currentTimeMillis()));
 		budgetService.addBudget(budget);
-		for(int i = 0; i < itemMoney.length; i++){
-			if(itemMoney[i] > 0){
+		for (int i = 0; i < itemMoney.length; i++) {
+			if (itemMoney[i] > 0) {
 				BudgetDetail budgetDetail = new BudgetDetail();
 				budgetDetail.setBudgetDetailSum(itemMoney[i]);
 				budgetDetail.setBudgetId(budget.getBudId());
@@ -75,6 +84,34 @@ public class BudgetAction extends ActionSupport {
 			}
 		}
 		returnMsg = "申请成功，请等待财务人员审核";
+		return SUCCESS;
+	}
+
+	public String loadBudgetPend() {
+		budgets = budgetService.findAllBudgetsUnpend();
+		if (id != 0) {
+			budget = budgetService.findBudget(id);
+			ppcN = proPlanCategoryService.findProPlanCategory(budget.getPpcCode()).getPpcName();
+			ptrN = proTecResService.findProTecRes(budget.getPtrCode()).getPtrName();
+			tmaN = tecMngAreaService.findTecMngArea(budget.getTmaCode()).getTmaName();
+			totalMoney = budget.getApply() + budget.getSelfRaised();
+			List<BudgetDetail> budgetDetails = budgetDetailService.findByBudId(id);
+			budgetItems = budgetItemService.findAllInUse();
+			int j = 0;
+			int i = 0;
+			while(i < budgetItems.size() && j < budgetDetails.size()){
+				BudgetItem budgetItem = budgetItems.get(i);
+				int budgetItemId = budgetDetails.get(j).getBudgetItemId();
+				if(budgetItem.getBudgetItemId() == budgetItemId){
+					budgetItems.get(i).setBudgetItemMoney(budgetDetails.get(j).getBudgetDetailSum());
+					j++;
+				}
+				i++;
+			}
+		} /*
+			 * else { budget =
+			 * budgetService.findBudget(budgets.get(1).getBudId()); }
+			 */
 		return SUCCESS;
 	}
 
@@ -182,8 +219,36 @@ public class BudgetAction extends ActionSupport {
 		this.itemMoney = itemMoney;
 	}
 
+	public List<Budget> getBudgets() {
+		return budgets;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Budget getBudget() {
+		return budget;
+	}
+
+	public double getTotalMoney() {
+		return totalMoney;
+	}
+
+	public String getPpcN() {
+		return ppcN;
+	}
+
+	public String getTmaN() {
+		return tmaN;
+	}
+
+	public String getPtrN() {
+		return ptrN;
+	}
+
 	public String getReturnMsg() {
 		return returnMsg;
 	}
-	
+
 }
