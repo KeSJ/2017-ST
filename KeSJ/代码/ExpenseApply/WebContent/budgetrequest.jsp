@@ -147,7 +147,7 @@ footer {
 											<div class="input-field col s12">
 												<label for="money">RMB</label> <input
 													id="itemMoney" name="itemMoney" type="number" step="0.01"
-													class="validate" value="#list.budgetItemMoney">
+													class="validate">
 											</div>
 										</td>
 									</tr>

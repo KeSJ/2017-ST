@@ -113,6 +113,14 @@
 		<property name="budgetService" ref="budgetService"></property>
 		<property name="budgetDetailService" ref="budgetDetailService"></property>
 	</bean>
+	<bean id="load_budget_pend" class="expense.action.BudgetAction" scope="prototype">
+		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
+		<property name="proTecResService" ref="proTecResService"></property>
+		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
+		<property name="budgetService" ref="budgetService"></property>
+		<property name="budgetDetailService" ref="budgetDetailService"></property>
+		<property name="budgetItemService" ref="budgetItemService"></property>
+	</bean>
 	<!-- end budget 预算 -->
 	
 </beans>

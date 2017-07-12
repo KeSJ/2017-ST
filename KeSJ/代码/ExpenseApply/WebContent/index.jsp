@@ -89,6 +89,7 @@
 															class="help-block">请输入密码</span>
 													</div>
 												</div>
+												<h6>${returnMsg }</h6>
 												<div class="center input-field row">
 													<button type="submit"
 														class="btn btn-large green waves-effect waves-light s12 col">登录
