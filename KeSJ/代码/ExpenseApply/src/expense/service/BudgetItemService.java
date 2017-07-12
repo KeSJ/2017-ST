@@ -19,7 +19,7 @@ public class BudgetItemService {
 		this.budgetItemDAO = budgetItemDAO;
 	}
 
-	public BudgetItem findBudgetItem(String barcode) {
+	public BudgetItem findBudgetItem(int barcode) {
 		return budgetItemDAO.findBudgetItem(barcode);
 	}
 

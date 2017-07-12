@@ -41,7 +41,7 @@ public class BudgetItemDAO {
         session.getTransaction().commit();
     }
 
-    public BudgetItem findBudgetItem(String budgetItemId) {//通过主码查找
+    public BudgetItem findBudgetItem(int budgetItemId) {//通过主码查找
         Session session = getSession();
         session.beginTransaction();
         BudgetItem budgetItem = (BudgetItem) session.get(BudgetItem.class, budgetItemId);

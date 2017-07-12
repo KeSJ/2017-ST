@@ -82,8 +82,7 @@ footer {
 												<s:iterator value="budgets" id="list">
 													<tr>
 														<td>${list.budId }</td>
-														<td><a id="project"
-															href="load_budget_pend?id=${list.budId }">${list.projectName }</button></td>
+														<td><a href="load_budget_pend?id=${list.budId }">${list.projectName }</button></td>
 														<td>${list.budAppTea }</td>
 													</tr>
 												</s:iterator>
@@ -97,17 +96,47 @@ footer {
 					<div class="row">
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
-								<li><div class="collapsible-header">
-										预算条目<span class="badge">6</span>
+								<li><div class="collapsible-header active">
+										预算条目<span class="badge"><a href="add_bud_item">新增</a></span>
 									</div>
-									<div class="collapsible-body" style="padding: 2rem">
-										<label for id="chips1">增加条目输入后按回车</label>
-										<div class="chips chips-initial" id="chips1"></div>
+									<div class="collapsible-body">
+										<table class="bordered">
+											<thead>
+												<tr>
+													<th>条目编号</th>
+													<th>条目名</th>
+													<th>条目是否可用</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody>
+												<s:iterator value="budgetItemsAll" id="list1">
+													<tr>
+														<td><s:property value="#list1.budgetItemId" /></td>
+														<td><s:property value="#list1.budgetItemName" /></td>
+														<s:if test="#list1.budgetInUse == 1">
+															<td>可用</td>
+															<td>
+															<a
+																href="stop_bud_item?itemId=<s:property value="#list1.budgetItemId" />"
+																class="lighten-1  teal-text text-lighten-2">停用</a>
+															</td>
+														</s:if>
+														<s:else>
+															<td style="color:red">不可用</td>
+															<td><a
+																href="start_bud_item?itemId=<s:property value="#list1.budgetItemId" />"
+																class="lighten-1  teal-text text-darken-3" >启用</a></td>
+														</s:else>
+													</tr>
+												</s:iterator>
+												
+											</tbody>
+										</table>
 									</div></li>
 							</ul>
 						</div>
 					</div>
-
 					<div class="row">
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
@@ -199,8 +228,8 @@ footer {
 										</div>
 										<div class="row">
 											<div class="col offset-s8">
-												<a href="#1" class="btn  waves-effect waves-light">通过</a> <a
-													href="#1" class="btn  waves-effect waves-light red light-2">拒绝</a>
+												<a href="pass_budget?id=${budget.budId }" class="btn  waves-effect waves-light">通过</a> <a
+													href="reject_budget?id=${budget.budId }" class="btn  waves-effect waves-light red light-2">拒绝</a>
 											</div>
 										</div></li>
 							</ul>

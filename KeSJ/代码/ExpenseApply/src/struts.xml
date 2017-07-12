@@ -22,6 +22,18 @@
 		<action name="load_budget_pend" class="load_budget_pend" method="loadBudgetPend">
 			<result name="success">budgetpend.jsp</result>
 		</action>
+		<action name="pass_budget" class="pass_budget" method="passBudget">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="reject_budget" class="reject_budget" method="rejectBudget">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="start_bud_item" class="start_bud_item" method="startBudgetItem">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="stop_bud_item" class="stop_bud_item" method="stopBudgetItem">
+			<result name="success">budgetpend.jsp</result>
+		</action>
 		
 		<!-- end budget -->
 
