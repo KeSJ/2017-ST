@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd ">
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- 指定连接数据库的驱动 -->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<!-- 指定连接数据库的URL -->
+		<property name="url" value="jdbc:mysql://localhost:3306/expense_apply" />
+		<!-- 指定连接数据库的用户名 -->
+		<property name="username" value="root" />
+		<!-- 指定连接数据库的密码 -->
+		<property name="password" value="123456" />
+	</bean>
+
+	<!-- 配置SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop> 
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.connection.autocommit">true </prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="sql_format">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			
+			<!-- 指定hibernate映射文件 -->
+			<list>
+				<value>expense/model/ExpenseApply.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- System User Manage -->
+	<!-- DAO配置 -->
+	<bean id="userDAO" class="expense.DAO.UserDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- Service配置 -->
+	<bean id="userService" class="expense.service.UserService">
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	
+	<!-- Action配置 -->
+	<!-- login -->
+	<bean id="login" class="expense.action.LoginAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<!-- end user manage -->
+	
+	<!-- budget 预算 -->
+	<!-- DAO配置 -->
+	<bean id="budgetItemDAO" class="expense.DAO.BudgetItemDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="proPlanCategoryDAO" class="expense.DAO.ProPlanCategoryDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="proTecResDAO" class="expense.DAO.ProTecResDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="tecMngAreaDAO" class="expense.DAO.TecMngAreaDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="budgetDAO" class="expense.DAO.BudgetDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="budgetDetailDAO" class="expense.DAO.BudgetDetailDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- Service配置 -->
+	<bean id="budgetItemService" class="expense.service.BudgetItemService">
+		<property name="budgetItemDAO" ref="budgetItemDAO"></property>
+	</bean>
+	<bean id="proPlanCategoryService" class="expense.service.ProPlanCategoryService">
+		<property name="proPlanCategoryDAO" ref="proPlanCategoryDAO"></property>
+	</bean>
+	<bean id="proTecResService" class="expense.service.ProTecResService">
+		<property name="proTecResDAO" ref="proTecResDAO"></property>
+	</bean>
+	<bean id="tecMngAreaService" class="expense.service.TecMngAreaService">
+		<property name="tecMngAreaDAO" ref="tecMngAreaDAO"></property>
+	</bean>
+	<bean id="budgetService" class="expense.service.BudgetService">
+		<property name="budgetDAO" ref="budgetDAO"></property>
+	</bean>
+	<bean id="budgetDetailService" class="expense.service.BudgetDetailService">
+		<property name="budgetDetailDAO" ref="budgetDetailDAO"></property>
+	</bean>
+	
+	<!-- Action配置 -->
+	<bean id="load_budget_req" class="expense.action.BudgetAction" scope="prototype">
+		<property name="budgetItemService" ref="budgetItemService"></property>
+		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
+		<property name="proTecResService" ref="proTecResService"></property>
+		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
+	</bean>
+	<bean id="budget_request" class="expense.action.BudgetAction" scope="prototype">
+		<property name="budgetService" ref="budgetService"></property>
+		<property name="budgetDetailService" ref="budgetDetailService"></property>
+	</bean>
+	<!-- end budget 预算 -->
+	
+</beans>
+               

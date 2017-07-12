@@ -85,12 +85,30 @@ footer {
 					<div class="row">
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
-								<li><div class="collapsible-header">
-										预算条目<span class="badge">6</span>
+								<li><div class="collapsible-header active">
+										预算条目<span class="badge"><a href="#1" class="">新增</a></span>
 									</div>
-									<div class="collapsible-body" style="padding: 2rem">
-										<label for id="chips1">增加条目输入后按回车</label>
-										<div class="chips chips-initial" id="chips1"></div>
+									<div class="collapsible-body">
+					<table class="bordered">
+						<thead>
+							<tr>
+								<th data-field="id">条目编号</th>
+								<th data-field="name">条目名</th>
+								<th data-field="type">条目是否可用</th>
+								<th data-field="control">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>item_id</td>
+								<td>item_name</td>
+								<td>Y/N</td>
+								<td><a href="#!" class="lighten-1  teal-text" onclick="function()">可用</a></td>
+								<td><a href="#!" class="lighten-1  teal-text" onclick="function()">不可用</a></td>
+								<td>&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
 									</div></li>
 							</ul>
 						</div>
@@ -103,6 +121,7 @@ footer {
 									<div class="collapsible-body" style="padding: 2rem">
 										<div class="row">
 											<div class="col s12">
+											
 												<h6>
 													<strong>报销单位及人员信息</strong>
 												</h6>
@@ -176,7 +195,16 @@ footer {
 														</table>
 													</div>
 												</div>
-											</div></li>
+											</div>
+
+										</div>
+
+										<div class="row">
+											<div class="col offset-s8">
+												<a href="#1" class="btn  waves-effect waves-light">通过</a> <a
+													href="#1" class="btn  waves-effect waves-light red light-2">拒绝</a>
+											</div>
+										</div></li>
 							</ul>
 						</div>
 					</div>

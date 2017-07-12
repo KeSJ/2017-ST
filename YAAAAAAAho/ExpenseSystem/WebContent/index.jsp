@@ -65,7 +65,7 @@
 								<div class="trial-form cf centralize">
 									<form class="simple_form user-login" novalidate="novalidate"
 										id="new_user" action="login" accept-charset="UTF-8"
-										method="post">
+										method="post" name>
 										<input name="utf8" type="hidden" value="&#x2713;" /><input
 											type="hidden" name="authenticity_token"
 											value="VbW0fL3SXRyIJl6EkiQWE7dipPKX/cL4vMtJfOUpwnV4Gw7oxhTek8MfERQMDEFsIukaDguq8hXdRhgF+X73Ag==" />
@@ -75,7 +75,7 @@
 													<div class="input-field col s12">
 														<label class="email optional control-label"
 															for="user_email" data-error="不可为空">用户名</label>
-															<input class="string email" placeholder="教职工编号"
+															<input class="string email" placeholder="教职工编号" onblur="validateText(this.id,this.value)"
 															type="text" name="user_email" id="user_email" class="validate" required="required"><span
 															class="help-block" >请输入您的教职工编号</span>
 													</div>
@@ -157,4 +157,14 @@
 			<script src="js/materialize.js"></script>
 			<script src="js/init.js"></script>
 </body>
+
+<script language="javascript">
+function validateText(user_email,str){//参数是文本框的ID和值
+if(str==""){
+ alert("1");
+}
+}
+</script>
+
+</script>
 </html>

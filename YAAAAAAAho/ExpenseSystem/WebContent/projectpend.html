@@ -44,14 +44,14 @@ footer {
 		<div class="row">
 			<div class="col s12 m4 l3">
 				<div class="collection">
-					<a href="main.html" class="collection-item">用戶管理</a>
-					<a	 href="budgetrequest.html" class="collection-item">预算申请</a>
-					<a href="bussexp.html" class="collection-item">出差报销</a>
-					<a href="projectexp.html" class="collection-item">项目报销</a>
-					<a href="budgetpend.html" class="collection-item">预算申请审核</a>
-					<a href="busspend.html" class="collection-item">出差报销审核</a>
-					<a href="#!l" class="collection-item active">项目报销审核</a>
-					<a href="statistics.html" class="collection-item">统计分析</a>
+					<a href="main.html" class="collection-item">用戶管理</a> <a
+						href="budgetrequest.html" class="collection-item">预算申请</a> <a
+						href="bussexp.html" class="collection-item">出差报销</a> <a
+						href="projectexp.html" class="collection-item">项目报销</a> <a
+						href="budgetpend.html" class="collection-item">预算申请审核</a> <a
+						href="busspend.html" class="collection-item">出差报销审核</a> <a
+						href="#!l" class="collection-item active">项目报销审核</a> <a
+						href="statistics.html" class="collection-item">统计分析</a>
 				</div>
 			</div>
 
@@ -95,7 +95,7 @@ footer {
 							</ul>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
@@ -112,11 +112,11 @@ footer {
 														<th style="color: teal">单位</front></th>
 														<td>org. name</td>
 													</tr>
-													
+
 													<tr>
 														<th style="color: teal">项目经费代码</th>
 														<td>project name</td>
-														
+
 													</tr>
 
 												</table>
@@ -198,13 +198,31 @@ footer {
 																</tr>
 															</tbody>
 														</table>
-														
+
 													</div>
 												</div>
-											</div></li>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col offset-s8">
+												<a href="#1" class="btn  waves-effect waves-light">通过</a>
+												 <a class="dropdown-button btn  waves-effect waves-light red light-2" data-constrainwidth="false" data-beloworigin="true" href='#'
+													data-activates="dropdown1">拒绝</a>
+
+											</div>
+										</div>
+									</div></li>
 							</ul>
 						</div>
 					</div>
+
+					<ui id="dropdown1" class="dropdown-content">
+					<li><a href="#!">包含条目超出项目预算</a></li>
+					<li><a href="#!">该单位不可报销</a></li>
+					<li><a href="#!">报销单据有误</a>
+					</ui>
 				</div>
 			</div>
 		</div>
