@@ -12,7 +12,7 @@
 		<property name="acceptSum" column="AcceptSum" type="double"></property>
 		<property name="acceptCardId" column="AcceptCardId" type="string" length="20"></property>
 		<property name="applyId" column="ApplyId" type="int"></property>
-		<property name="applyType" column="ApplyType" type="int"></property>
+		<property name="applyType" column="ApplyType" type="string" length="20"></property>
 	</class>
 
 	<!-- appendix 附件 -->
@@ -21,8 +21,10 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="applyId" column="ApplyId" type="int"></property>
-		<property name="applyType" column="ApplyType" type="int"></property>
-		<property name="filePath" column="FilePath" type="string" length="256"></property>
+		<property name="applyType" column="ApplyType" type="string" length="20"></property>
+		<property name="uuidName" column="UuidName" type="string" length="255"></property>
+		<property name="realName" column="RealName" type="string" length="255"></property>
+		<property name="filePath" column="FilePath" type="string" length="255"></property>
 	</class>
 
 	<!-- budget 预算 -->
@@ -39,9 +41,9 @@
 		<property name="selfRaised" column="SelfRaised" type="double"></property>
 		<property name="apply" column="Apply" type="double"></property>
 		<property name="budAppTea" column="BudAppTea" type="string" length="10"></property>
-		<property name="budAppDate" column="BudAppDate" type="date"></property>
+		<property name="budAppDate" column="BudAppDate" type="java.util.Date"></property>
 		<property name="budCheckStaff" column="BudCheck" type="string" length="10"></property>
-		<property name="budCheckDate" column="BudCheckDate" type="date"></property>
+		<property name="budCheckDate" column="BudCheckDate" type="java.util.Date"></property>
 		<property name="budResult" column="BudResult" type="boolean"></property>
 		<property name="budRejectReason" column="BudRejectReason" type="string" length="256"></property>
 	</class>
@@ -70,15 +72,16 @@
 		<id name="businessId" column="BId" type="int">
 			<generator class="increment"></generator>
 		</id>
+		<property name="bUnit" column="BUnit" type="string" length="50"></property>
 		<property name="budgetId" column="BudId" type="int"></property>
 		<property name="busReason" column="BReason" type="string" length="30"></property>
 		<property name="busAppendNum" column="BAppend" type="int"></property>
 		<property name="busSum" column="BSum" type="double"></property>
 		<property name="busApplyTea" column="BAppTea" type="string" length="10"></property>
-		<property name="busApplyDate" column="BAppDate" type="date"></property>
+		<property name="busApplyDate" column="BAppDate" type="java.util.Date"></property>
 		<property name="busAgent" column="BAgent" type="string" length="10"></property>
 		<property name="busCheckStaff" column="BCheckStaff" type="string" length="10"></property>
-		<property name="busCheckDate" column="BCheckDate" type="date"></property>
+		<property name="busCheckDate" column="BCheckDate" type="java.util.Date"></property>
 		<property name="busResult" column="BResult" type="boolean"></property>
 		<property name="busRejectReason" column="BRejectReason" type="string" length="256"></property>
 	</class>
@@ -115,7 +118,7 @@
 	</class>
 
 	<!-- expense detail 报销汇总表详细  -->
-	<class name="expense.model.ExpendDetail" table="expenddetail" catalog="expense_apply">
+	<class name="expense.model.ExpenseDetail" table="expenddetail" catalog="expense_apply">
 		<id name="expDetId" column="ExpDetId" type="int">
 			<generator class="increment"></generator>
 		</id>
@@ -129,13 +132,14 @@
 		<id name="eId" column="EId" type="int">
 			<generator class="increment"></generator>
 		</id>
+		<property name="eUnit" column="EUnit" type="string" length="50"></property>
 		<property name="budId" column="BudId" type="int"></property>
 		<property name="eAppend" column="EAppend" type="int"></property>
 		<property name="eAppTea" column="EAppTea" type="string" length="10"></property>
-		<property name="eAppDate" column="EAppDate" type="date"></property>
+		<property name="eAppDate" column="EAppDate" type="java.util.Date"></property>
 		<property name="eAgent" column="EAgent" type="string" length="20"></property>
 		<property name="eCheckStaff" column="ECheckStaff" type="string" length="10"></property>
-		<property name="eCheckDate" column="ECheckDate" type="date"></property>
+		<property name="eCheckDate" column="ECheckDate" type="java.util.Date"></property>
 		<property name="eResult" column="EResult" type="boolean"></property>
 		<property name="eRejectReason" column="ERejectReason" type="string" length="256"></property>
 	</class>
@@ -186,9 +190,9 @@
 			not-null="true"></property>
 		<property name="userPhone" column="UserPhone" type="string" length="15"
 			not-null="true"></property>
-		<property name="userCreateDate" column="UserCreateDate" type="date"
+		<property name="userCreateDate" column="UserCreateDate" type="java.util.Date"
 			not-null="true"></property>
-		<property name="userStopDate" column="UserStopDate" type="date"></property>
+		<property name="userStopDate" column="UserStopDate" type="java.util.Date"></property>
 	</class>
 
 	<!-- technique management area 技术管理领域 -->

@@ -54,7 +54,7 @@ footer {
 					<a href="main.html" class="collection-item">用戶管理</a> <a href="#!"
 						class="collection-item active">预算申请</a> <a href="bussexp.html"
 						class="collection-item">出差报销</a> <a href="projectexp.html"
-						class="collection-item">项目报销</a> <a href="budgetpend.html"
+						class="collection-item">项目报销</a> <a href="load_budget_pend"
 						class="collection-item">预算申请审核</a> <a href="busspend.html"
 						class="collection-item">出差报销审核</a> <a href="projectpend.html"
 						class="collection-item">项目报销审核</a> <a href="statistics.html"

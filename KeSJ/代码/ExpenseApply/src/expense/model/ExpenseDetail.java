@@ -4,17 +4,17 @@ package expense.model;
  * Created by lenovo on 2017/7/5 0005.
  */
 // 报销汇总表详细
-public class ExpendDetail {
+public class ExpenseDetail {
 	private int expDetId; // 报销汇总表详细ID
 	private int expItemId; // 报销汇总表条目ID
 	private int eId; // 报销汇总表ID
 	private double expDetSum; // 报销金额
 
-	public ExpendDetail() {
+	public ExpenseDetail() {
 
 	}
 
-	public ExpendDetail(int expDetId, int expItemId, int eId, double expDetSum) {
+	public ExpenseDetail(int expDetId, int expItemId, int eId, double expDetSum) {
 		this.expDetId = expDetId;
 		this.expItemId = expItemId;
 		this.eId = eId;

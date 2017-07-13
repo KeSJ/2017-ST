@@ -16,7 +16,7 @@ public class ExpenseService {
     public void setExpenseDAO(ExpenseDAO expenseDAO) {
         this.expenseDAO = expenseDAO;
     }
-    public Expense findExpense(String barcode) {
+    public Expense findExpense(int barcode) {
         return expenseDAO.findExpense(barcode);
     }
     public void addExpense(Expense expense) {

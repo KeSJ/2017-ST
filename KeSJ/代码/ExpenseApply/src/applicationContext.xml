@@ -49,6 +49,7 @@
 	<bean id="userDAO" class="expense.DAO.UserDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
 	<!-- Service配置 -->
 	<bean id="userService" class="expense.service.UserService">
 		<property name="userDAO" ref="userDAO"></property>
@@ -60,6 +61,31 @@
 		<property name="userService" ref="userService"></property>
 	</bean>
 	<!-- end user manage -->
+	
+	
+	<!-- accept -->
+	<!-- dao -->
+	<bean id="acceptDAO" class="expense.DAO.AcceptDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- service -->
+	<bean id="acceptService" class="expense.service.AcceptService">
+		<property name="acceptDAO" ref="acceptDAO"></property>
+	</bean>
+	<!-- end accept -->
+	
+	
+	<!-- appendix -->
+	<!-- dao -->
+	<bean id="appendixDAO" class="expense.DAO.AppendixDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- service -->
+	<bean id="appendixService" class="expense.service.AppendixService">
+		<property name="appendixDAO" ref="appendixDAO"></property>
+	</bean>
+	<!-- end appendix -->
+	
 	
 	<!-- budget 预算 -->
 	<!-- DAO配置 -->
@@ -103,58 +129,51 @@
 	</bean>
 	
 	<!-- Action配置 -->
-	<bean id="load_budget_req" class="expense.action.BudgetAction" scope="prototype">
+	<bean id="budget" class="expense.action.BudgetAction" scope="prototype">
 		<property name="budgetItemService" ref="budgetItemService"></property>
+		<property name="budgetService" ref="budgetService"></property>
+		<property name="budgetDetailService" ref="budgetDetailService"></property>
 		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
 		<property name="proTecResService" ref="proTecResService"></property>
 		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
-	</bean>
-	<bean id="budget_request" class="expense.action.BudgetAction" scope="prototype">
-		<property name="budgetService" ref="budgetService"></property>
-		<property name="budgetDetailService" ref="budgetDetailService"></property>
-		<property name="budgetItemService" ref="budgetItemService"></property>
-	</bean>
-	<bean id="load_budget_pend" class="expense.action.BudgetAction" scope="prototype">
-		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
-		<property name="proTecResService" ref="proTecResService"></property>
-		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
-		<property name="budgetService" ref="budgetService"></property>
-		<property name="budgetDetailService" ref="budgetDetailService"></property>
-		<property name="budgetItemService" ref="budgetItemService"></property>
-	</bean>
-	<bean id="pass_budget" class="expense.action.BudgetAction" scope="prototype">
-		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
-		<property name="proTecResService" ref="proTecResService"></property>
-		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
-		<property name="budgetService" ref="budgetService"></property>
-		<property name="budgetDetailService" ref="budgetDetailService"></property>
-		<property name="budgetItemService" ref="budgetItemService"></property>
-	</bean>
-	<bean id="reject_budget" class="expense.action.BudgetAction" scope="prototype">
-		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
-		<property name="proTecResService" ref="proTecResService"></property>
-		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
-		<property name="budgetService" ref="budgetService"></property>
-		<property name="budgetDetailService" ref="budgetDetailService"></property>
-		<property name="budgetItemService" ref="budgetItemService"></property>
-	</bean>
-	<bean id="start_bud_item" class="expense.action.BudgetAction" scope="prototype">
-		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
-		<property name="proTecResService" ref="proTecResService"></property>
-		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
-		<property name="budgetService" ref="budgetService"></property>
-		<property name="budgetDetailService" ref="budgetDetailService"></property>
-		<property name="budgetItemService" ref="budgetItemService"></property>
-	</bean>
-	<bean id="stop_bud_item" class="expense.action.BudgetAction" scope="prototype">
-		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
-		<property name="proTecResService" ref="proTecResService"></property>
-		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
-		<property name="budgetService" ref="budgetService"></property>
-		<property name="budgetDetailService" ref="budgetDetailService"></property>
-		<property name="budgetItemService" ref="budgetItemService"></property>
 	</bean>
 	<!-- end budget 预算 -->
+	
+	
+	<!-- expense 报销汇总 -->
+	<!-- DAO -->
+	<bean id="expenseItemDAO" class="expense.DAO.ExpenseItemDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="expenseDAO" class="expense.DAO.ExpenseDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="expenseDetailDAO" class="expense.DAO.ExpenseDetailDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- service -->
+	<bean id="expenseItemService" class="expense.service.ExpenseItemService">
+		<property name="expenseItemDAO" ref="expenseItemDAO"></property>
+		<property name="budgetItemDAO" ref="budgetItemDAO"></property>
+	</bean>
+	<bean id="expenseService" class="expense.service.ExpenseService">
+		<property name="expenseDAO" ref="expenseDAO"></property>
+	</bean>
+	<bean id="expenseDetailService" class="expense.service.ExpenseDetailService">
+		<property name="expenseDetailDAO" ref="expenseDetailDAO"></property>
+	</bean>
+	
+	<!-- action -->
+	<bean id="expense" class="expense.action.ExpenseAction" scope="prototype">
+		<property name="expenseItemService" ref="expenseItemService"></property>
+		<property name="expenseService" ref="expenseService"></property>
+		<property name="expenseDetailService" ref="expenseDetailService"></property>
+		<property name="acceptService" ref="acceptService"></property>
+		<property name="appendixService" ref="appendixService"></property>
+	</bean>
+	<!-- end expense -->
+	
 	
 </beans>
                

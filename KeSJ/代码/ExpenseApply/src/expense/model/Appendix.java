@@ -4,8 +4,10 @@ package expense.model;
 public class Appendix {
 	private int appendixId; // 附件ID
 	private int applyId; // 报销表ID
-	private int applyType; // 报销表类型
-	private String filePath;// 附件存储路径
+	private String applyType; // 报销表类型
+	private String uuidName; // uuid名
+	private String realName; // 文件名
+	private String filePath; // 附件存储路径
 
 	public int getAppendixId() {
 		return appendixId;
@@ -23,12 +25,28 @@ public class Appendix {
 		this.applyId = applyId;
 	}
 
-	public int getApplyType() {
+	public String getApplyType() {
 		return applyType;
 	}
 
-	public void setApplyType(int applyType) {
+	public void setApplyType(String applyType) {
 		this.applyType = applyType;
+	}
+
+	public String getUuidName() {
+		return uuidName;
+	}
+
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 
 	public String getFilePath() {

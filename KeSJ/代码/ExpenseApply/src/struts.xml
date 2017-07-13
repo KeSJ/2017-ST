@@ -13,29 +13,40 @@
 		
 		<!-- budget 预算  -->
 		<!-- laod budget requset 加载预算申请界面 -->
-		<action name="load_budget_req" class="load_budget_req" method="loadBudgetRequest">
+		<action name="load_budget_req" class="budget" method="loadBudgetRequest">
 			<result name="success">budgetrequest.jsp</result>
 		</action>
-		<action name="budget_request" class="budget_request" method="budgetRequest">
+		<action name="budget_request" class="budget" method="budgetRequest">
 			<result name="success">main.jsp</result>
 		</action>
-		<action name="load_budget_pend" class="load_budget_pend" method="loadBudgetPend">
+		<action name="load_budget_pend" class="budget" method="loadBudgetPend">
 			<result name="success">budgetpend.jsp</result>
 		</action>
-		<action name="pass_budget" class="pass_budget" method="passBudget">
+		<action name="pass_budget" class="budget" method="passBudget">
 			<result name="success">budgetpend.jsp</result>
 		</action>
-		<action name="reject_budget" class="reject_budget" method="rejectBudget">
+		<action name="reject_budget" class="budget" method="rejectBudget">
 			<result name="success">budgetpend.jsp</result>
 		</action>
-		<action name="start_bud_item" class="start_bud_item" method="startBudgetItem">
+		<action name="start_bud_item" class="budget" method="startBudgetItem">
 			<result name="success">budgetpend.jsp</result>
 		</action>
-		<action name="stop_bud_item" class="stop_bud_item" method="stopBudgetItem">
+		<action name="stop_bud_item" class="budget" method="stopBudgetItem">
 			<result name="success">budgetpend.jsp</result>
+		</action>
+		<!-- end budget -->
+		
+		
+		<!-- expense -->
+		<action name="load_expense_req" class="expense" method="loadExpenseRequest">
+			<result name="success">projectexp.jsp</result>
+		</action>
+		<action name="expense_request" class="expense" method="expenseRequest">
+			<result name="success">main.jsp</result>
+			<result name="input">projectexp.jsp</result>
 		</action>
 		
-		<!-- end budget -->
-
+		
+		<!-- end expense -->
 	</package>
 </struts>  

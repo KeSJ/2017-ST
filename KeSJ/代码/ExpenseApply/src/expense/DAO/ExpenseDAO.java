@@ -36,7 +36,7 @@ public class   ExpenseDAO {
         session.getTransaction().commit();
     }
 
-    public Expense findExpense(String eId) {//通过主码查找
+    public Expense findExpense(int eId) {//通过主码查找
         Session session = getSession();
         session.beginTransaction();
         Expense expense = (Expense) session.get(Expense.class, eId);

@@ -5,6 +5,7 @@ import java.util.Date;
 //出差报销单
 public class Business {
 	private int businessId; // 出差报销单ID
+	private String bUnit;//部门名称
 	private int budgetId; // 预算ID
 	private String busReason; // 出差原因
 	private int busAppendNum; // 附件数
@@ -23,6 +24,14 @@ public class Business {
 
 	public void setBusinessId(int businessId) {
 		this.businessId = businessId;
+	}
+
+	public String getbUnit() {
+		return bUnit;
+	}
+
+	public void setbUnit(String bUnit) {
+		this.bUnit = bUnit;
 	}
 
 	public int getBudgetId() {

@@ -8,6 +8,7 @@ import java.util.Date;
 // 报销汇总表
 public class Expense {
 	private int eId;// 报销汇总表ID
+	private String eUnit;//部门名称
 	private int budId;// 预算ID
 	private int eAppend;// 附件数
 	private String eAppTea;// 报销申请教师
@@ -24,6 +25,14 @@ public class Expense {
 
 	public void seteId(int eId) {
 		this.eId = eId;
+	}
+
+	public String geteUnit() {
+		return eUnit;
+	}
+
+	public void seteUnit(String eUnit) {
+		this.eUnit = eUnit;
 	}
 
 	public int getBudId() {

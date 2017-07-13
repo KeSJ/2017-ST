@@ -41,9 +41,9 @@ public class ExpenseItem {
 	public void setExpInuse(boolean expInuse) {
 		this.expInuse = expInuse;
 	}
-	
-	public ExpenseItem(){
-		
+
+	public ExpenseItem() {
+
 	}
 
 	public ExpenseItem(int expItemId, int budItemId, String expItemName, boolean expInuse) {
