@@ -19,6 +19,9 @@
 		<action name="budget_request" class="budget_request" method="budgetRequest">
 			<result name="success">main.jsp</result>
 		</action>
+		<action name="load_budget_pend" class="load_budget_pend" method="loadBudgetPend">
+			<result name="success">budgetpend.jsp</result>
+		</action>
 		
 		<!-- end budget -->
 

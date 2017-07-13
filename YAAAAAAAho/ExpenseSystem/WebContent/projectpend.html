@@ -85,12 +85,37 @@ footer {
 					<div class="row">
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
-								<li><div class="collapsible-header">
-										项目报销条目<span class="badge">6</span>
+								<li><div class="collapsible-header active">
+										预算条目<span class="badge"></span>
 									</div>
-									<div class="collapsible-body" style="padding: 2rem">
-										<label for id="chips1">增加条目输入后按回车</label>
-										<div class="chips chips-initial" id="chips1"></div>
+									<div class="collapsible-body">
+
+										<table class="bordered centered">
+
+											<thead>
+												<tr>
+													<th data-field="id">条目编号</th>
+													<th data-field="name">条目名</th>
+													<th data-field="type">条目是否可用</th>
+													<th data-field="control">操作</th>
+													<th><a href="#model1"
+														class="modal-trigger btn waves-effect waves-teal"
+														data-target="modal1">新增</a></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>item_id</td>
+													<td>item_name</td>
+													<td>Y/N</td>
+													<td><a href="#!" class="lighten-1  teal-text"
+														onclick="function()">可用</a></td>
+													<td><a href="#!" class="lighten-1  teal-text"
+														onclick="function()">不可用</a></td>
+													<td>&nbsp;</td>
+												</tr>
+											</tbody>
+										</table>
 									</div></li>
 							</ul>
 						</div>
@@ -103,10 +128,55 @@ footer {
 									<div class="collapsible-body" style="padding: 2rem">
 										<div class="row">
 											<div class="col s12">
-												<h6>
-													<strong>报销单位及人员信息</strong>
-												</h6>
+												<h6>项目预算信息</h6>
+											</div>
+										</div>
 
+										<div class="row">
+											<div class="col s12">
+												<h6>预算总计</h6>
+												<table class="bordered">
+													<tr>
+														<th style="color: teal">总计</th>
+														<td>total money</td>
+														<th style="color: teal">&nbsp;</th>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<th style="color: teal">自筹和配套</th>
+														<td>&RMB</td>
+														<th style="color: teal">向省厅申请</th>
+														<td>&RMB</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col s12">
+												<h6>报销条目</h6>
+												<div class="row">
+													<div class="col s12">
+														<table>
+															<thead>
+																<tr>
+																	<th style="color: teal">报销条目</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+</div><div class="collapsible-body" style="padding: 2rem">
+										<div class="row">
+											<div class="col s12">
+												<h6>报销单位及人员信息</h6>
 												<table class="bordered">
 													<tr>
 														<th style="color: teal">单位</front></th>
@@ -207,9 +277,10 @@ footer {
 
 										<div class="row">
 											<div class="col offset-s8">
-												<a href="#1" class="btn  waves-effect waves-light">通过</a>
-												 <a class="dropdown-button btn  waves-effect waves-light red light-2" data-constrainwidth="false" data-beloworigin="true" href='#'
-													data-activates="dropdown1">拒绝</a>
+												<a href="#1" class="btn  waves-effect waves-light">通过</a> <a
+													class="dropdown-button btn  waves-effect waves-light red light-2"
+													data-constrainwidth="false" data-beloworigin="true"
+													href='#' data-activates="dropdown1">拒绝</a>
 
 											</div>
 										</div>
@@ -225,6 +296,26 @@ footer {
 					</ui>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<div id="modal1" class="modal modal-fixed-footer">
+		<div class="modal-content grey lighten-5">
+			<h5>新增条目</h5>
+			<div class="row col s12">
+				<div class="input-field col s8">
+					<input id="item_name" name="item_name" placeholder="请确认后输入条目名"
+						type="text" class="validate"> <label for="item_name">条目名</label>
+				</div>
+				<div class="input-field col s4">
+					<select><option value="" disable selected>可用</option>
+						<option value="1">不可用</option></select>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#!"
+				class=" modal-action modal-close waves-effect waves-green btn-flat">确认</a>
 		</div>
 	</div>
 	<footer class="page-footer teal">

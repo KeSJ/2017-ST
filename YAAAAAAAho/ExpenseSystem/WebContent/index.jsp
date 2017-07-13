@@ -63,9 +63,11 @@
 						<div class="col s6 offset-s3 m6 offset-m3">
 							<div class=card-panel teal">
 								<div class="trial-form cf centralize">
+								<div class="center row">
+												<a class=" red-text text-light-2">${returnMsg }</a></div>
 									<form class="simple_form user-login" novalidate="novalidate"
 										id="new_user" action="login" accept-charset="UTF-8"
-										method="post" name>
+										method="post">
 										<input name="utf8" type="hidden" value="&#x2713;" /><input
 											type="hidden" name="authenticity_token"
 											value="VbW0fL3SXRyIJl6EkiQWE7dipPKX/cL4vMtJfOUpwnV4Gw7oxhTek8MfERQMDEFsIukaDguq8hXdRhgF+X73Ag==" />
@@ -74,21 +76,22 @@
 												<div class="row email optional user_email">
 													<div class="input-field col s12">
 														<label class="email optional control-label"
-															for="user_email" data-error="不可为空">用户名</label>
-															<input class="string email" placeholder="教职工编号" onblur="validateText(this.id,this.value)"
-															type="text" name="user_email" id="user_email" class="validate" required="required"><span
-															class="help-block" >请输入您的教职工编号</span>
+															for="user_email">用户名</label><input
+															class="string email optional" placeholder="教职工编号" value=""
+															type="text" name="user_email" id="user_email"/><span
+															class="help-block">请输入您的教职工编号</span>
 													</div>
 												</div>
 												<div class="row password optional user_password">
 													<div class="input-field col s12">
 														<label class="password optional control-label"
-															for="user_password">密码</label><input
+															for="user_password">密码</label><input value=""
 															class="password optional" placeholder="密码"
 															type="password" name="user_password" id="user_password" /><span
 															class="help-block">请输入密码</span>
 													</div>
 												</div>
+												
 												<div class="center input-field row">
 													<button type="submit"
 														class="btn btn-large green waves-effect waves-light s12 col">登录
@@ -157,14 +160,4 @@
 			<script src="js/materialize.js"></script>
 			<script src="js/init.js"></script>
 </body>
-
-<script language="javascript">
-function validateText(user_email,str){//参数是文本框的ID和值
-if(str==""){
- alert("1");
-}
-}
-</script>
-
-</script>
 </html>

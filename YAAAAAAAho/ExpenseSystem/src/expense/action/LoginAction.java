@@ -18,9 +18,9 @@ public class LoginAction extends ActionSupport {
 	}
 
 	public String execute() throws Exception {
-		if (user_email == null) {
+		if (user_email == null||user_email.equals("")) {
 			returnMsg = "请输入用户名";
-		} else if (user_password == null) {
+		} else if (user_password == null||user_password.equals("")) {
 			returnMsg = "请输入密码";
 		} else if (user_email.length() > 10 || user_password.length() > 20) {
 			returnMsg = "用户名或密码错误";
