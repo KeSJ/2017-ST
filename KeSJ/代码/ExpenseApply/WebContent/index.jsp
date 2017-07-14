@@ -28,7 +28,8 @@
 	<div class="nav-wrapper container">
 		<a id="logo-container" href="#" class="brand-logo">学校报销系统</a>
 		<ul class="right hide-on-med-and-down">
-			<li><a href="#">联系管理员</a></li>
+			<li><a href="#">${currentUserName }</a></li>
+			<li><a href="index.jsp">注销</a></li>
 		</ul>
 	</div>
 	</nav>
@@ -61,7 +62,7 @@
 					<h2 class="center-align blue-grey-text text-darken-2 light">登录</h2>
 					<div class="row">
 						<div class="col s6 offset-s3 m6 offset-m3">
-							<div class=card-panel teal">
+							<div class=card-panelteal">
 								<div class="trial-form cf centralize">
 									<form class="simple_form user-login" novalidate="novalidate"
 										id="new_user" action="login" accept-charset="UTF-8"
@@ -76,7 +77,7 @@
 														<label class="email optional control-label"
 															for="user_email">用户名</label><input
 															class="string email optional" placeholder="教职工编号"
-															type="text" name="user_email" id="user_email"/><span
+															type="text" name="user_email" id="user_email" /><span
 															class="help-block">请输入您的教职工编号</span>
 													</div>
 												</div>
@@ -116,38 +117,38 @@
 			<div class="container">
 				<div class="row">
 					<div class="col l6 s12">
-						<h5 class="white-text">Company Bio</h5>
-						<p class="grey-text text-lighten-4">We are a team of college
-							students working on this project like it's our full time job. Any
-							amount would help support and continue development on this
-							project and is greatly appreciated.</p>
+						<h5 class="white-text">浙江大学城市学院</h5>
+						<p class="grey-text text-lighten-4">浙江大学城市学院成立于1999年7月，是经国家教育部和浙江省人民政府批准设立，由浙江大学、杭州市人民政府合作办学，并与浙江省邮电管理局（现为浙江省电信实业集团）共同发起创办的一所新型普通本科高校。</p>
 
 
 					</div>
 					<div class="col l3 s12">
-						<h5 class="white-text">Settings</h5>
+						<h5 class="white-text">校内链接</h5>
 						<ul>
-							<li><a class="white-text" href="#!">Link 1</a></li>
-							<li><a class="white-text" href="#!">Link 2</a></li>
-							<li><a class="white-text" href="#!">Link 3</a></li>
-							<li><a class="white-text" href="#!">Link 4</a></li>
+							<li><a class="white-text" href="http://10.61.2.6/">办公网</a></li>
+							<li><a class="white-text" href="https://bb.zucc.edu.cn/">Blackboard教学平台</a></li>
+							<li><a class="white-text" href="http://webmail.zucc.edu.cn/">校内邮件系统</a></li>
+							<li><a class="white-text"
+								href="http://www.zucc.edu.cn/index.php?c=index&a=tlist&catid=55">学院校历</a></li>
 						</ul>
 					</div>
 					<div class="col l3 s12">
-						<h5 class="white-text">Connect</h5>
+						<h5 class="white-text">友情链接</h5>
 						<ul>
-							<li><a class="white-text" href="#!">Link 1</a></li>
-							<li><a class="white-text" href="#!">Link 2</a></li>
-							<li><a class="white-text" href="#!">Link 3</a></li>
-							<li><a class="white-text" href="#!">Link 4</a></li>
+							<li><a class="white-text" href="http://www.zucc.edu.cn/">浙江大学城市学院</a></li>
+							<li><a class="white-text" href="http://jsxy.zucc.edu.cn/">计算分院</a></li>
+							<li><a class="white-text"
+								href="http://libweb.zucc.edu.cn/redir.php?catalog_id=45">数字资源专用VPN</a></li>
+							<li><a class="white-text"
+								href="http://www.zucc.edu.cn/index.php?c=index&a=tlist&catid=56">电话查询</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="footer-copyright">
 				<div class="container">
-					Made by <a class="brown-text text-lighten-3"
-						href="http://materializecss.com">Materialize</a>
+					Made by <a class="orange-text text-lighten-3"
+						href="http://materializecss.com">柯思佳 高翔 刘佳鹏</a>
 				</div>
 			</div>
 			</footer>

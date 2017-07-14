@@ -1,6 +1,9 @@
 package expense.DAO;
 
+import java.util.List;
+
 import expense.model.*;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -42,6 +45,16 @@ public class BusinessItemDAO {
         BusinessItem businessItem = (BusinessItem) session.get(BusinessItem.class, busItemId);
         session.getTransaction().commit();
         return businessItem;
+    }
+    public  List<BusinessItem> findAllBusinessItem()
+    {
+    	Session session = getSession();
+        session.beginTransaction();
+        String hql = "from BusinessItem";
+        List<BusinessItem> businessItems = session.createQuery(hql).list();
+        session.getTransaction().commit();
+        return businessItems;
+  
     }
 
 }

@@ -30,9 +30,11 @@ public class LoginAction extends ActionSupport {
 
 			User user = userService.findUser(user_email);
 
-			if (user == null || !user_password.equals(user.getUserPwd()) || user.getUserStopDate() != null)
+			if (user == null || !user_password.equals(user.getUserPwd())){
 				returnMsg = "用户名或密码错误";
-			else {
+			}else if ( user.getUserStopDate() != null) {
+				returnMsg = "该账户被停用";
+			}else {
 				ActionContext.getContext().getSession().put("currentUserName", user.getUserName());
 				String user_type = user.getUserType();
 				ActionContext.getContext().getSession().put("currentUserType", user_type);

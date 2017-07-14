@@ -38,8 +38,8 @@ footer {
 	<div class="nav-wrapper container">
 		<a id="logo-container" href="main.html" class="brand-logo bt">学校报销系统</a>
 		<ul class="right hide-on-med-and-down">
-			<li><a href="index.html">注销</a></li>
-			<li><a href="#">联系管理员</a></li>
+			<li><a href="#">${currentUserName }</a></li>
+			<li><a href="index.jsp">注销</a></li>
 		</ul>
 	</div>
 	</nav> </header>
@@ -48,39 +48,38 @@ footer {
 			<div class="col s12 m4 l3">
 				<div class="collection">
 					<s:if test="currentUserType == '财务人员'">
-						<a href="load_exp_info" class="collection-item">项目报销信息</a>
+						<a href="load_exp_info" class="collection-item">报销信息</a>
 						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
-						<a href="#3" class="collection-item">出差报销</a>
+						<a href="ce" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
 						<a href="load_budget_pend" class="collection-item">预算申请审核</a>
-						<a href="#4" class="collection-item">出差报销审核</a>
+						<a href="ce5" class="collection-item">出差报销审核</a>
 						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
-						<a href="#4" class="collection-item">统计分析</a>
-						<a href="#4" class="collection-item">个人信息修改</a>
+						<a href="ce3" class="collection-item">统计分析</a>
+						<a href="userinfo.jsp" class="collection-item">个人信息修改</a>
 					</s:if>
 					<s:elseif test="currentUserType == '教师'">
-						<a href="load_exp_info" class="collection-item">项目报销信息</a>
+						<a href="load_exp_info" class="collection-item">报销信息</a>
 						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
-						<a href="#3" class="collection-item">出差报销</a>
+						<a href="ce" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
-						<a href="#4" class="collection-item">个人信息修改</a>
+						<a href="userinfo.jsp" class="collection-item">个人信息修改</a>
 					</s:elseif>
 					<s:else>
-						<a href="#!" class="collection-item">用戶管理</a>
-						<a href="load_exp_info" class="collection-item">项目报销信息</a>
+						<a href="user_info" class="collection-item">用戶管理</a>
+						<a href="load_exp_info" class="collection-item">报销信息</a>
 						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
-						<a href="#3" class="collection-item">出差报销</a>
+						<a href="ce" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
 						<a href="load_budget_pend" class="collection-item">预算申请审核</a>
-						<a href="#4" class="collection-item">出差报销审核</a>
+						<a href="ce5" class="collection-item">出差报销审核</a>
 						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
-						<a href="#4" class="collection-item">统计分析</a>
-						<a href="#4" class="collection-item">个人信息修改</a>
+						<a href="ce3" class="collection-item">统计分析</a>
+						<a href="userinfo.jsp" class="collection-item">个人信息修改</a>
 					</s:else>
-
 				</div>
 			</div>
 
@@ -222,34 +221,34 @@ footer {
 			</div>
 		</div>
 	</div>
-	<footer class="page-footer teal">
+<footer class="page-footer teal">
 	<div class="container">
 		<div class="row">
 			<div class="col l6 s12">
-				<h5 class="white-text">Company Bio</h5>
-				<p class="grey-text text-lighten-4">We are a team of college
-					students working on this project like it's our full time job. Any
-					amount would help support and continue development on this project
-					and is greatly appreciated.</p>
+				<h5 class="white-text">浙江大学城市学院</h5>
+				<p class="grey-text text-lighten-4">浙江大学城市学院成立于1999年7月，是经国家教育部和浙江省人民政府批准设立，由浙江大学、杭州市人民政府合作办学，并与浙江省邮电管理局（现为浙江省电信实业集团）共同发起创办的一所新型普通本科高校。</p>
 
 
 			</div>
 			<div class="col l3 s12">
-				<h5 class="white-text">Settings</h5>
+				<h5 class="white-text">校内链接</h5>
 				<ul>
-					<li><a class="white-text" href="#!">Link 1</a></li>
-					<li><a class="white-text" href="#!">Link 2</a></li>
-					<li><a class="white-text" href="#!">Link 3</a></li>
-					<li><a class="white-text" href="#!">Link 4</a></li>
+					<li><a class="white-text" href="http://10.61.2.6/">办公网</a></li>
+					<li><a class="white-text" href="https://bb.zucc.edu.cn/">Blackboard教学平台</a></li>
+					<li><a class="white-text" href="http://webmail.zucc.edu.cn/">校内邮件系统</a></li>
+					<li><a class="white-text"
+						href="http://www.zucc.edu.cn/index.php?c=index&a=tlist&catid=55">学院校历</a></li>
 				</ul>
 			</div>
 			<div class="col l3 s12">
-				<h5 class="white-text">Connect</h5>
+				<h5 class="white-text">友情链接</h5>
 				<ul>
-					<li><a class="white-text" href="#!">Link 1</a></li>
-					<li><a class="white-text" href="#!">Link 2</a></li>
-					<li><a class="white-text" href="#!">Link 3</a></li>
-					<li><a class="white-text" href="#!">Link 4</a></li>
+					<li><a class="white-text" href="http://www.zucc.edu.cn/">浙江大学城市学院</a></li>
+					<li><a class="white-text" href="http://jsxy.zucc.edu.cn/">计算分院</a></li>
+					<li><a class="white-text"
+						href="http://libweb.zucc.edu.cn/redir.php?catalog_id=45">数字资源专用VPN</a></li>
+					<li><a class="white-text"
+						href="http://www.zucc.edu.cn/index.php?c=index&a=tlist&catid=56">电话查询</a></li>
 				</ul>
 			</div>
 		</div>
@@ -257,7 +256,7 @@ footer {
 	<div class="footer-copyright">
 		<div class="container">
 			Made by <a class="orange-text text-lighten-3"
-				href="http://materializecss.com">Materialize</a>
+				href="http://materializecss.com">柯思佳 高翔 刘佳鹏</a>
 		</div>
 	</div>
 	</footer>

@@ -47,15 +47,23 @@ public class BudgetDetailDAO {
 		session.getTransaction().commit();
 		return budgetDetail;
 	}
-	
-	public List<BudgetDetail> findByBudId(int budId){
+
+	public List<BudgetDetail> findByBudId(int budId) {
 		Session session = getSession();
 		session.beginTransaction();
 		String hql = "from BudgetDetail where budgetId = " + budId + "order by budgetDetailId";
 		List<BudgetDetail> budgetDetails = session.createQuery(hql).list();
 		session.getTransaction().commit();
 		return budgetDetails;
-		
+	}
+
+	public BudgetDetail findBudgetDetailByBudIDandBudItemIDetail(int budId, int budItemId) {
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from BudgetDetail where BudId= " + budId + "and BudItemId =" + budItemId;
+		BudgetDetail budgetDetail = (BudgetDetail) session.createQuery(hql).list().get(0);
+		session.getTransaction().commit();
+		return budgetDetail;
 	}
 
 }

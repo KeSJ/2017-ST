@@ -1,10 +1,13 @@
 package expense.model;
 
+/**
+ * Created by lenovo on 2017/7/9 0009.
+ */
 public class BusApplyTeaDetail {
-	private int busApplyTeaDetailId;
-	private String teacherName;
-	private int businessId;
-	private String teacherPosition;
+	private int busApplyTeaDetailId;// 主键
+	private int businessId;// 出差报销单ID
+	private String teacherName;// 教师名称
+	private String teachePosition;// 教师职务
 
 	public int getBusApplyTeaDetailId() {
 		return busApplyTeaDetailId;
@@ -12,14 +15,6 @@ public class BusApplyTeaDetail {
 
 	public void setBusApplyTeaDetailId(int busApplyTeaDetailId) {
 		this.busApplyTeaDetailId = busApplyTeaDetailId;
-	}
-
-	public String getTeacherName() {
-		return teacherName;
-	}
-
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
 	}
 
 	public int getBusinessId() {
@@ -30,12 +25,20 @@ public class BusApplyTeaDetail {
 		this.businessId = businessId;
 	}
 
-	public String getTeacherPosition() {
-		return teacherPosition;
+	public String getTeacherName() {
+		return teacherName;
 	}
 
-	public void setTeacherPosition(String teacherPosition) {
-		this.teacherPosition = teacherPosition;
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+
+	public String getTeachePosition() {
+		return teachePosition;
+	}
+
+	public void setTeachePosition(String teachePosition) {
+		this.teachePosition = teachePosition;
 	}
 
 }
