@@ -62,7 +62,15 @@ footer {
 						<a href="#4" class="collection-item">统计分析</a>
 						<a href="#4" class="collection-item">个人信息修改</a>
 					</s:if>
-					<s:elseif test="currentUserType == '管理员'">
+					<s:elseif test="currentUserType == '教师'">
+						<a href="" class="collection-item">报销信息</a>
+						<a href="" class="collection-item">预算信息</a>
+						<a href="load_budget_req" class="collection-item">预算申请</a>
+						<a href="#3" class="collection-item">出差报销</a>
+						<a href="load_expense_req" class="collection-item">项目报销</a>
+						<a href="#4" class="collection-item">个人信息修改</a>
+					</s:elseif>
+					<s:else>
 						<a href="#!" class="collection-item">用戶管理</a>
 						<a href="" class="collection-item">报销信息</a>
 						<a href="" class="collection-item">预算信息</a>
@@ -74,7 +82,7 @@ footer {
 						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
 						<a href="#4" class="collection-item">统计分析</a>
 						<a href="#4" class="collection-item">个人信息修改</a>
-					</s:elseif>
+					</s:else>
 				</div>
 			</div>
 

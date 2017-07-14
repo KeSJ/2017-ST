@@ -37,8 +37,8 @@ footer {
 	<div class="nav-wrapper container">
 		<a id="logo-container" href="main.html" class="brand-logo bt">学校报销系统</a>
 		<ul class="right hide-on-med-and-down">
-			<li><a href="#">${currentUserName }</a></li>
 			<li><a href="index.html">注销</a></li>
+			<li><a href="#">联系管理员</a></li>
 		</ul>
 	</div>
 	</nav> </header>
@@ -83,115 +83,134 @@ footer {
 				</div>
 			</div>
 
+
 			<div class="col s12 m8 l9">
 				<div class="card-panel white">
-					<form action="expense_request" enctype="multipart/form-data"
-						method="post">
-						<div class="row">
-							<div class="col s12">
-								<h6>
-									<strong>报销单位及人员信息</strong>
-								</h6>
-								<div class="input-field col s6">
-									<input placeholder="请输入单位名称" id="unit_name" name="unit_name"
-										type="text" class="validate"> <label for="unit_name">单位</label>
-								</div>
-								<div class="input-field col s6">
-									<input placeholder="请输入项目经费代码" id="budget_id" name="budget_id"
-										type="number" class="validate"> <label for="budget_id">经费项目代码</label>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col s12">
-								<h6>报销单据</h6>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col s12">
-								<div class="input-field col s4">
-									<input placeholder="请输入整数" id="qu_bill" name="qu_bill"
-										type="number" class="validate"><label for="qu_bill">单据数量</label>
-								</div>
+					<div class="row">
+						<div class="col s12">
+							<ul class="collapsible" data-collapsible="accordion">
+								<li><div class="collapsible-header active">报销记录</div>
+									<div class="collapsible-body">
+										<table class="centered">
+											<thead>
+												<tr>
+													<th data-field="project_name">项目名称</th>
+													<th data-field="expense_type">报销单ID</th>
+													<th data-field="expense_time">申请时间</th>
+													<th data-field="exp_result">申请结果</th>
+												</tr>
+											</thead>
+											<tbody>
+												<s:iterator value="expenses" id="list">
+													<tr>
+														<td>${list.proName }</td>
+														<td><a href="load_exp_info?expId=${list.eId }">${list.eId }</a></td>
+														<td>${list.eAppDate }</td>
+														<s:if test="list.eResult == true">
+															<td>通过</td>
+														</s:if>
+														<s:else>
+															<td>不通过</td>
+														</s:else>
+													</tr>
+												</s:iterator>
+											</tbody>
 
-								<div class="file-field input-field col s8">
-									<div class="waves-effect waves-light btn">
-										<span>文件</span> <input type="file" name="file" multiple>
-									</div>
-									<div class="file-path-wrapper">
-										<input class="file-path validate" type="text"
-											placeholder="请上传包含所有单据的压缩文件">
-									</div>
-								</div>
-							</div>
-
+										</table>
+									</div></li>
+							</ul>
 						</div>
-						<div class="row">
-							<div class="col s12">
-								<table>
-									<thead>
-										<tr>
-											<th>报销条目</th>
-											<th>报销金额</th>
-										</tr>
-									</thead>
-									<tbody>
-										<s:iterator value="expenseItemsInUse" id="list">
-											<tr>
-												<td><s:property value="#list.expItemName" /></td>
-												<td>
-													<div class="input-field col s12">
-														<label for="money">RMB</label> <input id="itemMoney"
-															name="itemMoney" type="number" step="0.01"
-															class="validate">
+					</div>
+
+					<div class="row">
+						<div class="col s12">
+							<ul class="collapsible" data-collapsible="accordion">
+								<li><div class="collapsible-header">申请报销信息</div>
+									<div class="collapsible-body" style="padding: 2rem">
+										<div class="row">
+											<div class="col s12">
+
+												<h6>
+													<strong>报销单位及人员信息</strong>
+												</h6>
+
+												<table class="bordered">
+													<tr>
+														<th style="color: teal">项目名称</front></th>
+														<td>${budget.projectName }</td>
+													</tr>
+													<tr>
+														<th style="color: teal">项目计划类别</th>
+														<td>${ppcName }</td>
+														<th style="color: teal">技术管理领域</th>
+														<td>${tmaName }</td>
+													</tr>
+													<tr>
+														<th style="color: teal">项目技术来源</th>
+														<td>${ptrName }</td>
+														<th style="color: teal">&nbsp;</th>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<th style="color: teal">开始日期</th>
+														<td>${budget.proStartTime }</td>
+														<th style="color: teal">结束日期</th>
+														<td>${budget.proFinishTime }</td>
+													</tr>
+
+
+												</table>
+
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col s12">
+												<h6>预算总计</h6>
+												<table class="bordered">
+													<tr>
+														<th style="color: teal">总计</th>
+														<td>${total_money }</td>
+														<th style="color: teal">&nbsp;</th>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<th style="color: teal">自筹和配套</th>
+														<td>${budget.selfRaised }</td>
+														<th style="color: teal">向省厅申请</th>
+														<td>${budget.apply }</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col s12">
+												<h6>报销条目</h6>
+												<div class="row">
+													<div class="col s12">
+														<table>
+															<thead>
+																<tr>
+																	<th style="color: teal">报销条目</th>
+																	<th style="color: teal">报销金额</th>
+																</tr>
+															</thead>
+															<tbody>
+																<s:iterator value="expenseItems" id="list3">
+																	<tr>
+																		<td></td>
+																	</tr>
+																</s:iterator>
+															</tbody>
+														</table>
 													</div>
-												</td>
-											</tr>
-										</s:iterator>
-									</tbody>
-								</table>
-							</div>
-
-						</div>
-						<div class="row">
-							<div class="col s12">
-								<h6>转卡人信息</h6>
-								<table id="tb1">
-									<tr>
-										<td id="td1"><a
-											class="btn-floating waves-effect waves-light teal"
-											onclick="del(this)"><i class="material-icons">delete</i></a>
-											<div class="input-field col s2">
-												<input type="text" id="teacher_id" name="teacher_id"
-													placeholder="请输入登录账号"><label for="teacher_id">工号</label>
+												</div>
 											</div>
-											<div class="input-field col s3">
-												<input type="text" id="teacher_name" name="teacher_name"
-													placeholder=" "><label for="teacher_name">姓名</label>
-											</div>
-											<div class="input-field col s4">
-												<input type="text" id="bank_id" name="bank_id"
-													placeholder=" "><label for="bank_id">银行卡号</label>
-											</div>
-											<div class="input-field col s2">
-												<input type="number" step="0.01" id="exp_money"
-													name="exp_money" placeholder="RMB"><label
-													for="exp_money">转账金额</label>
-											</div></td>
-									</tr>
-								</table>
-								<a class="btn-floating waves-effect waves-light red"
-									onclick="add()"><i class="material-icons">add</i></a>
-							</div>
+										</div></li>
+							</ul>
 						</div>
-
-						<div class="row">
-							<div class="right col offset-s2 s2">
-								<button type="submit" class="btn teal waves-effect waves-light">提交
-								</button>
-							</div>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -243,16 +262,4 @@ footer {
 	<script src="js/init.js"></script>
 
 </body>
-<script type="text/javascript">
-	function add() {
-		var aobj = document.createElement("tr");
-		aobj.innerHTML = "<td id='td1'><a class='btn-floating waves-effect waves-light teal' onclick='del(this)''><i class='material-icons'>delete</i></a><div class='input-field col s2'> <input type='text' id='teacher_id' name='teacher_id' placeholder='请输入登录账号'><label class='active' for='teacher_id'>工号</label></div><div class='input-field col s3'><input type='text' id='teacher_name' name='teacher_name' placeholder=' '><label for='teacher_name'>姓名</label>	</div><div class='input-field col s4'><input type='text' id='bank_id' name='bank_id' placeholder=' '><label for='bank_id'>银行卡号</label>	</div><div class='input-field col s2'><input type='number' step='0.01' id='exp_money' name='exp_money' placeholder='RMB'><label class='active' for='exp_money'>转账金额</label></div></td>";
-		document.getElementById("tb1").appendChild(aobj);
-	}
-
-	function del(Object) {
-		var aobj = Object.parentNode.parentNode.rowIndex;
-		document.getElementById('tb1').deleteRow(aobj);
-	}
-</script>
 </html>

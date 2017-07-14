@@ -70,16 +70,15 @@ public class ExpenseAction extends ActionSupport {
 	private List<ExpenseItem> expenseItems;
 	private double total_money_expense;
 	private List<Accept> accepts;
+	private String file_path;
 
 	private int itemId;
 
 	private String exp_item_name;
 	private int budget_item_id;
+	private int id;
 
 	private String defuse_reason;
-
-	private InputStream fileInput;
-	private String fileName;
 
 	private String returnMsg;
 
@@ -128,7 +127,7 @@ public class ExpenseAction extends ActionSupport {
 		System.out.println("文件名：" + fileFileName);
 		System.out.println("文件类型：" + fileContentType);
 		if (file != null) {
-			String realPath = "F:/大三下/短学期/file";
+			String realPath = "F:/大三下/短学期/2017-ST/KeSJ/代码/ExpenseApply/WebContent/download";
 			System.out.println("文件的保存路径：" + realPath);
 
 			String suffix = fileFileName.substring(fileFileName.lastIndexOf("."));
@@ -169,17 +168,24 @@ public class ExpenseAction extends ActionSupport {
 	public String loadExpensePend() {
 		System.out.println("加载项目报销审核页面开始");
 		expenses = expenseService.findAllUnpend();
-		expenseItemsAll = expenseItemService.findAllInUse();
+		//项目报销所有条目
+		expenseItemsAll = expenseItemService.findAll();
 		if (expense_id != 0) {
 			expense = expenseService.findExpense(expense_id);
 			budget = budgetService.findBudget(expense.getBudId());
 			total_money_budget = budget.getApply() + budget.getSelfRaised();
-			List<BudgetDetail> budgetDetail = budgetDetailService.findByBudId(budget_id);
+
+			//预算条目和金额
+			List<BudgetDetail> budgetDetail = budgetDetailService.findByBudId(budget.getBudId());
+			System.out.println("budget detail number:" + budgetDetail.size());
+			budgetItems = new ArrayList<BudgetItem>();
 			for (int i = 0; i < budgetDetail.size(); i++) {
 				BudgetItem budgetItem = budgetItemService.findBudgetItem(budgetDetail.get(i).getBudgetItemId());
 				budgetItem.setBudgetItemMoney(budgetDetail.get(i).getBudgetDetailSum());
 				budgetItems.add(budgetItem);
 			}
+			
+			//报销条目和金额
 			List<ExpenseDetail> expenseDetails = expenseDetailService.findByEId(expense_id);
 			System.out.println("expense detail number:" + expenseDetails.size());
 			total_money_expense = 0;
@@ -191,13 +197,25 @@ public class ExpenseAction extends ActionSupport {
 				expenseItems.add(expenseItem);
 				total_money_expense += expenseItem.getExpMoney();
 			}
+			
+			//转卡信息
 			accepts = acceptService.findByApplyIdType(expense_id, "报销汇总单");
 			for (int i = 0; i < accepts.size(); i++) {
 				String name = userService.findUser(accepts.get(i).getTeacherId()).getUserName();
 				accepts.get(i).setTeacherName(name);
 			}
 		}
+		
 		budgetItemsAll = budgetItemService.findAllInUse();
+		List<Appendix> appendix = appendixService.findByApply(expense_id, "报销汇总单");
+		System.out.println("附件数：" + appendix.size());
+		if (appendix.isEmpty()){
+			file_path = "0";
+		}else{
+/*			file_path = appendix.get(0).getFilePath() + "/" + appendix.get(0).getUuidName();*/
+			file_path =  appendix.get(0).getUuidName();
+			System.out.println("附件路径：" + file_path);
+		}
 		System.out.println("加载项目报销审核页面完成");
 		return SUCCESS;
 	}
@@ -242,12 +260,6 @@ public class ExpenseAction extends ActionSupport {
 		expenseItem.setExpItemName(exp_item_name);
 		expenseItem.setExpInuse(true);
 		expenseItemService.addExpenseItem(expenseItem);
-		return loadExpensePend();
-	}
-
-	public String downloadFile() throws Exception {
-		
-		fileInput = ServletActionContext.getServletContext().getResourceAsStream("upload\\" + fileName);
 		return loadExpensePend();
 	}
 
@@ -333,6 +345,10 @@ public class ExpenseAction extends ActionSupport {
 
 	public void setBudget_id(int budget_id) {
 		this.budget_id = budget_id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setQu_bill(int qu_bill) {
@@ -433,6 +449,10 @@ public class ExpenseAction extends ActionSupport {
 
 	public void setDefuse_reason(String defuse_reason) {
 		this.defuse_reason = defuse_reason;
+	}
+
+	public String getFile_path() {
+		return file_path;
 	}
 
 	public String getReturnMsg() {

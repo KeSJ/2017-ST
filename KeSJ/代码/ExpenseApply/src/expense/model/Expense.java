@@ -18,6 +18,8 @@ public class Expense {
 	private Date eCheckDate;// 报销审核时间
 	private boolean eResult;// 1：审核通过；0：不通过
 	private String eRejectReason;// 审核不通过原因
+	
+	private String proName;//项目名称，数据库中无此项
 
 	public int geteId() {
 		return eId;
@@ -105,6 +107,14 @@ public class Expense {
 
 	public void seteRejectReason(String eRejectReason) {
 		this.eRejectReason = eRejectReason;
+	}
+
+	public String getProName() {
+		return proName;
+	}
+
+	public void setProName(String proName) {
+		this.proName = proName;
 	}
 
 	public Expense(){
