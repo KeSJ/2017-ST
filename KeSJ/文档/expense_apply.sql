@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-07-09 10:21:29
+Date: 2017-07-14 12:00:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,13 +25,15 @@ CREATE TABLE `accept` (
   `AcceptSum` double NOT NULL,
   `AcceptCardId` varchar(20) NOT NULL,
   `ApplyId` int(11) NOT NULL,
-  `ApplyType` int(11) NOT NULL,
+  `ApplyType` varchar(20) NOT NULL,
   PRIMARY KEY (`AcceptId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accept
 -- ----------------------------
+INSERT INTO `accept` VALUES ('1', '1', '23', '23453263523421', '1', '报销汇总单');
+INSERT INTO `accept` VALUES ('2', '1', '11', '345634225', '2', '报销汇总单');
 
 -- ----------------------------
 -- Table structure for `appendix`
@@ -40,14 +42,17 @@ DROP TABLE IF EXISTS `appendix`;
 CREATE TABLE `appendix` (
   `AppendixId` int(11) NOT NULL AUTO_INCREMENT,
   `ApplyId` int(11) NOT NULL,
-  `ApplyType` int(11) NOT NULL,
-  `FilePath` varchar(256) NOT NULL,
+  `ApplyType` varchar(20) NOT NULL,
+  `UuidName` varchar(255) NOT NULL,
+  `RealName` varchar(255) NOT NULL,
+  `FilePath` varchar(255) NOT NULL,
   PRIMARY KEY (`AppendixId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of appendix
 -- ----------------------------
+INSERT INTO `appendix` VALUES ('1', '1', '报销汇总单', '0e140253-d096-4cbc-b75b-0bf1c0c3046c.doc', '2017信管信息系统方向短学期大作业.doc', 'F:/大三下/短学期/file');
 
 -- ----------------------------
 -- Table structure for `budget`
@@ -70,11 +75,16 @@ CREATE TABLE `budget` (
   `BudResult` tinyint(1) DEFAULT NULL,
   `BudRejectReason` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`BudId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of budget
 -- ----------------------------
+INSERT INTO `budget` VALUES ('1', 'A11', 'A1', '1', '123', '2017-07-16', '2017-07-29', '12', '13', '1', '2017-07-11 00:00:00', '1', '2017-07-12 00:00:00', '1', null);
+INSERT INTO `budget` VALUES ('2', 'A12', 'A12', '2', '1233', '2017-07-17', '2017-07-28', '123', '32', '1', '2017-07-12 00:00:00', '1', '2017-07-12 00:00:00', '0', null);
+INSERT INTO `budget` VALUES ('3', 'A13', 'A13', '1', '57蛋炒饭', '2017-07-16', '2017-07-31', '56', '12', '1', '2017-07-13 13:22:05', '1', '2017-07-13 13:22:28', '0', 'hsdkfgsdkllknmxcs');
+INSERT INTO `budget` VALUES ('4', 'A13', 'A12', '2', '大飒飒大方', '2017-07-25', '2017-07-31', '23', '123', '1', '2017-07-13 16:41:39', null, null, '0', null);
+INSERT INTO `budget` VALUES ('5', 'A12', 'A11', '3', '大飒飒大方', '2017-07-24', '2017-11-16', '333', '12', '1', '2017-07-13 18:43:10', null, null, '0', null);
 
 -- ----------------------------
 -- Table structure for `budgetdetail`
@@ -86,11 +96,26 @@ CREATE TABLE `budgetdetail` (
   `BudId` int(11) NOT NULL,
   `ButDetSum` double NOT NULL,
   PRIMARY KEY (`BudDetId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of budgetdetail
 -- ----------------------------
+INSERT INTO `budgetdetail` VALUES ('1', '1', '1', '14');
+INSERT INTO `budgetdetail` VALUES ('2', '2', '1', '13');
+INSERT INTO `budgetdetail` VALUES ('3', '3', '1', '12');
+INSERT INTO `budgetdetail` VALUES ('4', '4', '1', '1');
+INSERT INTO `budgetdetail` VALUES ('5', '1', '3', '324');
+INSERT INTO `budgetdetail` VALUES ('6', '7', '3', '23');
+INSERT INTO `budgetdetail` VALUES ('7', '8', '3', '23');
+INSERT INTO `budgetdetail` VALUES ('8', '11', '3', '12');
+INSERT INTO `budgetdetail` VALUES ('9', '2', '3', '15');
+INSERT INTO `budgetdetail` VALUES ('10', '8', '3', '12');
+INSERT INTO `budgetdetail` VALUES ('11', '10', '3', '17');
+INSERT INTO `budgetdetail` VALUES ('12', '1', '4', '17');
+INSERT INTO `budgetdetail` VALUES ('13', '12', '4', '15');
+INSERT INTO `budgetdetail` VALUES ('14', '1', '5', '12');
+INSERT INTO `budgetdetail` VALUES ('15', '8', '5', '12');
 
 -- ----------------------------
 -- Table structure for `budgetitem`
@@ -108,10 +133,10 @@ CREATE TABLE `budgetitem` (
 -- ----------------------------
 INSERT INTO `budgetitem` VALUES ('1', '设备费', '1');
 INSERT INTO `budgetitem` VALUES ('2', '材料费', '1');
-INSERT INTO `budgetitem` VALUES ('3', '测试化验加工费', '1');
+INSERT INTO `budgetitem` VALUES ('3', '测试化验加工费', '0');
 INSERT INTO `budgetitem` VALUES ('4', '合作、协作研究与交流费', '1');
 INSERT INTO `budgetitem` VALUES ('5', '差旅费', '1');
-INSERT INTO `budgetitem` VALUES ('6', '劳务费', '1');
+INSERT INTO `budgetitem` VALUES ('6', '劳务费', '0');
 INSERT INTO `budgetitem` VALUES ('7', '燃料动力费', '1');
 INSERT INTO `budgetitem` VALUES ('8', '出版/文献/信息传播知识产权事务费', '1');
 INSERT INTO `budgetitem` VALUES ('9', '会议费', '1');
@@ -141,17 +166,18 @@ CREATE TABLE `busapplyteadetail` (
 DROP TABLE IF EXISTS `business`;
 CREATE TABLE `business` (
   `BId` int(11) NOT NULL AUTO_INCREMENT,
+  `BUnit` varchar(50) NOT NULL,
   `BudId` int(11) NOT NULL,
   `BReason` varchar(30) NOT NULL,
   `BAppend` int(11) NOT NULL,
   `BSum` double NOT NULL,
-  `BAppTea` varchar(10) NOT NULL,
   `BAppDate` datetime NOT NULL,
   `BAgent` varchar(10) DEFAULT NULL,
   `BCheckStaff` varchar(10) DEFAULT NULL,
   `BCheckDate` datetime DEFAULT NULL,
   `BResult` tinyint(1) unsigned zerofill DEFAULT NULL,
   `BRejectReason` varchar(256) DEFAULT NULL,
+  `BAppTea` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`BId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -207,7 +233,7 @@ CREATE TABLE `busnisslocation` (
   `InProvince` tinyint(1) NOT NULL,
   `BusLocation` varchar(20) NOT NULL,
   `BusStartDate` date NOT NULL,
-  `BusFinishDate` date NOT NULL,
+  `BusFinishDate` date DEFAULT NULL,
   PRIMARY KEY (`BusLocId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -225,11 +251,17 @@ CREATE TABLE `expenddetail` (
   `EId` int(11) NOT NULL,
   `ExpDetSum` double NOT NULL,
   PRIMARY KEY (`ExpDetId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of expenddetail
 -- ----------------------------
+INSERT INTO `expenddetail` VALUES ('1', '1', '1', '14');
+INSERT INTO `expenddetail` VALUES ('2', '4', '1', '45');
+INSERT INTO `expenddetail` VALUES ('3', '8', '1', '16');
+INSERT INTO `expenddetail` VALUES ('4', '1', '2', '17');
+INSERT INTO `expenddetail` VALUES ('5', '3', '2', '12');
+INSERT INTO `expenddetail` VALUES ('6', '6', '2', '1');
 
 -- ----------------------------
 -- Table structure for `expense`
@@ -237,6 +269,7 @@ CREATE TABLE `expenddetail` (
 DROP TABLE IF EXISTS `expense`;
 CREATE TABLE `expense` (
   `EId` int(11) NOT NULL AUTO_INCREMENT,
+  `EUnit` varchar(50) NOT NULL,
   `BudId` int(11) NOT NULL,
   `EAppend` int(11) NOT NULL,
   `EAppTea` varchar(10) NOT NULL,
@@ -247,11 +280,13 @@ CREATE TABLE `expense` (
   `EResult` tinyint(1) DEFAULT NULL,
   `ERejectReason` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`EId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of expense
 -- ----------------------------
+INSERT INTO `expense` VALUES ('1', '1223sdfa', '1', '5', '1', '2017-07-13 11:30:55', null, '1', '2017-07-14 11:18:58', '0', 'aaaaaaa');
+INSERT INTO `expense` VALUES ('2', 'fggfdfs', '3', '4', '1', '2017-07-14 11:24:09', null, null, null, '0', null);
 
 -- ----------------------------
 -- Table structure for `expenseitem`
@@ -263,7 +298,7 @@ CREATE TABLE `expenseitem` (
   `ExpItemName` varchar(10) NOT NULL,
   `ExpInUse` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`ExpItemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of expenseitem
@@ -276,7 +311,7 @@ INSERT INTO `expenseitem` VALUES ('5', '7', '燃油、燃料费', '1');
 INSERT INTO `expenseitem` VALUES ('6', '10', '体育用品购置费', '1');
 INSERT INTO `expenseitem` VALUES ('7', '12', '技术服务咨询费', '1');
 INSERT INTO `expenseitem` VALUES ('8', '5', '过路、过桥费', '1');
-INSERT INTO `expenseitem` VALUES ('9', '2', '日用品、材料费', '1');
+INSERT INTO `expenseitem` VALUES ('9', '2', '日用品、材料费', '0');
 INSERT INTO `expenseitem` VALUES ('10', '4', '业务招待费', '1');
 INSERT INTO `expenseitem` VALUES ('11', '1', '机动车辆维修费', '1');
 INSERT INTO `expenseitem` VALUES ('12', '3', '材料测试加工费', '1');
@@ -289,6 +324,7 @@ INSERT INTO `expenseitem` VALUES ('18', '6', '劳务费', '1');
 INSERT INTO `expenseitem` VALUES ('19', '2', '复印、印刷费', '1');
 INSERT INTO `expenseitem` VALUES ('20', '4', '培训费', '1');
 INSERT INTO `expenseitem` VALUES ('21', '11', '其他', '1');
+INSERT INTO `expenseitem` VALUES ('22', '7', 'qqqq', '0');
 
 -- ----------------------------
 -- Table structure for `proplancategory`
