@@ -8,6 +8,8 @@ public class Accept {
 	private String acceptCardId; // 收款银行卡号
 	private int applyId; // 报销单ID
 	private String applyType; // 报销单类型（出差报销单/报销汇总单）
+	
+	private String teacherName;//教师姓名，数据库中无此项
 
 	public int getAcceptId() {
 		return acceptId;
@@ -55,6 +57,14 @@ public class Accept {
 
 	public void setApplyType(String applyType) {
 		this.applyType = applyType;
+	}
+
+	public String getTeacherName() {
+		return teacherName;
+	}
+
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
 	}
 
 }

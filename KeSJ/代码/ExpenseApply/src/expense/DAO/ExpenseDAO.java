@@ -1,8 +1,12 @@
 package expense.DAO;
 
-import expense.model.*;
+
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
+
+import expense.model.Expense;
 
 /**
  * Created by lenovo on 2017/7/6 0006.
@@ -43,5 +47,23 @@ public class   ExpenseDAO {
         session.getTransaction().commit();
         return expense;
     }
+    
+    public List<Expense> findAll(){
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from Expense";
+		List<Expense> expenses = session.createQuery(hql).list();
+		session.getTransaction().commit();
+		return expenses;
+	}
+	
+	public List<Expense> findAllUnpend(){
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from Expense where eCheckStaff is null order by eId";
+		List<Expense> expenses = session.createQuery(hql).list();
+		session.getTransaction().commit();
+		return expenses;
+	}
 
 }

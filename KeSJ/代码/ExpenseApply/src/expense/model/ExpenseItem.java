@@ -9,6 +9,8 @@ public class ExpenseItem {
 	private int budItemId;// 预算条目ID
 	private String expItemName;// 报销汇总表条目名称
 	private boolean expInuse;// 1：可用；0：不可用
+	
+	private double expMoney;//预算金额，数据库中无此条
 
 	public int getExpItemId() {
 		return expItemId;
@@ -44,6 +46,14 @@ public class ExpenseItem {
 
 	public ExpenseItem() {
 
+	}
+
+	public double getExpMoney() {
+		return expMoney;
+	}
+
+	public void setExpMoney(double expMoney) {
+		this.expMoney = expMoney;
 	}
 
 	public ExpenseItem(int expItemId, int budItemId, String expItemName, boolean expInuse) {

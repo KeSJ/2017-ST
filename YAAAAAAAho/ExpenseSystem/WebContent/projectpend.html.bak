@@ -300,24 +300,24 @@ footer {
 	</div>
 
 	<div id="modal1" class="modal modal-fixed-footer">
-		<form action="add_exp_item" method="post">
-			<div class="modal-content grey lighten-5">
-				<h5>新增条目</h5>
-				<div class="row col s12">
-					<div class="input-field col s8">
+		<div class="modal-content grey lighten-5">
+			<h5>新增条目</h5>
+			<div class="row col s12">
+				<div class="input-field col s8">
+					<form action="add_exp_item" method="post">
 						<input id="exp_item_name" name="exp_item_name"
 							placeholder="请确认后输入条目名" type="text" class="validate"> <label
 							for="exp_item_name">条目名</label>
-					</div>
+						<input type="submit" placeholder="确认">
+					</form>
 				</div>
 			</div>
-			<div class="modal-footer">
-				<button type="submit"
-					class="modal-action modal-close waves-effect waves-green btn-flat">确认</button>
-			</div>
-		</form>
+		</div>
+		<div class="modal-footer">
+			<a href="#!"
+				class=" modal-action modal-close waves-effect waves-green btn-flat">确认</a>
+		</div>
 	</div>
-		
 	<footer class="page-footer teal">
 		<div class="container">
 			<div class="row">

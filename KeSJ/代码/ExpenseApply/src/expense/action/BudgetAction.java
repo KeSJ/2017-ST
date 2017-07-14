@@ -52,6 +52,7 @@ public class BudgetAction extends ActionSupport {
 	private String ptrN;
 
 	private int itemId;
+	private String defuse_reason;
 
 	private String returnMsg;
 
@@ -134,6 +135,8 @@ public class BudgetAction extends ActionSupport {
 		budget.setBudCheckStaff(ActionContext.getContext().getSession().get("currentUserId").toString());
 		budget.setBudCheckDate(new Date(System.currentTimeMillis()));
 		budget.setBudResult(false);
+		System.out.println("defuse reason:" + defuse_reason);
+		budget.setBudRejectReason(defuse_reason);
 		budgetService.modifyBudget(budget);
 		this.loadBudgetPend();
 		return SUCCESS;
@@ -293,6 +296,10 @@ public class BudgetAction extends ActionSupport {
 
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
+	}
+
+	public void setDefuse_reason(String defuse_reason) {
+		this.defuse_reason = defuse_reason;
 	}
 
 	public String getReturnMsg() {

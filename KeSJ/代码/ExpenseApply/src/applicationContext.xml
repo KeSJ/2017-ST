@@ -171,6 +171,10 @@
 		<property name="expenseDetailService" ref="expenseDetailService"></property>
 		<property name="acceptService" ref="acceptService"></property>
 		<property name="appendixService" ref="appendixService"></property>
+		<property name="budgetService" ref="budgetService"></property>
+		<property name="budgetDetailService" ref="budgetDetailService"></property>
+		<property name="budgetItemService" ref="budgetItemService"></property>
+		<property name="userService" ref="userService"></property>
 	</bean>
 	<!-- end expense -->
 	

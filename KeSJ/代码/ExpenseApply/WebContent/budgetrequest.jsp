@@ -42,8 +42,8 @@ footer {
 	<div class="nav-wrapper container">
 		<a id="logo-container" href="main.html" class="brand-logo bt">学校报销系统</a>
 		<ul class="right hide-on-med-and-down">
+			<li><a href="#">${currentUserName }</a></li>
 			<li><a href="index.html">注销</a></li>
-			<li><a href="#">联系管理员</a></li>
 		</ul>
 	</div>
 	</nav> </header>
@@ -51,14 +51,40 @@ footer {
 		<div class="row">
 			<div class="col s12 m4 l3">
 				<div class="collection">
-					<a href="main.html" class="collection-item">用戶管理</a> <a href="#!"
-						class="collection-item active">预算申请</a> <a href="bussexp.html"
-						class="collection-item">出差报销</a> <a href="projectexp.html"
-						class="collection-item">项目报销</a> <a href="load_budget_pend"
-						class="collection-item">预算申请审核</a> <a href="busspend.html"
-						class="collection-item">出差报销审核</a> <a href="projectpend.html"
-						class="collection-item">项目报销审核</a> <a href="statistics.html"
-						class="collection-item">统计分析</a>
+					<s:if test="currentUserType == '财务人员'">
+						<a href="" class="collection-item">报销信息</a>
+						<a href="" class="collection-item">预算信息</a>
+						<a href="load_budget_req" class="collection-item active">预算申请</a>
+						<a href="#3" class="collection-item">出差报销</a>
+						<a href="load_expense_req" class="collection-item">项目报销</a>
+						<a href="load_budget_pend" class="collection-item">预算申请审核</a>
+						<a href="#4" class="collection-item">出差报销审核</a>
+						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
+						<a href="#4" class="collection-item">统计分析</a>
+						<a href="#4" class="collection-item">个人信息修改</a>
+					</s:if>
+					<s:elseif test="currentUserType == '教师'">
+						<a href="" class="collection-item">报销信息</a>
+						<a href="" class="collection-item">预算信息</a>
+						<a href="load_budget_req" class="collection-item active">预算申请</a>
+						<a href="#3" class="collection-item">出差报销</a>
+						<a href="load_expense_req" class="collection-item">项目报销</a>
+						<a href="#4" class="collection-item">个人信息修改</a>
+					</s:elseif>
+					<s:else>
+						<a href="#!" class="collection-item">用戶管理</a>
+						<a href="" class="collection-item">报销信息</a>
+						<a href="" class="collection-item">预算信息</a>
+						<a href="load_budget_req" class="collection-item active">预算申请</a>
+						<a href="#3" class="collection-item">出差报销</a>
+						<a href="load_expense_req" class="collection-item">项目报销</a>
+						<a href="load_budget_pend" class="collection-item">预算申请审核</a>
+						<a href="#4" class="collection-item">出差报销审核</a>
+						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
+						<a href="#4" class="collection-item">统计分析</a>
+						<a href="#4" class="collection-item">个人信息修改</a>
+					</s:else>
+
 				</div>
 			</div>
 
@@ -103,13 +129,12 @@ footer {
 						<div class="row">
 							<div class="col s12">
 								<div class="input-field col s6">
-									<label for="start_time">开始日期</label> <input
-										id="start_time" name="start_time" type="text"
-										class="datepicker">
+									<label for="start_time">开始日期</label> <input id="start_time"
+										name="start_time" type="text" class="datepicker">
 								</div>
 								<div class="input-field col s6">
-									<label for="end_time">结束日期</label> <input 
-										id="end_time" name="end_time" type="text" class="datepicker">
+									<label for="end_time">结束日期</label> <input id="end_time"
+										name="end_time" type="text" class="datepicker">
 								</div>
 							</div>
 						</div>
@@ -141,13 +166,11 @@ footer {
 							<tbody>
 								<s:iterator value="budgetItems" id="list">
 									<tr>
-										<td><s:property value="#list.budgetItemName" />
-										</td>
+										<td><s:property value="#list.budgetItemName" /></td>
 										<td>
 											<div class="input-field col s12">
-												<label for="money">RMB</label> <input
-													id="itemMoney" name="itemMoney" type="number" step="0.01"
-													class="validate">
+												<label for="money">RMB</label> <input id="itemMoney"
+													name="itemMoney" type="number" step="0.01" class="validate">
 											</div>
 										</td>
 									</tr>
@@ -157,11 +180,23 @@ footer {
 						<div class="row">
 							<br>
 							<div class="col s2 offset-s10">
-								<button type="submit" class="btn teal waves-effect waves-light">提交</button>
+								<button type="submit" class="btn teal waves-effect waves-light" onsubmit="return_page()" >提交</button>
+									<!-- data-target="submit_success" -->
 							</div>
 						</div>
 					</form>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div id="submit_success" class="modal">
+		<div class="modal-content">
+			<h6 style="text-align: center">提交成功(正在跳转)</h6>
+			<h6 style="text-align: center">
+				<a href="main.jsp">若没有自动跳转请点击</a>
+			</h6>
+			<div class="progress">
+				<div class="indeterminate"></div>
 			</div>
 		</div>
 	</div>

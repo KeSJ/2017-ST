@@ -1,5 +1,7 @@
 package expense.service;
 
+import java.util.List;
+
 import expense.DAO.ExpenseDetailDAO;
 import expense.model.ExpenseDetail;
 
@@ -28,6 +30,10 @@ public class ExpenseDetailService {
 
 	public void modifyExpendDetail(ExpenseDetail expendDetail) {
 		expenseDetailDAO.modifyExpendDetail(expendDetail);
+	}
+	
+	public List<ExpenseDetail> findByEId(int eId){
+		return expenseDetailDAO.findByEId(eId);
 	}
 
 }

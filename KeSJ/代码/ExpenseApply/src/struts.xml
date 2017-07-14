@@ -45,7 +45,24 @@
 			<result name="success">main.jsp</result>
 			<result name="input">projectexp.jsp</result>
 		</action>
-		
+		<action name="load_expense_pend" class="expense" method="loadExpensePend">
+			<result name="success">projectpend.jsp</result>
+		</action>
+		<action name="stop_exp_item" class="expense" method="stopExpenseItem">
+			<result name="success">projectpend.jsp</result>
+		</action>
+		<action name="start_exp_item" class="expense" method="startExpenseItem">
+			<result name="success">projectpend.jsp</result>
+		</action>
+		<action name="pass_expense" class="expense" method="passExpense">
+			<result name="success">projectpend.jsp</result>
+		</action>
+		<action name="reject_expense" class="expense" method="rejectExpense">
+			<result name="success">projectpend.jsp</result>
+		</action>
+		<action name="add_exp_item" class="expense" method="addExpenseItem">
+			<result name="success">projectpend.jsp</result>
+		</action>
 		
 		<!-- end expense -->
 	</package>

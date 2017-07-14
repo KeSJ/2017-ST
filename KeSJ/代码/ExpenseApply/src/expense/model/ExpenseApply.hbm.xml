@@ -47,6 +47,17 @@
 		<property name="budResult" column="BudResult" type="boolean"></property>
 		<property name="budRejectReason" column="BudRejectReason" type="string" length="256"></property>
 	</class>
+	
+	<!-- business apply teacher detail -->
+	<class name="expense.model.BusApplyTeaDetail" table="busapplyteadetail" catalog="expense_apply">
+		<id name="busApplyTeaDetailId" column="BusApplyTeaDetailId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="teacherName" column="TeacherName" type="string" length="11"></property>
+		<property name="businessId" column="BusinessId" type="int"></property>
+		<property name="teacherPosition" column="TeachePosition" type="string" length="30"></property>
+	</class>
+	<!-- end business apply teacher detail -->
 
 	<!-- budget detail 预算详细 -->
 	<class name="expense.model.BudgetDetail" table="budgetdetail" catalog="expense_apply">

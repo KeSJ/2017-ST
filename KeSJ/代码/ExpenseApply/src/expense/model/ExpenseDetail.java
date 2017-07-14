@@ -11,7 +11,6 @@ public class ExpenseDetail {
 	private double expDetSum; // ±¨Ïú½ð¶î
 
 	public ExpenseDetail() {
-
 	}
 
 	public ExpenseDetail(int expDetId, int expItemId, int eId, double expDetSum) {

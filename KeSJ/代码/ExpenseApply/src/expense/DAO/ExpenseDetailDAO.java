@@ -1,6 +1,9 @@
 package expense.DAO;
 
 import expense.model.*;
+
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -43,5 +46,15 @@ public class   ExpenseDetailDAO {
         session.getTransaction().commit();
         return expendDetail;
     }
+    
+    public List<ExpenseDetail> findByEId(int eId){
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from ExpenseDetail where eId = " + eId + "order by expDetId";
+		List<ExpenseDetail> expenseDetails = session.createQuery(hql).list();
+		session.getTransaction().commit();
+		return expenseDetails;
+		
+	}
 
 }
