@@ -199,8 +199,7 @@
 			not-null="true"></property>
 		<property name="userName" column="UserName" type="string" length="20"
 			not-null="true"></property>
-		<property name="userPhone" column="UserPhone" type="string" length="15"
-			not-null="true"></property>
+		<property name="userPhone" column="UserPhone" type="string" length="15"></property>
 		<property name="userCreateDate" column="UserCreateDate" type="java.util.Date"
 			not-null="true"></property>
 		<property name="userStopDate" column="UserStopDate" type="java.util.Date"></property>

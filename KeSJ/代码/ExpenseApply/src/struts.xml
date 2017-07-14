@@ -9,6 +9,19 @@
 			<result name="admin">main.jsp</result>
 			<result name="input">index.jsp</result>
 		</action>
+		<action name="user_info" class="user_info" method="loadUserInfo">
+			<result name="success">user_info.jsp</result>
+		</action>
+		<action name="modify_user" class="user_info" method="modifyUser">
+			<result name="success">user_info.jsp</result>
+		</action>
+		<action name="stop_user" class="user_info" method="stopUser">
+			<result name="success">user_info.jsp</result>
+		</action>
+		<action name="user_add" class="user_info" method="userAdd">
+			<result name="success">user_info.jsp</result>
+		</action>
+		
 		<!-- end user manage -->
 		
 		<!-- budget 预算  -->
@@ -33,6 +46,9 @@
 		</action>
 		<action name="stop_bud_item" class="budget" method="stopBudgetItem">
 			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="load_bud_info" class="budgetInfo">
+			<result name="success">budget_info.jsp</result>
 		</action>
 		<!-- end budget -->
 		
@@ -62,6 +78,10 @@
 		</action>
 		<action name="add_exp_item" class="expense" method="addExpenseItem">
 			<result name="success">projectpend.jsp</result>
+		</action>
+		
+		<action name="load_exp_info" class="expenseInfo">
+			<result name="success">expense_info.jsp</result>
 		</action>
 		
 		<!-- end expense -->

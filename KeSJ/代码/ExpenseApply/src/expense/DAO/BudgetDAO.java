@@ -63,7 +63,15 @@ public class BudgetDAO {
 		List<Budget> budgets = session.createQuery(hql).list();
 		session.getTransaction().commit();
 		return budgets;
-		
+	}
+	
+	public List<Budget> findByTeaId(String teacherId){
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from Budget where budAppTea = '" + teacherId + "' order by budId";
+		List<Budget> budgets = session.createQuery(hql).list();
+		session.getTransaction().commit();
+		return budgets;
 	}
 
 }

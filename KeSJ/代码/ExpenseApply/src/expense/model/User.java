@@ -10,6 +10,8 @@ public class User {
 	private String userPhone;
 	private Date userCreateDate;
 	private Date userStopDate;
+	
+	private String userState;//用户状态，数据库中无此项（正常/停用）
 
 	public String getUserId() {
 		return userId;
@@ -67,4 +69,13 @@ public class User {
 		this.userStopDate = userStopDate;
 	}
 
+	public String getUserState() {
+		return userState;
+	}
+
+	public void setUserState(String userState) {
+		this.userState = userState;
+	}
+
+	
 }

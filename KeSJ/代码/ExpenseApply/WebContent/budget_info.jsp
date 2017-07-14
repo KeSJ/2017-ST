@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.util.List"%>
-<%@page import="expense.model.Budget"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
+<%@page import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport"
@@ -31,9 +30,7 @@ footer {
 	padding-left: 0;
 }
 </style>
-
 </head>
-
 <body>
 
 	<header class="page-header"> <nav class="white"
@@ -51,19 +48,19 @@ footer {
 			<div class="col s12 m4 l3">
 				<div class="collection">
 					<s:if test="currentUserType == '财务人员'">
-						<a href="load_exp_info" class="collection-item">报销信息</a>
+						<a href="load_exp_info" class="collection-item">项目报销信息</a>
 						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
 						<a href="#3" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
-						<a href="load_budget_pend" class="collection-item active">预算申请审核</a>
+						<a href="load_budget_pend" class="collection-item">预算申请审核</a>
 						<a href="#4" class="collection-item">出差报销审核</a>
 						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
 						<a href="#4" class="collection-item">统计分析</a>
 						<a href="#4" class="collection-item">个人信息修改</a>
 					</s:if>
 					<s:elseif test="currentUserType == '教师'">
-						<a href="load_exp_info" class="collection-item">报销信息</a>
+						<a href="load_exp_info" class="collection-item">项目报销信息</a>
 						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
 						<a href="#3" class="collection-item">出差报销</a>
@@ -72,17 +69,18 @@ footer {
 					</s:elseif>
 					<s:else>
 						<a href="#!" class="collection-item">用戶管理</a>
-						<a href="load_exp_info" class="collection-item">报销信息</a>
+						<a href="load_exp_info" class="collection-item">项目报销信息</a>
 						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
 						<a href="#3" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
-						<a href="load_budget_pend" class="collection-item active">预算申请审核</a>
+						<a href="load_budget_pend" class="collection-item">预算申请审核</a>
 						<a href="#4" class="collection-item">出差报销审核</a>
 						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
 						<a href="#4" class="collection-item">统计分析</a>
 						<a href="#4" class="collection-item">个人信息修改</a>
 					</s:else>
+
 				</div>
 			</div>
 
@@ -91,24 +89,26 @@ footer {
 					<div class="row">
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
-								<li><div class="collapsible-header active">
-										待办预算<span class="new badge"></span>
-									</div>
+								<li><div class="collapsible-header active">预算记录</div>
 									<div class="collapsible-body">
-										<table>
+										<table class="centered">
 											<thead>
 												<tr>
-													<th data-field="project_id">项目ID</th>
 													<th data-field="project_name">项目名称</th>
-													<th data-field="teacher_req">申请人</th>
+													<th data-field="start_time">开始时间</th>
+													<th data-field="end_time">结束时间</th>
+													<th data-field="expense_time">申请时间</th>
+													<th data-field="exp_result">申请结果</th>
 												</tr>
 											</thead>
 											<tbody>
 												<s:iterator value="budgets" id="list">
 													<tr>
-														<td>${list.budId }</td>
-														<td><a href="load_budget_pend?id=${list.budId }">${list.projectName }</button></td>
-														<td>${list.budAppTea }</td>
+														<td><a href="load_bud_info?budId=${list.budId }">${list.projectName }</a></td>
+														<td>${list.proStartTime }</td>
+														<td>${list.proFinishTime }</td>
+														<td>${list.budAppDate }</td>
+														<td>${list.budState }</td>
 													</tr>
 												</s:iterator>
 											</tbody>
@@ -121,72 +121,29 @@ footer {
 					<div class="row">
 						<div class="col s12">
 							<ul class="collapsible" data-collapsible="accordion">
-								<li><div class="collapsible-header active">
-										预算条目<span class="badge"><a href="add_bud_item">新增</a></span>
-									</div>
-									<div class="collapsible-body">
-										<table class="bordered">
-											<thead>
-												<tr>
-													<th>条目编号</th>
-													<th>条目名</th>
-													<th>条目是否可用</th>
-													<th>操作</th>
-												</tr>
-											</thead>
-											<tbody>
-												<s:iterator value="budgetItemsAll" id="list1">
-													<tr>
-														<td><s:property value="#list1.budgetItemId" /></td>
-														<td><s:property value="#list1.budgetItemName" /></td>
-														<s:if test="#list1.budgetInUse == 1">
-															<td>可用</td>
-															<td><a
-																href="stop_bud_item?itemId=<s:property value="#list1.budgetItemId" />"
-																class="lighten-1  teal-text text-lighten-2">停用</a></td>
-														</s:if>
-														<s:else>
-															<td style="color: red">不可用</td>
-															<td><a
-																href="start_bud_item?itemId=<s:property value="#list1.budgetItemId" />"
-																class="lighten-1  teal-text text-darken-3">启用</a></td>
-														</s:else>
-													</tr>
-												</s:iterator>
-
-											</tbody>
-										</table>
-									</div></li>
-							</ul>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col s12">
-							<ul class="collapsible" data-collapsible="accordion">
-								<li><div class="collapsible-header">预算申请审批</div>
+								<li><div class="collapsible-header">申请预算信息</div>
 									<div class="collapsible-body" style="padding: 2rem">
 										<div class="row">
-											<div id="table" class="col s12">
+											<div class="col s12">
+
 												<h6>
-													<strong>报销单位及人员信息</strong>
+													<strong>预算信息</strong>
 												</h6>
 
 												<table class="bordered">
 													<tr>
-														<th style="color: teal">项目ID</front></th>
-														<td>${budget.budId }</td>
 														<th style="color: teal">项目名称</front></th>
 														<td>${budget.projectName }</td>
 													</tr>
 													<tr>
 														<th style="color: teal">项目计划类别</th>
-														<td>${ppcN }</td>
+														<td>${ppcName }</td>
 														<th style="color: teal">技术管理领域</th>
-														<td>${tmaN }</td>
+														<td>${tmaName }</td>
 													</tr>
 													<tr>
 														<th style="color: teal">项目技术来源</th>
-														<td>${ptrN }</td>
+														<td>${ptrName }</td>
 														<th style="color: teal">&nbsp;</th>
 														<td>&nbsp;</td>
 													</tr>
@@ -209,7 +166,7 @@ footer {
 												<table class="bordered">
 													<tr>
 														<th style="color: teal">总计</th>
-														<td>${totalMoney }</td>
+														<td>${total_money }</td>
 														<th style="color: teal">&nbsp;</th>
 														<td>&nbsp;</td>
 													</tr>
@@ -225,22 +182,21 @@ footer {
 
 										<div class="row">
 											<div class="col s12">
-												<h6>报销条目</h6>
+												<h6>预算条目</h6>
 												<div class="row">
 													<div class="col s12">
 														<table>
 															<thead>
 																<tr>
-																	<th style="color: teal">预算类目</th>
+																	<th style="color: teal">预算条目</th>
 																	<th style="color: teal">预算金额</th>
 																</tr>
 															</thead>
 															<tbody>
-																<s:iterator value="budgetItems" id="list">
+																<s:iterator value="budgetItems" id="list2">
 																	<tr>
-																		<td><s:property value="#list.budgetItemName" />
-																		</td>
-																		<td><s:property value="#list.budgetItemMoney" /></td>
+																		<td>${list2.budgetItemName }</td>
+																		<td>${list2.budgetItemMoney }</td>
 																	</tr>
 																</s:iterator>
 															</tbody>
@@ -248,41 +204,23 @@ footer {
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="row">
-											<div class="col offset-s8">
-												<a href="pass_budget?id=${budget.budId }"
-													class="btn  waves-effect waves-light">通过</a> <a
-													class="btn  waves-effect waves-light red light-2 modal-trigger"
-													data-target="modal_defuse" href="#defuse">拒绝</a>
-											</div>
-										</div></li>
+
+											<div class="row">
+												<div class="col s12">
+													<table>
+														<tr>
+															<th style="color: teal">拒绝理由</th>
+															<td>${budget.budRejectReason }</td>
+														</tr>
+													</table>
+												</div>
+											</div></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div id="modal_defuse" class="modal">
-		<form action="reject_budget?id=${budget.budId }" method="post">
-			<div class="modal-content">
-				<div class="row">
-					<div class="input-field col s12">
-						<input placeholder="请输入拒绝原因" class="validate" type="text"
-							id="defuse_reason" name="defuse_reason"><label
-							for="defuse_reason">拒绝理由</label>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="submit"
-					class="modal-action modal-close waves-effect waves-green btn-flat">确认</button>
-				<a href="#!"
-					class="modal-action modal-close waves-effect waves-green btn-flat">取消</a>
-			</div>
-		</form>
 	</div>
 	<footer class="page-footer teal">
 	<div class="container">
@@ -326,16 +264,9 @@ footer {
 
 
 	<!--  Scripts-->
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="js/materialize.js"></script>
 	<script src="js/init.js"></script>
-	<%-- <script type="text/javascript">
-	$(document).ready(function() {
-		$("#project").click(function() {
-			alert("dsfg");
-		})
-	})
-</script> --%>
+
 </body>
 </html>

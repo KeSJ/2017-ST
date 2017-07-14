@@ -39,5 +39,9 @@ public class ExpenseService {
 	public List<Expense> findAllUnpend(){
 		return expenseDAO.findAllUnpend();
 	}
+	
+	public List<Expense> findByTeaId(String teacherId){
+		return expenseDAO.findByTeaId(teacherId);
+	}
 
 }
