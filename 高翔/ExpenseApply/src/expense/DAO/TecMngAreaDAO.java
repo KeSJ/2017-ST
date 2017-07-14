@@ -1,6 +1,9 @@
 package expense.DAO;
 
 import expense.model.*;
+
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -42,6 +45,24 @@ public class   TecMngAreaDAO {
         TecMngArea tecMngArea  = (TecMngArea) session.get(TecMngArea.class, tmaCode);
         session.getTransaction().commit();
         return tecMngArea;
+    }
+    
+    public List<TecMngArea> findByName(String name){
+    	Session session = getSession();
+    	session.beginTransaction();
+    	String hql = "from TecMngArea where tmaName like '%" + name + "%' order by tmaCode";
+    	List<TecMngArea> tecMngAreas = session.createQuery(hql).list();
+    	session.getTransaction().commit();
+    	return tecMngAreas;
+    }
+    
+    public List<TecMngArea> findByNameInUse(String name){
+    	Session session = getSession();
+    	session.beginTransaction();
+    	String hql = "from TecMngArea where tmaName like '%" + name + "%' and tmaInUse = 1 order by tmaCode";
+    	List<TecMngArea> tecMngAreas = session.createQuery(hql).list();
+    	session.getTransaction().commit();
+    	return tecMngAreas;
     }
 
 }

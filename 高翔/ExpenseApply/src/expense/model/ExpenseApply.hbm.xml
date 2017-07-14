@@ -12,7 +12,7 @@
 		<property name="acceptSum" column="AcceptSum" type="double"></property>
 		<property name="acceptCardId" column="AcceptCardId" type="string" length="20"></property>
 		<property name="applyId" column="ApplyId" type="int"></property>
-		<property name="applyType" column="ApplyType" type="int"></property>
+		<property name="applyType" column="ApplyType" type="string"></property>
 	</class>
 
 	<!-- appendix 附件 -->
@@ -21,8 +21,10 @@
 			<generator class="increment"></generator>
 		</id>
 		<property name="applyId" column="ApplyId" type="int"></property>
-		<property name="applyType" column="ApplyType" type="int"></property>
-		<property name="filePath" column="FilePath" type="string" length="256"></property>
+		<property name="applyType" column="ApplyType" type="string" length="20"></property>
+		<property name="uuidName" column="UuidName" type="string" length="255"></property>
+		<property name="realName" column="RealName" type="string" length="255"></property>
+		<property name="filePath" column="FilePath" type="string" length="255"></property>
 	</class>
 
 	<!-- budget 预算 -->
@@ -70,11 +72,12 @@
 		<id name="businessId" column="BId" type="int">
 			<generator class="increment"></generator>
 		</id>
+		<property name="bUnit" column="BUnit" type="string" length="50"></property>
 		<property name="budgetId" column="BudId" type="int"></property>
 		<property name="busReason" column="BReason" type="string" length="30"></property>
 		<property name="busAppendNum" column="BAppend" type="int"></property>
 		<property name="busSum" column="BSum" type="double"></property>
-		<property name="busApplyTea" column="BAppTea" type="string" length="10"></property>
+		
 		<property name="busApplyDate" column="BAppDate" type="date"></property>
 		<property name="busAgent" column="BAgent" type="string" length="10"></property>
 		<property name="busCheckStaff" column="BCheckStaff" type="string" length="10"></property>
@@ -115,7 +118,7 @@
 	</class>
 
 	<!-- expense detail 报销汇总表详细  -->
-	<class name="expense.model.ExpendDetail" table="expenddetail" catalog="expense_apply">
+	<class name="expense.model.ExpenseDetail" table="expenddetail" catalog="expense_apply">
 		<id name="expDetId" column="ExpDetId" type="int">
 			<generator class="increment"></generator>
 		</id>
@@ -184,10 +187,6 @@
 			not-null="true"></property>
 		<property name="userName" column="UserName" type="string" length="20"
 			not-null="true"></property>
-		<property name="userUnit" column="UserUnit" type="string" length="20"
-			not-null="true"></property>
-		<property name="userPosition" column="UserPosition" type="string"
-			length="10" not-null="true"></property>
 		<property name="userPhone" column="UserPhone" type="string" length="15"
 			not-null="true"></property>
 		<property name="userCreateDate" column="UserCreateDate" type="date"
@@ -206,6 +205,18 @@
 		<property name="tmaInUse" column="TMAInUse" type="boolean"
 			not-null="true"></property>
 	</class>
-
-
+	
+	<!-- business apply teacher detail -->
+	<class name="expense.model.BusApplyTeaDetail" table="busapplyteadetail" catalog="expense_apply">
+		<id name="busApplyTeaDetailId" column="BusApplyTeaDetailId" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="teacherName" column="TeacherName" type="string" length="11"></property>
+		<property name="businessId" column="BusinessId" type="int"></property>
+		<property name="teachePosition" column="TeachePosition" type="string" length="30"></property>
+	</class>
+	
+	<!-- end business apply teacher detail -->
+	
+	
 </hibernate-mapping>

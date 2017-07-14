@@ -1,8 +1,12 @@
 package expense.DAO;
 
+import java.util.List;
+
 import expense.model.Appendix;
 import expense.model.BudgetDetail;
 import expense.model.Business;
+import expense.model.BusinessItem;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -44,5 +48,23 @@ public class BusinessDAO {
         Business business = (Business) session.get(Business.class, businessId);
         session.getTransaction().commit();
         return business;
+    }
+    public List<Business> findBusinessByBudgetId(int budgetId)
+    {
+    	Session session = getSession();
+        session.beginTransaction();
+        String hql = "from Business where budid = "+"budgetId";
+        List<Business> businesses = session.createQuery(hql).list();
+        session.getTransaction().commit();
+        return businesses;
+    }
+    public List<Business> findBusinessByBusCheckDate()
+    {
+    	Session session = getSession();
+        session.beginTransaction();
+        String hql = "from Business where busCheckDate =null";
+        List<Business> businesses = session.createQuery(hql).list();
+        session.getTransaction().commit();
+        return businesses;
     }
 }

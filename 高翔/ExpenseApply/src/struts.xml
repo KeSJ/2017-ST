@@ -2,11 +2,56 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="struts" namespace="/" extends="struts-default">
+		<!-- user manage 用户管理 -->
 		<action name="login" class="login">
-			<result name="success">NewFile.jsp</result>
+			<result name="staff">main.jsp</result>
+			<result name="teacher">main.jsp</result>
+			<result name="admin">main.jsp</result>
 			<result name="input">index.jsp</result>
 		</action>
-
+		<!-- end user manage -->
+		
+		<!-- budget 预算  -->
+		<!-- laod budget requset 加载预算申请界面 -->
+		<action name="load_budget_req" class="load_budget_req" method="loadBudgetRequest">
+			<result name="success">budgetrequest.jsp</result>
+		</action>
+		<action name="budget_request" class="budget_request" method="budgetRequest">
+			<result name="success">main.jsp</result>
+		</action>
+		<action name="load_budget_pend" class="load_budget_pend" method="loadBudgetPend">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="pass_budget" class="pass_budget" method="passBudget">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="reject_budget" class="reject_budget" method="rejectBudget">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="start_bud_item" class="start_bud_item" method="startBudgetItem">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="stop_bud_item" class="stop_bud_item" method="stopBudgetItem">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="ce" class="ce" method="load">
+			<result name="success">bussexp.jsp</result>
+		</action>
+		<action name="ce2" class="ce2" method="submit">
+			<result name="success">main.jsp</result>
+		</action>
+		<!-- end budget -->
+		<action name="ce3" class="ce3" method="load">
+			<result name="success">statistics.jsp</result>
+		</action>
+		<action name="ce4" class="ce4" method="export">
+			<result name="success">statistics.jsp</result>
+		</action>
+		
+		
+		<action name="ce5" class="ce5" method="load">
+			<result name="success">busspend.jsp</result>
+		</action>
 
 	</package>
 </struts>  

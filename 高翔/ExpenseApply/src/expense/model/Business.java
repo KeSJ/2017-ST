@@ -4,27 +4,20 @@ import java.util.Date;
 
 //出差报销单
 public class Business {
-	private String companyName;//出差报销单位 新
 	private int businessId; // 出差报销单ID
 	private int budgetId; // 预算ID
+	private String bUnit;//公司名称
 	private String busReason; // 出差原因
 	private int busAppendNum; // 附件数
 	private double busSum; // 报销总金额
-	private int busApplyTeaDetailId; // 报销单申请教师的表
+//	private String busApplyTea; // 报销单申请教师ID
 	private Date busApplyDate; // 报销申请时间
 	private String busAgent; // 经办人
 	private String busCheckStaff; // 审核财务人员
 	private Date busCheckDate; // 审核时间
 	private boolean busResult; // 审核结果
 	private String busRejectReason; // 报销拒绝原因
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
+	
 
 	public int getBusinessId() {
 		return businessId;
@@ -66,13 +59,6 @@ public class Business {
 		this.busSum = busSum;
 	}
 
-	public int getBusApplyTeaDetailId() {
-		return busApplyTeaDetailId;
-	}
-
-	public void setBusApplyTeaDetailId(int busApplyTeaDetailId) {
-		this.busApplyTeaDetailId = busApplyTeaDetailId;
-	}
 
 	public Date getBusApplyDate() {
 		return busApplyDate;
@@ -121,4 +107,13 @@ public class Business {
 	public void setBusRejectReason(String busRejectReason) {
 		this.busRejectReason = busRejectReason;
 	}
+	public String getbUnit() {
+		return bUnit;
+	}
+
+	public void setbUnit(String bUnit) 
+	{
+		this.bUnit = bUnit;
+	}
+
 }

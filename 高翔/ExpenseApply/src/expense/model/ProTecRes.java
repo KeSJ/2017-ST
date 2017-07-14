@@ -29,6 +29,10 @@ public class ProTecRes {
 	public void setPtrInUse(boolean ptrInUse) {
 		this.ptrInUse = ptrInUse;
 	}
+	
+	public ProTecRes(){
+		
+	}
 
 	public ProTecRes(String ptrCode, String ptrName, boolean ptrInUse) {
 

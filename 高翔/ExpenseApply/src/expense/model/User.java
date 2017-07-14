@@ -7,7 +7,6 @@ public class User {
 	private String userType;
 	private String userPwd;
 	private String userName;
-	private String userUnit; // 教师单位
 	private String userPhone;
 	private Date userCreateDate;
 	private Date userStopDate;
@@ -44,14 +43,6 @@ public class User {
 		this.userName = userName;
 	}
 
-	public String getUserUnit() {
-		return userUnit;
-	}
-
-	public void setUserUnit(String userUnit) {
-		this.userUnit = userUnit;
-	}
-
 	public String getUserPhone() {
 		return userPhone;
 	}
@@ -75,4 +66,5 @@ public class User {
 	public void setUserStopDate(Date userStopDate) {
 		this.userStopDate = userStopDate;
 	}
+
 }

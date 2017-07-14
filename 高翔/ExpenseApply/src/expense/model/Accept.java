@@ -7,7 +7,7 @@ public class Accept {
 	private double acceptSum; // 收款金额
 	private String acceptCardId; // 收款银行卡号
 	private int applyId; // 报销单ID
-	private int applyType; // 报销单类型（出差报销单/报销汇总单）
+	private String applyType; // 报销单类型（出差报销单/报销汇总单）
 
 	public int getAcceptId() {
 		return acceptId;
@@ -49,12 +49,13 @@ public class Accept {
 		this.applyId = applyId;
 	}
 
-	public int getApplyType() {
+	public String getApplyType() {
 		return applyType;
 	}
 
-	public void setApplyType(int applyType) {
+	public void setApplyType(String applyType) {
 		this.applyType = applyType;
 	}
+
 
 }

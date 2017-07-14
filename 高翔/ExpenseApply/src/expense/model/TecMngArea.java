@@ -6,6 +6,10 @@ public class TecMngArea {
 	private String tmaName; // 技术管理领域名称
    	private boolean tmaInUse;
 
+   	public TecMngArea(){
+   		
+   	}
+   	
 	public TecMngArea(String tmaCode, String tmaName, boolean tmaInUse) {
 		this.tmaCode = tmaCode;
 		this.tmaName = tmaName;
