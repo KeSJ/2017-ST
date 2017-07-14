@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="struts" namespace="/" extends="struts-default">
+		<!-- user manage 用户管理 -->
+		<action name="login" class="login">
+			<result name="staff">main.jsp</result>
+			<result name="teacher">main.jsp</result>
+			<result name="admin">main.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		<!-- end user manage -->
+		
+		<!-- budget 预算  -->
+		<!-- laod budget requset 加载预算申请界面 -->
+		<action name="load_budget_req" class="budget" method="loadBudgetRequest">
+			<result name="success">budgetrequest.jsp</result>
+		</action>
+		<action name="budget_request" class="budget" method="budgetRequest">
+			<result name="success">main.jsp</result>
+		</action>
+		<action name="load_budget_pend" class="budget" method="loadBudgetPend">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="pass_budget" class="budget" method="passBudget">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="reject_budget" class="budget" method="rejectBudget">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="start_bud_item" class="budget" method="startBudgetItem">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="stop_bud_item" class="budget" method="stopBudgetItem">
+			<result name="success">budgetpend.jsp</result>
+		</action>
+		<action name="ModifyPassword" class="ModifyPassword">
+			<result name="SUCCESS">userinfo.jsp</result>
+			<result name="INPUT">userinfo.jsp</result>
+		</action>
+		<!-- end budget -->
+		
+		
+		<!-- expense -->
+		<action name="load_expense_req" class="expense" method="loadExpenseRequest">
+			<result name="success">projectexp.jsp</result>
+		</action>
+		<action name="expense_request" class="expense" method="expenseRequest">
+			<result name="success">main.jsp</result>
+			<result name="input">projectexp.jsp</result>
+		</action>
+		
+		
+		<!-- end expense -->
+	</package>
+</struts>  
