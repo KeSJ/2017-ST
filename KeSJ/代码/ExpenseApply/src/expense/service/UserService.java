@@ -1,5 +1,7 @@
 package expense.service;
 
+import java.util.List;
+
 import expense.DAO.UserDAO;
 import expense.model.User;
 
@@ -28,6 +30,10 @@ public class UserService {
 
 	public void modifyUser(User user) {
 		userDAO.modifyUser(user);
+	}
+	
+	public List<User> findAllUsers(){
+		return userDAO.findUsersByName("");
 	}
 
 }

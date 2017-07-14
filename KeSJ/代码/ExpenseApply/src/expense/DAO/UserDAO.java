@@ -1,6 +1,9 @@
 package expense.DAO;
 
 import expense.model.*;
+
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -42,6 +45,15 @@ public class   UserDAO {
         User user = (User) session.get(User.class, userId);
         session.getTransaction().commit();
         return user;
+    }
+    
+    public List<User> findUsersByName(String userName){
+    	Session session = getSession();
+        session.beginTransaction();
+        String hql = "from User where userName like '%" + userName + "%' order by userId";
+        List<User> users = session.createQuery(hql).list();
+        session.getTransaction().commit();
+        return users;
     }
 
 }

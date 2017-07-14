@@ -47,8 +47,8 @@ footer {
 			<div class="col s12 m4 l3">
 				<div class="collection">
 					<s:if test="currentUserType == '财务人员'">
-						<a href="" class="collection-item">报销信息</a>
-						<a href="" class="collection-item">预算信息</a>
+						<a href="load_exp_info" class="collection-item">项目报销信息</a>
+						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
 						<a href="#3" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
@@ -59,8 +59,8 @@ footer {
 						<a href="#4" class="collection-item">个人信息修改</a>
 					</s:if>
 					<s:elseif test="currentUserType == '教师'">
-						<a href="" class="collection-item">报销信息</a>
-						<a href="" class="collection-item">预算信息</a>
+						<a href="load_exp_info" class="collection-item">项目报销信息</a>
+						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
 						<a href="#3" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
@@ -68,8 +68,8 @@ footer {
 					</s:elseif>
 					<s:else>
 						<a href="#!" class="collection-item">用戶管理</a>
-						<a href="" class="collection-item">报销信息</a>
-						<a href="" class="collection-item">预算信息</a>
+						<a href="load_exp_info" class="collection-item">项目报销信息</a>
+						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
 						<a href="#3" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
@@ -106,12 +106,7 @@ footer {
 														<td>${list.proName }</td>
 														<td><a href="load_exp_info?expId=${list.eId }">${list.eId }</a></td>
 														<td>${list.eAppDate }</td>
-														<s:if test="list.eResult == true">
-															<td>通过</td>
-														</s:if>
-														<s:else>
-															<td>不通过</td>
-														</s:else>
+														<td>${list.eState }</td>
 													</tr>
 												</s:iterator>
 											</tbody>
@@ -199,13 +194,25 @@ footer {
 															<tbody>
 																<s:iterator value="expenseItems" id="list3">
 																	<tr>
-																		<td></td>
+																		<td>${list3.expItemName }</td>
+																		<td>${list3.expMoney }</td>
 																	</tr>
 																</s:iterator>
 															</tbody>
 														</table>
 													</div>
 												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col s12">
+												<table>
+													<tr>
+														<th style="color: teal">拒绝理由</th>
+														<td>${reason }</td>
+													</tr>
+												</table>
 											</div>
 										</div></li>
 							</ul>

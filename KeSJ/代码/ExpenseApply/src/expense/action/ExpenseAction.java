@@ -212,8 +212,7 @@ public class ExpenseAction extends ActionSupport {
 		if (appendix.isEmpty()){
 			file_path = "0";
 		}else{
-/*			file_path = appendix.get(0).getFilePath() + "/" + appendix.get(0).getUuidName();*/
-			file_path =  appendix.get(0).getUuidName();
+			file_path = "download\\" + appendix.get(0).getUuidName();
 			System.out.println("附件路径：" + file_path);
 		}
 		System.out.println("加载项目报销审核页面完成");
@@ -241,6 +240,7 @@ public class ExpenseAction extends ActionSupport {
 		expense.seteCheckStaff(ActionContext.getContext().getSession().get("currentUserId").toString());
 		expense.seteResult(true);
 		expenseService.modifyExpense(expense);
+		expense_id = 0;
 		return loadExpensePend();
 	}
 
@@ -251,6 +251,7 @@ public class ExpenseAction extends ActionSupport {
 		expense.seteResult(false);
 		expense.seteRejectReason(defuse_reason);
 		expenseService.modifyExpense(expense);
+		expense_id = 0;
 		return loadExpensePend();
 	}
 

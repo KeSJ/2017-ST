@@ -65,5 +65,14 @@ public class   ExpenseDAO {
 		session.getTransaction().commit();
 		return expenses;
 	}
+	
+	public List<Expense> findByTeaId(String teacherId){
+		Session session = getSession();
+		session.beginTransaction();
+		String hql = "from Expense where eAppTea = '" + teacherId + "' order by eId";
+		List<Expense> expenses = session.createQuery(hql).list();
+		session.getTransaction().commit();
+		return expenses;
+	}
 
 }

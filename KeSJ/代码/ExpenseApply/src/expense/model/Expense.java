@@ -20,6 +20,7 @@ public class Expense {
 	private String eRejectReason;// 审核不通过原因
 	
 	private String proName;//项目名称，数据库中无此项
+	private String eState;//预算状态，数据库中无此项
 
 	public int geteId() {
 		return eId;
@@ -115,6 +116,14 @@ public class Expense {
 
 	public void setProName(String proName) {
 		this.proName = proName;
+	}
+
+	public String geteState() {
+		return eState;
+	}
+
+	public void seteState(String eState) {
+		this.eState = eState;
 	}
 
 	public Expense(){

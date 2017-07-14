@@ -19,6 +19,8 @@ public class Budget {
 	private Date budCheckDate; // 预算审核时间
 	private boolean budResult; // 预算审核结果
 	private String budRejectReason; // 预算拒绝原因
+	
+	private String budState;//预算状态，数据库中无此条
 
 	public int getBudId() {
 		return budId;
@@ -138,6 +140,14 @@ public class Budget {
 
 	public void setBudRejectReason(String budRejectReason) {
 		this.budRejectReason = budRejectReason;
+	}
+
+	public String getBudState() {
+		return budState;
+	}
+
+	public void setBudState(String budState) {
+		this.budState = budState;
 	}
 
 }

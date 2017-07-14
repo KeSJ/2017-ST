@@ -60,6 +60,9 @@
 	<bean id="login" class="expense.action.LoginAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
+	<bean id="user_info" class="expense.action.UserInfoAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
 	<!-- end user manage -->
 	
 	
@@ -137,6 +140,14 @@
 		<property name="proTecResService" ref="proTecResService"></property>
 		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
 	</bean>
+	<bean id="budgetInfo" class="expense.action.BudgetInfoAction" scope="prototype">
+		<property name="budgetItemService" ref="budgetItemService"></property>
+		<property name="budgetService" ref="budgetService"></property>
+		<property name="budgetDetailService" ref="budgetDetailService"></property>
+		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
+		<property name="proTecResService" ref="proTecResService"></property>
+		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
+	</bean>
 	<!-- end budget 预算 -->
 	
 	
@@ -175,6 +186,15 @@
 		<property name="budgetDetailService" ref="budgetDetailService"></property>
 		<property name="budgetItemService" ref="budgetItemService"></property>
 		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="expenseInfo" class="expense.action.ExpenseInfoAction" scope="prototype">
+		<property name="expenseService" ref="expenseService"></property>
+		<property name="budgetService" ref="budgetService"></property>
+		<property name="proPlanCategoryService" ref="proPlanCategoryService"></property>
+		<property name="proTecResService" ref="proTecResService"></property>
+		<property name="tecMngAreaService" ref="tecMngAreaService"></property>
+		<property name="expenseItemService" ref="expenseItemService"></property>
+		<property name="expenseDetailService" ref="expenseDetailService"></property>
 	</bean>
 	<!-- end expense -->
 	

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2017-07-14 12:00:40
+Date: 2017-07-14 22:21:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,13 +27,14 @@ CREATE TABLE `accept` (
   `ApplyId` int(11) NOT NULL,
   `ApplyType` varchar(20) NOT NULL,
   PRIMARY KEY (`AcceptId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of accept
 -- ----------------------------
 INSERT INTO `accept` VALUES ('1', '1', '23', '23453263523421', '1', '报销汇总单');
 INSERT INTO `accept` VALUES ('2', '1', '11', '345634225', '2', '报销汇总单');
+INSERT INTO `accept` VALUES ('3', '1', '12', '3245658678967', '3', '报销汇总单');
 
 -- ----------------------------
 -- Table structure for `appendix`
@@ -47,12 +48,13 @@ CREATE TABLE `appendix` (
   `RealName` varchar(255) NOT NULL,
   `FilePath` varchar(255) NOT NULL,
   PRIMARY KEY (`AppendixId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of appendix
 -- ----------------------------
 INSERT INTO `appendix` VALUES ('1', '1', '报销汇总单', '0e140253-d096-4cbc-b75b-0bf1c0c3046c.doc', '2017信管信息系统方向短学期大作业.doc', 'F:/大三下/短学期/file');
+INSERT INTO `appendix` VALUES ('2', '3', '报销汇总单', 'ed74e321-fd79-41a9-82d4-3823226cbcd6.doc', '2017信管信息系统方向短学期大作业.doc', 'F:/大三下/短学期/2017-ST/KeSJ/代码/ExpenseApply/WebContent/download');
 
 -- ----------------------------
 -- Table structure for `budget`
@@ -251,7 +253,7 @@ CREATE TABLE `expenddetail` (
   `EId` int(11) NOT NULL,
   `ExpDetSum` double NOT NULL,
   PRIMARY KEY (`ExpDetId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of expenddetail
@@ -262,6 +264,10 @@ INSERT INTO `expenddetail` VALUES ('3', '8', '1', '16');
 INSERT INTO `expenddetail` VALUES ('4', '1', '2', '17');
 INSERT INTO `expenddetail` VALUES ('5', '3', '2', '12');
 INSERT INTO `expenddetail` VALUES ('6', '6', '2', '1');
+INSERT INTO `expenddetail` VALUES ('7', '1', '3', '56');
+INSERT INTO `expenddetail` VALUES ('8', '7', '3', '12');
+INSERT INTO `expenddetail` VALUES ('9', '13', '3', '1');
+INSERT INTO `expenddetail` VALUES ('10', '20', '3', '3');
 
 -- ----------------------------
 -- Table structure for `expense`
@@ -280,13 +286,14 @@ CREATE TABLE `expense` (
   `EResult` tinyint(1) DEFAULT NULL,
   `ERejectReason` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`EId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of expense
 -- ----------------------------
 INSERT INTO `expense` VALUES ('1', '1223sdfa', '1', '5', '1', '2017-07-13 11:30:55', null, '1', '2017-07-14 11:18:58', '0', 'aaaaaaa');
 INSERT INTO `expense` VALUES ('2', 'fggfdfs', '3', '4', '1', '2017-07-14 11:24:09', null, null, null, '0', null);
+INSERT INTO `expense` VALUES ('3', 'dfsg', '1', '8', '1', '2017-07-14 13:26:26', null, null, null, '0', null);
 
 -- ----------------------------
 -- Table structure for `expenseitem`
@@ -493,7 +500,7 @@ CREATE TABLE `user` (
   `UserType` varchar(10) NOT NULL,
   `UserPwd` varchar(20) NOT NULL,
   `UserName` varchar(20) NOT NULL,
-  `UserPhone` varchar(15) NOT NULL,
+  `UserPhone` varchar(15) DEFAULT NULL,
   `UserCreateDate` datetime NOT NULL,
   `UserStopDate` datetime DEFAULT NULL,
   PRIMARY KEY (`UserId`)
@@ -502,4 +509,6 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '财务人员', '1', '1', '123456', '2017-07-08 09:56:40', null);
+INSERT INTO `user` VALUES ('1', '财务人员', '1', '1', '123456', '2017-07-08 09:56:40', '2017-07-14 21:42:48');
+INSERT INTO `user` VALUES ('2', '教师', '2', '2', null, '2017-07-14 21:46:22', null);
+INSERT INTO `user` VALUES ('admin', '管理员', 'admin', 'admin', '435323', '2017-07-14 20:40:44', null);

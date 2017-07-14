@@ -39,5 +39,9 @@ public class BudgetService {
 	public List<Budget> findAllBudgetsUnpend(){
 		return budgetDAO.findByNameUnpend("");
 	}
+	
+	public List<Budget> findByTeaId(String teacherId){
+		return budgetDAO.findByTeaId(teacherId);
+	}
 
 }
