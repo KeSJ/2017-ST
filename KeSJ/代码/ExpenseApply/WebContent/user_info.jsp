@@ -45,40 +45,39 @@ footer {
 		<div class="row">
 			<div class="col s12 m4 l3">
 				<div class="collection">
-					<s:if test="currentUserType == '财务人员'">
-						<a href="" class="collection-item">报销信息</a>
-						<a href="" class="collection-item">预算信息</a>
+					<s:if test="#session.currentUserType == '财务人员'">
+						<a href="load_exp_info" class="collection-item">报销信息</a>
+						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
-						<a href="#3" class="collection-item">出差报销</a>
+						<a href="ce" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
 						<a href="load_budget_pend" class="collection-item">预算申请审核</a>
-						<a href="#4" class="collection-item">出差报销审核</a>
+						<a href="ce5" class="collection-item">出差报销审核</a>
 						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
-						<a href="#4" class="collection-item">统计分析</a>
+						<a href="ce3" class="collection-item">统计分析</a>
 						<a href="userinfo.jsp" class="collection-item">个人信息修改</a>
 					</s:if>
-					<s:elseif test="currentUserType == '教师'">
-						<a href="" class="collection-item">报销信息</a>
-						<a href="" class="collection-item">预算信息</a>
+					<s:elseif test="#session.currentUserType == '教师'">
+						<a href="load_exp_info" class="collection-item">报销信息</a>
+						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
-						<a href="#3" class="collection-item">出差报销</a>
+						<a href="ce" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
 						<a href="userinfo.jsp" class="collection-item">个人信息修改</a>
 					</s:elseif>
 					<s:else>
 						<a href="user_info" class="collection-item active">用戶管理</a>
-						<a href="" class="collection-item">报销信息</a>
-						<a href="" class="collection-item">预算信息</a>
+						<a href="load_exp_info" class="collection-item">报销信息</a>
+						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
-						<a href="#3" class="collection-item">出差报销</a>
+						<a href="ce" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
 						<a href="load_budget_pend" class="collection-item">预算申请审核</a>
-						<a href="#4" class="collection-item">出差报销审核</a>
+						<a href="ce5" class="collection-item">出差报销审核</a>
 						<a href="load_expense_pend" class="collection-item">项目报销审核</a>
-						<a href="#4" class="collection-item">统计分析</a>
+						<a href="ce3" class="collection-item">统计分析</a>
 						<a href="userinfo.jsp" class="collection-item">个人信息修改</a>
 					</s:else>
-
 				</div>
 			</div>
 
@@ -102,11 +101,11 @@ footer {
 								<tr>
 									<td>${list.userId }</td>
 									<td>${list.userName }</td>
-									<form action="modify_user?id=${list.userId }" method="post">
+									<form action="modify_user?id=${list.userId }" id="modify" method="post">
 										<td><div class="input-field col s3">
-												<s:select list="userTypes" name="userType" id="userType"
+												<s:select theme="simple" list="userTypes" name="userType" id="userType"
 													headerValue="#list.userType"
-													onchange="this.form.onsubmit();"></s:select>
+													onchange="this.modify.submit();"></s:select>
 											</div></td>
 									</form>
 									<td>${list.userState }</td>
