@@ -46,10 +46,10 @@ public class BusApplyTeaDetailDAO {
 	    }
 	    public List<BusApplyTeaDetail> findBusinessByBusinessId(int businessId)
 	    {
-	    	System.out.println(businessId+"businessid");
+	    	//System.out.println(businessId+"businessid");
 	    	Session session = getSession();
 	        session.beginTransaction();
-	        String hql = "from busapplyteadetail where BusinessId =  "+businessId;
+	        String hql = "from BusApplyTeaDetail  where BusinessId =  "+businessId;//from后面跟的是实体类不是表名
 	        List<BusApplyTeaDetail> BusApplyTeaDetails = session.createQuery(hql).list();
 	        session.getTransaction().commit();
 	        return BusApplyTeaDetails;

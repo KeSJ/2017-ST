@@ -70,15 +70,15 @@ footer {
 											<thead>
 												<tr>
 													<th data-field="project_name">项目名称</th>
-													<th data-field="teacher_req">申请人</th>
+													<th data-field="teacher_req">申请人ID</th>
 												</tr>
 											</thead>
 											<tbody>
-												<s:iterator value="budgets" id="list1">
+												<s:iterator value="zhuanYongs" id="list1">
 													<tr>
 														<td><s:property value="#list1.projectName" /></td>
-														<td><s:property value="#" /></td>
-														<td>
+														<td><s:property value="#list1.teacherName" /></td>
+														
 										</td>														
 													</tr>
 												</s:iterator>
@@ -111,17 +111,26 @@ footer {
 														data-target="modal1">新增</a></th>
 												</tr>
 											</thead>
-											<tbody>
-												<tr>
-													<td>item_id</td>
-													<td>item_name</td>
-													<td>Y/N</td>
-													<td><a href="#!" class="lighten-1  teal-text"
-														onclick="function()">可用</a></td>
-													<td><a href="#!" class="lighten-1  teal-text"
-														onclick="function()">不可用</a></td>
-													<td>&nbsp;</td>
-												</tr>
+										<tbody>
+												<s:iterator value="businessItems" id="list4">
+													<tr>
+														<td><s:property value="#list4.busItemId" /></td>
+														<td><s:property value="#list4.busItemName" /></td>
+														<s:if test="#list4.busItemInUse == 1">
+															<td>可用</td>
+															<td><a
+																href="cstop?itemId=<s:property value="#list4.busItemId" />"
+																class="lighten-1  teal-text text-lighten-2">停用</a></td>
+														</s:if>
+														<s:else>
+															<td style="color: red">不可用</td>
+															<td><a
+																href="cstart?itemId=<s:property value="#list4.busItemId" />"
+																class="lighten-1  teal-text text-darken-3">启用</a></td>
+														</s:else>
+													</tr>
+												</s:iterator>
+
 											</tbody>
 										</table>
 									</div></li>

@@ -16,7 +16,7 @@ public class BusinessItemService {
     public void setBusinessItemDAO(BusinessItemDAO businessItemDAO) {
         this.businessItemDAO = businessItemDAO;
     }
-    public BusinessItem findBusinessItem(String barcode) {
+    public BusinessItem findBusinessItem(int barcode) {
         return businessItemDAO.findBusinessItem(barcode);
     }
     public void addBusinessItem(BusinessItem businessItem) {

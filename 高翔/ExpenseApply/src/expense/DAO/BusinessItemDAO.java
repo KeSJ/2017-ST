@@ -39,7 +39,7 @@ public class BusinessItemDAO {
         session.getTransaction().commit();
     }
 
-    public BusinessItem findBusinessItem(String busItemId) {//通过主码查找
+    public BusinessItem findBusinessItem(int busItemId) {//通过主码查找
         Session session = getSession();
         session.beginTransaction();
         BusinessItem businessItem = (BusinessItem) session.get(BusinessItem.class, busItemId);

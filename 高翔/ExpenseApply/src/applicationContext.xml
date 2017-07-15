@@ -49,6 +49,7 @@
 	<bean id="userDAO" class="expense.DAO.UserDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
 	<bean id="expenseDetailDAO" class="expense.DAO.ExpenseDetailDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -234,9 +235,16 @@
 		<property name="businessDAO" ref="businessDAO"></property>
 		<property name="budgetDAO" ref="budgetDAO"></property>
 		<property name="busApplyTeaDetailDAO" ref="busApplyTeaDetailDAO"></property>
-		
-		
-	
+		<property name="acceptDAO" ref="acceptDAO"></property>
+		<property name="businessItemDAO" ref="businessItemDAO"></property>					
+	</bean>
+	<bean id="cstart" class="expense.action.BusspendAction" scope="prototype">
+		<property name="businessItemDAO" ref="businessItemDAO"></property>
+				
+	</bean>
+	<bean id="cstop" class="expense.action.BusspendAction" scope="prototype">
+		<property name="businessItemDAO" ref="businessItemDAO"></property>
+				
 	</bean>
 
 	

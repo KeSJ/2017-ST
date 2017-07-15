@@ -52,6 +52,12 @@
 		<action name="ce5" class="ce5" method="load">
 			<result name="success">busspend.jsp</result>
 		</action>
+		<action name="cstart" class="cstart" method="startBusinessItem">
+			<result name="success" type = "redirect">ce5</result>
+		</action>
+		<action name="cstop" class="cstop" method="stopBusinessItem">
+			<result name="success" type = "redirect">ce5</result>
+		</action>
 
 	</package>
 </struts>  

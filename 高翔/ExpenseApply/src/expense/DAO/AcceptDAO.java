@@ -1,6 +1,10 @@
 package expense.DAO;
 
+import java.util.List;
+
 import expense.model.Accept;
+import expense.model.Business;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -39,6 +43,16 @@ public class AcceptDAO {
         session.getTransaction().commit();
         return accept;
     }
+    public List<Accept> findAcceptByApplyId(int applyId)
+    {
+    	Session session = getSession();
+        session.beginTransaction();
+        String hql = "from Accept where ApplyType='出差报销单' and applyId = "+applyId;
+        List<Accept> accepts = session.createQuery(hql).list();
+        session.getTransaction().commit();
+        return accepts;
+    }
+    
 
 
 
