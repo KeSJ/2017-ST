@@ -65,9 +65,8 @@ public class BussexpAction {
 
 	public String load() throws Exception {
 		businessitems = businessItemDAO.findAllBusinessItem();
-
-		System.out.println(
-				budgetDetailDAO.findBudgetDetailByBudIDandBudItemIDetail(313, 5).getBudgetDetailSum() + "≤Ó¬√∑—‘§À„");
+		/*System.out.println(
+				budgetDetailDAO.findBudgetDetailByBudIDandBudItemIDetail(313, 5).getBudgetDetailSum() + "≤Ó¬√∑—‘§À„");*/
 		return "success";
 	}
 
@@ -138,7 +137,7 @@ public class BussexpAction {
 					// System.out.println(teacher_type1);
 					// System.out.println(business.getBusinessId());
 					busApplyTeaDetail.setTeacherName(teacher_name1);
-					busApplyTeaDetail.setTeachePosition(teacher_type1);
+					busApplyTeaDetail.setTeacherPosition(teacher_type1);
 					busApplyTeaDetail.setBusinessId(business.getBusinessId());
 					busApplyTeaDetailDAO.addBusApplyTeaDetail(busApplyTeaDetail);
 
@@ -150,7 +149,7 @@ public class BussexpAction {
 					System.out.println(teacher_type2);
 					System.out.println(business.getBusinessId());
 					busApplyTeaDetail.setTeacherName(teacher_name2);
-					busApplyTeaDetail.setTeachePosition(teacher_type2);
+					busApplyTeaDetail.setTeacherPosition(teacher_type2);
 					busApplyTeaDetail.setBusinessId(business.getBusinessId());
 					busApplyTeaDetailDAO.addBusApplyTeaDetail(busApplyTeaDetail);
 				}
@@ -161,7 +160,7 @@ public class BussexpAction {
 					System.out.println(teacher_type3);
 					System.out.println(business.getBusinessId());
 					busApplyTeaDetail.setTeacherName(teacher_name3);
-					busApplyTeaDetail.setTeachePosition(teacher_type3);
+					busApplyTeaDetail.setTeacherPosition(teacher_type3);
 					busApplyTeaDetail.setBusinessId(business.getBusinessId());
 					busApplyTeaDetailDAO.addBusApplyTeaDetail(busApplyTeaDetail);
 				}

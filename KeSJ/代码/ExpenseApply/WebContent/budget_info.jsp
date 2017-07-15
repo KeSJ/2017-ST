@@ -47,7 +47,7 @@ footer {
 		<div class="row">
 			<div class="col s12 m4 l3">
 				<div class="collection">
-					<s:if test="currentUserType == '财务人员'">
+					<s:if test="#session.currentUserType == '财务人员'">
 						<a href="load_exp_info" class="collection-item">报销信息</a>
 						<a href="load_bud_info" class="collection-item">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
@@ -59,9 +59,9 @@ footer {
 						<a href="ce3" class="collection-item">统计分析</a>
 						<a href="userinfo.jsp" class="collection-item">个人信息修改</a>
 					</s:if>
-					<s:elseif test="currentUserType == '教师'">
+					<s:elseif test="#session.currentUserType == '教师'">
 						<a href="load_exp_info" class="collection-item">报销信息</a>
-						<a href="load_bud_info" class="collection-item">预算信息</a>
+						<a href="load_bud_info" class="collection-item active">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
 						<a href="ce" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>
@@ -70,7 +70,7 @@ footer {
 					<s:else>
 						<a href="user_info" class="collection-item">用戶管理</a>
 						<a href="load_exp_info" class="collection-item">报销信息</a>
-						<a href="load_bud_info" class="collection-item">预算信息</a>
+						<a href="load_bud_info" class="collection-item active">预算信息</a>
 						<a href="load_budget_req" class="collection-item">预算申请</a>
 						<a href="ce" class="collection-item">出差报销</a>
 						<a href="load_expense_req" class="collection-item">项目报销</a>

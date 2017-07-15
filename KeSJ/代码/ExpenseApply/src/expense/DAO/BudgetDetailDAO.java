@@ -61,9 +61,15 @@ public class BudgetDetailDAO {
 		Session session = getSession();
 		session.beginTransaction();
 		String hql = "from BudgetDetail where BudId= " + budId + "and BudItemId =" + budItemId;
-		BudgetDetail budgetDetail = (BudgetDetail) session.createQuery(hql).list().get(0);
-		session.getTransaction().commit();
-		return budgetDetail;
+		List<BudgetDetail> budgetDetails = session.createQuery(hql).list();
+		if (!budgetDetails.isEmpty()) {
+			BudgetDetail budgetDetail = budgetDetails.get(0);
+			session.getTransaction().commit();
+			return budgetDetail;
+		} else {
+			session.getTransaction().commit();
+			return null;
+		}
 	}
 
 }

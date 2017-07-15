@@ -7,7 +7,7 @@ public class BusApplyTeaDetail {
 	private int busApplyTeaDetailId;// 主键
 	private int businessId;// 出差报销单ID
 	private String teacherName;// 教师名称
-	private String teachePosition;// 教师职务
+	private String teacherPosition;// 教师职务
 
 	public int getBusApplyTeaDetailId() {
 		return busApplyTeaDetailId;
@@ -33,12 +33,12 @@ public class BusApplyTeaDetail {
 		this.teacherName = teacherName;
 	}
 
-	public String getTeachePosition() {
-		return teachePosition;
+	public String getTeacherPosition() {
+		return teacherPosition;
 	}
 
-	public void setTeachePosition(String teachePosition) {
-		this.teachePosition = teachePosition;
+	public void setTeacherPosition(String teacherPosition) {
+		this.teacherPosition = teacherPosition;
 	}
 
 }

@@ -4,9 +4,7 @@
 	<package name="struts" namespace="/" extends="struts-default">
 		<!-- user manage 用户管理 -->
 		<action name="login" class="login">
-			<result name="staff">main.jsp</result>
-			<result name="teacher">main.jsp</result>
-			<result name="admin">main.jsp</result>
+			<result name="success">main.jsp</result>
 			<result name="input">index.jsp</result>
 		</action>
 		<action name="user_info" class="user_info" method="loadUserInfo">
