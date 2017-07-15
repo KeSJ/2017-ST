@@ -89,6 +89,7 @@ footer {
 
 			<div class="col s12 m8 l9">
 				<div class="card-panel white">
+					<h6>${returnMsg }</h6>
 					<form action="budget_request" method="post">
 						<div class="row">
 							<div class="col s12">
@@ -179,8 +180,9 @@ footer {
 						<div class="row">
 							<br>
 							<div class="col s2 offset-s10">
-								<button type="submit" class="btn teal waves-effect waves-light" onsubmit="return_page()" >提交</button>
-									<!-- data-target="submit_success" -->
+								<button type="submit" class="btn teal waves-effect waves-light"
+									onsubmit="return_page()">提交</button>
+								<!-- data-target="submit_success" -->
 							</div>
 						</div>
 					</form>

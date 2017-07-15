@@ -75,37 +75,39 @@ public class CountAction {
 	}
 
 	public String load() throws Exception {
-		teacher_id2 = teacher_id;
-		System.out.println("进入action");
-		Budget budget = budgetDAO.findBudet(project_id);
-		User user = userDAO.findUser(teacher_id);
-		if (budget == null) {
-			returnMsg = "找不到对应的项目";
-			return "success";
+		if (teacher_id != null) {
+			teacher_id2 = teacher_id;
+			System.out.println("进入action");
+			Budget budget = budgetDAO.findBudet(project_id);
+			User user = userDAO.findUser(teacher_id);
+			if (budget == null) {
+				returnMsg = "找不到对应的项目";
+				return "success";
+			}
+
+			if (user == null) {
+				returnMsg = "找不到对应的用户";
+				return "success";
+			}
+			selfRaised = budget.getSelfRaised();
+			selfRaised2 = selfRaised;
+			apply = budget.getApply();
+			apply2 = apply;
+			sum = selfRaised + apply;
+			sum2 = sum;
+
+			project_name = budget.getProjectName();
+			project_name2 = project_name;
+			List<Business> businesses = businessDAO.findBusinessByBudgetId(project_id);
+			for (int i = 0; i < businesses.size(); i++) {
+				csum = csum + businesses.get(i).getBusSum();
+
+			}
+			csum2 = csum;
+
+			rest = sum - apply;
+			rest2 = rest;
 		}
-
-		if (user == null) {
-			returnMsg = "找不到对应的用户";
-			return "success";
-		}
-		selfRaised = budget.getSelfRaised();
-		selfRaised2 = selfRaised;
-		apply = budget.getApply();
-		apply2 = apply;
-		sum = selfRaised + apply;
-		sum2 = sum;
-
-		project_name = budget.getProjectName();
-		project_name2 = project_name;
-		List<Business> businesses = businessDAO.findBusinessByBudgetId(project_id);
-		for (int i = 0; i < businesses.size(); i++) {
-			csum = csum + businesses.get(i).getBusSum();
-
-		}
-		csum2 = csum;
-
-		rest = sum - apply;
-		rest2 = rest;
 		return "success";
 
 	}
@@ -144,7 +146,7 @@ public class CountAction {
 		row3.createCell(5).setCellValue(rest2);
 		row3.createCell(6).setCellValue(csum2);
 		try {
-			FileOutputStream fout = new FileOutputStream("E:/" + teacher_id2 + ".xls");
+			FileOutputStream fout = new FileOutputStream("F:/" + teacher_id2 + ".xls");
 			wb.write(fout);
 			fout.close();
 		} catch (Exception e) {
