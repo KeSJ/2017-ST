@@ -20,8 +20,8 @@
 			<result name="success">user_info.jsp</result>
 		</action>
 		<action name="ModifyPassword" class="ModifyPassword">
-			<result name="SUCCESS">userinfo.jsp</result>
-			<result name="INPUT">userinfo.jsp</result>
+			<result name="success">userinfo.jsp</result>
+			<result name="input">userinfo.jsp</result>
 		</action>
 
 		<!-- end user manage -->

@@ -85,6 +85,7 @@ footer {
 
 			<div class="col s12 m8 l9">
 				<div class="card-panel white">
+					<h6>${returnMsg }</h6>
 					<form action="ce2" method="post" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col s12">
